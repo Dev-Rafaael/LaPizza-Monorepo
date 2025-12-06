@@ -1,0 +1,140 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+
+model User {
+  id           Int            @id @default(autoincrement())
+  nome         String
+  sobreNome    String
+  email        String         @unique
+  senha        String
+  cpf          String         @unique
+  nascimento   String
+  sexo         String
+  telefone     String
+  role         String   @default("user")
+  criadoEm     DateTime       @default(now())
+  atualizadoEm DateTime       @updatedAt
+  addresses    Address[]
+  Notification Notification[]
+  orders       Order[]
+}
+
+model Address {
+  id          Int      @id @default(autoincrement())
+  cep         String
+  estado      String
+  cidade      String
+  bairro      String
+  rua         String
+  numero      String
+  complemento String?
+  criadoEm    DateTime @default(now())
+  userId      Int
+  user        User     @relation(fields: [userId], references: [id])
+  orders      Order[]
+}
+
+model Pizza {
+  id           Int         @id @default(autoincrement())
+  sabor        String
+  descricao    String
+  preco        Float
+  imagem       String?
+  criadoEm     DateTime    @default(now())
+  atualizadoEm DateTime    @updatedAt
+
+  adicionais   adicional[]
+  OrderItem    OrderItem[]
+}
+
+
+model Order {
+  id           Int        @id @default(autoincrement())
+  status       String      @default("PENDENTE")
+  criadoEm     DateTime    @default(now())
+  atualizadoEm DateTime    @updatedAt
+
+  precoTotal   Float
+
+  userId       Int
+  addressId    Int
+
+  user         User        @relation(fields: [userId], references: [id])
+  address      Address     @relation(fields: [addressId], references: [id])
+
+  items        OrderItem[]   
+}
+
+
+
+
+model OrderItem {
+  id            Int      @id @default(autoincrement())
+  orderId       Int
+
+  pizzaId       Int?
+  sabor         String
+  descricao     String?
+  imagem        String?
+
+  precoUnitario Float
+  quantidade    Int
+  precoTotal    Float
+
+  adicionais    Json?      
+  
+  order         Order       @relation(fields: [orderId], references: [id])
+  Pizza         Pizza?      @relation(fields: [pizzaId], references: [id])
+}
+
+
+
+model Avaliacao {
+  id       Int      @id @default(autoincrement())
+  nome     String
+  texto    String
+  estrelas Int
+  criadoEm DateTime @default(now())
+}
+
+model Contato {
+  id           Int      @id @default(autoincrement())
+  nome         String
+  sobreNome    String
+  email        String
+  assunto      String
+  mensagem     String
+  criadoEm     DateTime @default(now())
+  atualizadoEm DateTime @updatedAt
+}
+
+model Destaque {
+  id        Int    @id @default(autoincrement())
+  descricao String
+}
+
+model Notification {
+  id       Int      @id @default(autoincrement())
+  titulo   String
+  mensagem String
+  lida     Boolean  @default(false)
+  criadoEm DateTime @default(now())
+  userId   Int
+  user     User     @relation(fields: [userId], references: [id])
+}
+
+model adicional {
+  id      Int    @id @default(autoincrement())
+  nome    String
+  preco   Float
+  pizzaId Int
+  Pizza   Pizza  @relation(fields: [pizzaId], references: [id])
+}
+

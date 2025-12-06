@@ -1,0 +1,11 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const destaqueController_1 = require("../controllers/destaqueController");
+const destaquesRotas = (0, express_1.Router)();
+destaquesRotas.get('/', destaqueController_1.destaqueShow);
+destaquesRotas.get('/:id', destaqueController_1.destaqueUniqueShow);
+destaquesRotas.post('/', destaqueController_1.destaqueCreate);
+destaquesRotas.put('/:id', destaqueController_1.destaqueUpdate);
+destaquesRotas.delete('/:id', destaqueController_1.destaqueDelete);
+exports.default = destaquesRotas;

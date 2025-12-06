@@ -1,0 +1,11 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const pizzaController_1 = require("../controllers/pizzaController");
+const pizzaRotas = (0, express_1.Router)();
+pizzaRotas.get('/', pizzaController_1.pizzaShow);
+pizzaRotas.get('/:sabor', pizzaController_1.pizzaSearch);
+pizzaRotas.post('/', pizzaController_1.pizzaCreate);
+pizzaRotas.put('/:id', pizzaController_1.pizzaUpdate);
+pizzaRotas.delete('/:id', pizzaController_1.pizzaDelete);
+exports.default = pizzaRotas;

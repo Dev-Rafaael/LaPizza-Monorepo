@@ -1,0 +1,11 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const adicionaisController_1 = require("../controllers/adicionaisController");
+const adicionaisRotas = (0, express_1.Router)();
+adicionaisRotas.get('/', adicionaisController_1.adicionaisShow);
+adicionaisRotas.get('/:id', adicionaisController_1.adicionaisUniqueShow);
+adicionaisRotas.post('/', adicionaisController_1.adicionaisCreate);
+adicionaisRotas.put('/:id', adicionaisController_1.adicionaisUpdate);
+adicionaisRotas.delete('/:id', adicionaisController_1.adicionaisDelete);
+exports.default = adicionaisRotas;

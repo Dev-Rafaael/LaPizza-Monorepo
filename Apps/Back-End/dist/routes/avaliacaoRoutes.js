@@ -1,0 +1,11 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const avaliacaoController_1 = require("../controllers/avaliacaoController");
+const avaliacaoRotas = (0, express_1.Router)();
+avaliacaoRotas.get('/', avaliacaoController_1.avaliacaoShow);
+avaliacaoRotas.get('/:id', avaliacaoController_1.avaliacaoUniqueShow);
+avaliacaoRotas.post('/', avaliacaoController_1.avaliacaoCreate);
+avaliacaoRotas.put('/:id', avaliacaoController_1.avaliacaoUpdate);
+avaliacaoRotas.delete('/:id', avaliacaoController_1.avaliacaoDelete);
+exports.default = avaliacaoRotas;
