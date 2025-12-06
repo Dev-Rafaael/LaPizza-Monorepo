@@ -19,6 +19,6 @@
     }
   },
 
-  "include": ["src"],
+  "include": ["src", "src/global.d.ts"],
   "files": []
 }
