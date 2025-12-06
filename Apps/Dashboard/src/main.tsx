@@ -1,23 +1,23 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
-import App from './App.tsx'
+import App from './App'
 
 
 import {createBrowserRouter, RouterProvider} from 'react-router-dom'
 
 
-import Login from './app/pages/Login.tsx'
-import Produtos from './app/pages/admin/pizzasManage.tsx'
-import Metricas from './app/pages/Metricas/metricas.tsx'
-import UserManage from './app/pages/admin/userManage.tsx'
-import PizzasManage from './app/pages/admin/pizzasManage.tsx'
-import AddressManage from './app/pages/admin/AddressManage.tsx'
-import AdicionaisManage from './app/pages/admin/AdicionaisManage.tsx'
-import OrderItemManage from './app/pages/admin/OrderItemManage.tsx'
-import PerfilManage from './app/pages/admin/PerfilManage.tsx'
-import PrivateRoute from './middlewares/PrivateRoute.tsx'
-import PedidosManage from './app/pages/admin/orderManage.tsx'
+import Login from './app/pages/Login'
+import Produtos from './app/pages/admin/pizzasManage'
+import Metricas from './app/pages/Metricas/metricas'
+import UserManage from './app/pages/admin/userManage'
+import PizzasManage from './app/pages/admin/pizzasManage'
+import AddressManage from './app/pages/admin/AddressManage'
+import AdicionaisManage from './app/pages/admin/AdicionaisManage'
+import OrderItemManage from './app/pages/admin/OrderItemManage'
+import PerfilManage from './app/pages/admin/PerfilManage'
+import PrivateRoute from './middlewares/PrivateRoute'
+import PedidosManage from './app/pages/admin/orderManage'
 
 
 
