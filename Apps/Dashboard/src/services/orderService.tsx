@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { api } from "../../../../Packages/api/api";
+import { api } from "@packages/api/api";
 import type { Order } from "@packages/types/types";
 import { toast } from "react-toastify";
 

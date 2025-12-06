@@ -1,4 +1,4 @@
-import type { Order, OrderItem } from "@packages/types/types";
+import type { Order } from "@packages/types/types";
 
 
 export const pedidosRecentes = (orders: Order[], limite = 5) =>

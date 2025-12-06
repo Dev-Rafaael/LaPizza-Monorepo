@@ -2,7 +2,12 @@ import { Link } from "react-router-dom";
 import styles from "../../styles/NavBar.module.css";
 import useUser from "@packages/hooks/useUser";
 
-function NavBar({ setOpen }) {
+interface SidebarProps {
+  
+  setOpen: (open: boolean) => void;
+}
+
+function NavBar({ setOpen }: SidebarProps) {
   const { user } = useUser();
 
   return (

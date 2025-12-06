@@ -2,7 +2,12 @@
 import { Link } from "react-router-dom";
 import styles from "../../styles/SideBar.module.css";
 
-function Sidebar({ open, setOpen }) {
+interface SidebarProps {
+  open: boolean;
+  setOpen: (open: boolean) => void;
+}
+
+function Sidebar({ open, setOpen }: SidebarProps) {
   return (
 <>
   <button className={styles.hamburger} onClick={() => setOpen(!open)}>

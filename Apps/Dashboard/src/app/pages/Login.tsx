@@ -1,6 +1,6 @@
 
 
-import  useUserStore  from "@packages/store/useUserStore";
+import  {useUserStore}  from "@packages/store/useUserStore";
 import pizzaLogin from '../../assets/pizzaLogin.jpg'
 
 import '../../styles/Login.css'

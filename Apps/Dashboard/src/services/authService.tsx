@@ -1,7 +1,7 @@
 import { useState, type FormEvent } from "react";
-import { api } from "../../../../Packages/api/api";
+import { api } from "@packages/api/api";
 import { toast } from "react-toastify";
-import useUserStore from "@packages/store/useUserStore";
+import {useUserStore} from "@packages/store/useUserStore";
 import { loginSchema } from "@packages/schemas/loginSchema";
 
 function useLogin() {

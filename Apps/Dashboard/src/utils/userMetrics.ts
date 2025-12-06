@@ -1,4 +1,4 @@
-import type { User, Order, OrderItem } from "@packages/types/types";
+import type { User, OrderItem } from "@packages/types/types";
 
 export const idadeMedia = (users: User[]) =>
   users.reduce((acc, u) => acc + u.id, 0) / users.length;
@@ -9,7 +9,7 @@ export const usuariosPorSexo = (users: User[]) =>
     return acc;
   }, {} as Record<string, number>);
 
-export const maiorComprador = (users: OrderItem[], orders: Order[]) =>
+export const maiorComprador = (users: OrderItem[]) =>
   [...users].sort((a, b) => b.id - a.id).slice(0, 1);
 export const ultimosClientes = (users: User[], limite = 5) =>
   [...users]

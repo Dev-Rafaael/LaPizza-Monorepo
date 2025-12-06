@@ -1,4 +1,4 @@
-import type { Pizzas, Order, OrderItem,} from "@packages/types/types";
+import type { Pizzas, Order, OrderItem} from "@packages/types/types";
 
 export const estoqueCritico = (pizzas: Pizzas[], limite = 5) =>
   pizzas.filter(p => p.preco <= limite);
