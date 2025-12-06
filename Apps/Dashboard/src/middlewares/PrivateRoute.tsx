@@ -1,11 +1,12 @@
-import { Navigate, Outlet } from "react-router-dom";
-
+import { Outlet, Navigate } from "react-router-dom";
 
 export default function PrivateRoute() {
-  const l = 1
+  const l = 1; 
+
   if (l !== 1) {
     return <Navigate to="/" replace />;
   }
 
   return <Outlet />;
 }
+

@@ -22,8 +22,13 @@ import PedidosManage from './app/pages/admin/orderManage'
 
 
 const router = createBrowserRouter([
- { path: "/login", element: <Login /> },
   {
+    element: <Login />, // sem sidebar
+    children: [
+      { path: "/login"},
+    ],
+  }, 
+   {
     path: "/",
     element: <App />,
     children: [
