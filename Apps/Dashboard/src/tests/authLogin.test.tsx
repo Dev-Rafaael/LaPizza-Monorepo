@@ -1,6 +1,6 @@
 import { renderHook, act } from "@testing-library/react";
 import { resetZustand } from "./resetZustand";
-import useUserStore from "@packages/store/useUserStore";
+import {useUserStore} from "@packages/store/useUserStore";
 
 describe("could verify the services from login", () => {
 
