@@ -1,0 +1,152 @@
+/* ===============================
+   OVERLAY E MODAL BASE
+=============================== */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  animation: fadeIn 0.4s ease;
+  backdrop-filter: blur(4px);
+}
+
+.modal {
+  background: linear-gradient(rgba(20, 20, 20, 0.95), rgba(10, 10, 10, 1));
+  color: rgb(146, 117, 60);
+  border-radius: 18px;
+  padding: 2rem;
+  width: 420px;
+  max-width: 90%;
+  text-align: center;
+  box-shadow: 0 0 25px rgba(146, 117, 60, 0.4);
+  animation: scaleIn 0.3s ease forwards;
+  transform-origin: center;
+}
+
+/* ===============================
+   TEXTOS
+=============================== */
+.modal h2 {
+  font-size: 1.7rem;
+  color: rgb(230, 208, 148);
+  margin-bottom: 0.8rem;
+  letter-spacing: 0.5px;
+}
+
+.modal p {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1.05rem;
+  margin-bottom: 1.8rem;
+}
+
+/* ===============================
+   BOTÕES PRINCIPAIS
+=============================== */
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  border-radius: 10px;
+  padding: 0.8rem 1.6rem;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+/* Botão de Login */
+.login {
+  background: rgb(146, 117, 60);
+  color: #111;
+  box-shadow: 0 0 10px rgba(146, 117, 60, 0.5);
+}
+
+.login:hover {
+  background: rgb(170, 135, 60);
+  transform: scale(1.05);
+}
+
+/* Botão de Cadastro */
+.register {
+  background: transparent;
+  border: 2px solid rgba(146, 117, 60, 0.8);
+  color: #fff;
+}
+
+.register:hover {
+  background: rgba(146, 117, 60, 0.2);
+  transform: scale(1.05);
+}
+
+/* ===============================
+   BOTÃO DE FECHAR
+=============================== */
+.close {
+  margin-top: 0.8rem;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.95rem;
+  text-decoration: underline;
+  border: none;
+}
+
+.close:hover {
+  color: rgb(230, 208, 148);
+  transform: scale(1.05);
+}
+
+/* ===============================
+   ANIMAÇÕES
+=============================== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* ===============================
+   RESPONSIVIDADE
+=============================== */
+@media (max-width: 480px) {
+  .modal {
+    width: 90%;
+    padding: 1.8rem;
+  }
+
+  .modal h2 {
+    font-size: 1.4rem;
+  }
+
+  .actions {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  button {
+    width: 100%;
+  }
+}
+

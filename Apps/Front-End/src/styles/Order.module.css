@@ -1,0 +1,208 @@
+.navIdentificacao {
+  width: 100%;
+  height: 15rem;
+  background: linear-gradient(rgba(243, 242, 242, 0), rgba(241, 240, 240, 0.375)), url('../assets/IMG/orcamentoLaPizza.jpg');
+  background-position:center;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.navIdentificacao h1 {
+  margin-bottom: 1rem;
+  font-size: 3rem;
+  font-weight: bold;
+  letter-spacing: -2px;
+  font-style: italic;
+  color: rgb(146, 117, 60);
+  text-align: center;
+}
+.checkout {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 2rem;
+  padding: 3rem 2rem;
+ background: linear-gradient( rgba(241, 240, 240, 0.37), rgb(240, 239, 239));
+  min-height: 100vh;
+}
+
+.formSection {
+  flex: 1;
+  max-width: 700px;
+  background: #fff;
+  border-radius: 16px;
+  padding: 2.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.formSection p {
+  font-size: 1.4rem;
+  font-weight: 600;
+    color: #f5b942;;
+}
+.formSection h3{
+  font-weight: bold;
+}
+/* ===========================
+   LISTA DE ENDEREÇOS
+=========================== */
+.listaEnderecos {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0;
+  display: grid;
+  gap: 1.5rem;
+}
+
+.cardEndereco {
+  background: linear-gradient(145deg, #efecec, #dad2d2);
+  color: rgb(244, 242, 240);
+  padding: 1.2rem 1.5rem;
+  border-radius: 16px;
+  box-shadow: 0 5px 18px rgba(230, 208, 148, 0.25);
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cardEndereco:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(230, 208, 148, 0.45);
+}
+
+.cardEndereco p {
+  margin: 0;
+  font-size: 1rem;
+  color: #3c3c3b;
+  line-height: 1.4;
+}
+
+/* BOTÃO USAR ENDEREÇO */
+.botaoUsarEndereco {
+  margin-top: 0.8rem;
+  align-self: flex-start;
+  background-color: rgb(179, 138, 58);
+  color: #f3f1f1;
+  border: none;
+  border-radius: 12px;
+  padding: 0.6rem 1.4rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.botaoUsarEndereco:hover {
+  background: rgb(170, 135, 60);
+  transform: scale(1.05);
+}
+
+/* BOTÃO ADICIONAR NOVO ENDEREÇO */
+.botaoNovoEndereco {
+  margin-top: 1.5rem;
+  background-color: rgb(179, 138, 58);
+
+  color: rgb(255, 254, 252);
+  font-weight: 600;
+  padding: 0.7rem 1.8rem;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.botaoNovoEndereco:hover {
+  transform: scale(1.05);
+}
+/* ====== IDENTIFICAÇÃO / CHECKOUT ====== */
+
+/* Aparece suavemente de baixo pra cima */
+.navIdentificacao,
+.navIdentificacao h1,
+.checkout,
+.formSection,
+.listaEnderecos,
+.cardEndereco,
+.botaoUsarEndereco,
+.botaoNovoEndereco {
+  animation: slideUp 0.7s ease-out forwards;
+}
+
+/* Hover interativo nos cartões */
+.cardEndereco {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cardEndereco:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(230, 208, 148, 0.45);
+}
+
+/* Botões */
+.botaoUsarEndereco,
+.botaoNovoEndereco {
+  transition: transform 0.25s ease, opacity 0.25s ease;
+  opacity: 0.9;
+}
+
+.botaoUsarEndereco:hover,
+.botaoNovoEndereco:hover {
+  transform: translateY(-3px) scale(1.05);
+  opacity: 1;
+}
+
+/* ===========================
+   RESPONSIVIDADE
+=========================== */
+
+
+@media (max-width: 1024px) {
+  .checkout {
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 1rem;
+  }
+
+  .formSection {
+    width: 100%;
+    max-width: 600px;
+    padding: 2rem;
+  }
+    .listaEnderecos {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  .cardEndereco {
+    padding: 1rem 1.2rem;
+    border-radius: 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  .checkout {
+    padding: 1.5rem 1rem;
+  }
+
+  .formSection {
+    padding: 1.5rem;
+    border-radius: 12px;
+  }
+    .cardEndereco {
+    padding: 0.8rem 1rem;
+    border-radius: 12px;
+  }
+
+  .listaEnderecos {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+
+  .botaoUsarEndereco,
+  .botaoNovoEndereco {
+    width: 100%;
+    text-align: center;
+  }
+}

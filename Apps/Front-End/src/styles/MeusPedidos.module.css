@@ -1,0 +1,294 @@
+.navPedidos {
+  width: 100%;
+  height: 15rem;
+  background: linear-gradient(rgba(17, 17, 17, 0.412), rgba(20, 20, 20, 1)), url(../assets/IMG/orcamentoLaPizza.jpg);
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.navPedidos h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  letter-spacing: -2px;
+  font-style: italic;
+  color: rgb(146, 117, 60);
+}
+
+
+.pedidosContainer {
+background-color: rgba(17, 17, 17, 0.789);
+}
+
+
+.semPedidos {
+color: rgb(200, 200, 200);
+font-size: 1.4rem;
+display: flex;
+align-items: center;
+justify-content: center;
+text-align: center;
+height: 80vh;
+}
+
+.filterWrapper {
+  margin: 1rem ;
+}
+
+.filterGroup {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.filterSelect,
+.filterInput {
+  padding: .7rem 1rem;
+  border-radius: 8px;
+  background:  rgb(146, 117, 60);
+  border: 1px solid #1e293b;
+  color: white;
+  outline: none;
+  width: 220px;
+}
+
+.filterSelect:focus,
+.filterInput:focus {
+  border-color: #3b82f6;
+}
+
+
+.cardPedido {
+  background: rgba(47, 46, 46, 0.7);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+  transition: background 0.2s ease, transform 0.15s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.cardPedido:hover {
+ 
+  transform: translateY(-2px);
+}
+
+/* Cabeçalho do pedido */
+.pedidoHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pedidoHeader h2 {
+  font-size: 1.3rem;
+  color: rgb(183, 143, 63);
+}
+
+/* Lista de itens */
+.itensList {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.item {
+  display: flex;
+  gap: 1.2rem;
+}
+
+.item img {
+  width: 150px;
+  height: 110px;
+  object-fit: cover;
+  border-radius: 1rem;
+}
+
+.itemInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.4rem;
+}
+
+.itemInfo h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: rgb(146, 117, 60);
+}
+
+.itemInfo h4 {
+  color: rgb(200, 197, 196);
+  font-size: 0.9rem;
+}
+.itemInfo p {
+  color: rgb(245, 241, 240);
+  font-size: 1.2rem;
+}
+
+/* Rodapé com total e botões */
+.pedidoFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0.5rem;
+}
+
+.pedidoFooter h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: white;
+}
+
+.status {
+margin-top: 0.5rem;
+padding: 0.4rem 0.8rem;
+border-radius: 0.5rem;
+font-weight: bold;
+width: fit-content;
+}
+
+.statusEntregue {
+ background: #4caf50;
+  color: white;
+}
+.statusPago {
+  background:#25e208;
+  color: white;
+}
+.statusCancelado {
+  background: #ef4444;
+  text-shadow: 0 0 4px rgba(239, 68, 68, 0.4);
+}
+.statusPreparo {
+  background:  #ffa500;
+  color: black;
+}
+.statusAndamento {
+   background: #8310ef;
+  color: white;
+}
+.statusSaiuEntrega{
+  background:  #e76e04;
+  color: white;
+}
+.btnCancelar {
+  margin-top: 12px;
+  background: #e50e0e;
+  color: #fff;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  align-self: flex-start;
+  transition: 0.2s;
+}
+
+.btnCancelar:hover {
+  background: #e11111;
+}
+.btnPagar {
+  margin-top: 12px;
+  background:rgb(146, 117, 60);
+  color: #fff;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  align-self: flex-start;
+  transition: 0.2s;
+}
+
+.btnPagar:hover {
+  background: rgb(123, 99, 51);
+}
+.btnOption{
+  display: flex;
+  gap: 1rem;
+}
+
+
+
+/* ====== ANIMAÇÕES ====== */
+@keyframes slideUp {
+from { opacity: 0; transform: translateY(15px); }
+to { opacity: 1; transform: translateY(0); }
+}
+
+
+.meusPedidosMain {
+animation: fadeIn 0.8s ease-out forwards;
+}
+
+
+.navPedidos h1 {
+animation: slideUp 0.7s ease-out forwards;
+animation-delay: 0.15s;
+}
+
+
+.pedidosSection,
+.cardPedido,
+.pedidoInfo {
+animation: slideUp 0.7s ease-out forwards;
+animation-delay: 0.2s;
+transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+
+/* ====== RESPONSIVIDADE ====== */
+@media (max-width: 1024px) {
+.pedidosSection {
+width: 90%;
+grid-template-columns: repeat(2, 1fr);
+}
+.pedidoInfo h2 {
+font-size: 1.1rem;
+}
+}
+
+
+@media (max-width: 768px) {
+.navPedidos h1 {
+font-size: 2.3rem;
+}
+.pedidosSection {
+width: 95%;
+grid-template-columns: 1fr;
+}
+.cardPedido {
+flex-direction: column;
+text-align: center;
+}
+.pedidoImage img {
+height: 220px;
+}
+  .btnCancelar {
+    align-self: center;
+    width: 80%;
+  }
+}
+
+
+@media (max-width: 480px) {
+.navPedidos h1 {
+font-size: 1.9rem;
+}
+.pedidoInfo h2 {
+font-size: 1rem;
+}
+.pedidoInfo p {
+font-size: 0.8rem;
+}
+  .btnCancelar {
+    align-self: center;
+    width: 80%;
+  }
+}

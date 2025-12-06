@@ -1,0 +1,344 @@
+.contatoMain {
+  background: linear-gradient(rgba(22, 22, 22, 0.831), rgba(8, 5, 5, 0.814));
+  background-position: bottom;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100%;
+  text-align: center;
+}
+
+.navContato {
+  width: 100%;
+  height: 15rem;
+  background: linear-gradient(rgba(17, 17, 17, 0.412), rgba(20, 20, 20, 1)), url(../assets/IMG/orcamentoLaPizza.jpg);
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.navContato h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  letter-spacing: -2px;
+  font-style: italic;
+  color: rgb(146, 117, 60);
+}
+
+.navContato p {
+  width: 59%;
+  margin: 0 auto;
+  color: rgb(210, 205, 205);
+  font-size: 1.1rem;
+}
+
+.contatoSection {
+  height: 100%;
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 4rem;
+  padding: 3rem 0;
+}
+
+.formContainer {
+  width: 100%;
+  max-width: 42rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1rem;
+}
+
+.formText {
+  width: 95%;
+  text-align: start;
+  margin-bottom: 0.5rem;
+}
+
+.formText h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  letter-spacing: -1px;
+  color: rgb(207, 148, 38);
+}
+
+.formText p {
+  font-size: 1rem;
+  font-weight: 500;
+  color: white;
+  margin: 0;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background-color: #ffffff03;
+  width: 100%;
+  padding: 2rem;
+  border-radius: 1rem;
+}
+
+.nomeGroup {
+  display: flex;
+  gap: 2rem;
+  width: 100%;
+}
+
+.nomeGroup label,
+.inline label {
+  width: 100%;
+}
+
+.nomeGroup p,
+.inline p {
+  width: 100%;
+  color: rgb(207, 148, 38);
+  text-align: start;
+}
+
+.input,
+.textarea {
+  width: 100%;
+  background-color: #ffffff;
+  border: none;
+  border-radius: 0.75rem;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  resize: none;
+}
+
+.submitButton {
+  width: 50%;
+  background-color: #e6b800;
+  color: white;
+  font-weight: bold;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.75rem;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+  opacity: 0.9;
+  align-self: center;
+}
+
+.submitButton:hover {
+  opacity: 1;
+}
+.contatosContent{
+  height: 100%;
+   display: flex;
+  
+}
+.contatos {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+align-items: center;
+justify-content: center;
+  border-radius: 1rem;
+}
+
+.container {
+  width: 100%;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.infoItem {
+  width: 100%;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.info {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0.4rem 0;
+}
+
+.info h3 {
+  color: rgb(207, 148, 38);
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.infoItem p {
+  width: 100%;
+  font-size: 1rem;
+  font-weight: 500;
+  color: white;
+}
+
+.infoItem i {
+  background-color: rgb(207, 148, 38);
+  font-size: 20px;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+  transition: all 0.3s ease-in-out;
+  flex-shrink: 0;
+}
+/* ====== ANIMAÇÕES ====== */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ====== MAIN CONTATO ====== */
+.contatoMain {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+/* ====== HEADER ====== */
+.navContato h1,
+.navContato p {
+  animation: slideUp 0.7s ease-out forwards;
+  animation-delay: 0.15s;
+}
+
+/* ====== SEÇÃO E FORM ====== */
+.contatoSection,
+.formContainer,
+.formText,
+.form {
+  animation: slideUp 0.7s ease-out forwards;
+  animation-delay: 0.2s;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+/* ====== INPUTS E BOTÕES ====== */
+.input,
+.textarea,
+.submitButton {
+  animation: fadeIn 0.6s ease-out forwards;
+  transition: transform 0.2s ease, opacity 0.2s ease, background-color 0.2s ease;
+}
+
+.submitButton:hover {
+  transform: translateY(-2px) scale(1.03);
+  opacity: 1;
+  background-color: #ffc700;
+}
+
+/* ====== INFORMAÇÕES DE CONTATO ====== */
+.contatosContent,
+.contatos,
+.infoItem,
+.info {
+  animation: slideUp 0.7s ease-out forwards;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.infoItem i:hover {
+  transform: scale(1.1) translateY(-2px);
+  background-color: #ffc700;
+}
+
+/* ======================
+   RESPONSIVIDADE
+====================== */
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .navContato h1 {
+    font-size: 2.5rem;
+  }
+
+  .navContato p {
+    width: 80%;
+    font-size: 1rem;
+  }
+
+  .contatoSection {
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+  }
+
+  .submitButton {
+    width: 70%;
+  }
+  .contatosContent{
+    margin-bottom: 2rem;
+  
+}
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .navContato {
+    height: 12rem;
+    padding: 1rem;
+    text-align: center;
+  }
+
+  .navContato h1 {
+    font-size: 1.8rem;
+  }
+
+  .navContato p {
+    width: 90%;
+    font-size: 0.8rem;
+  }
+  .formText{
+    width: 90%;
+  }
+  .formText h2{
+    font-size: 1.5rem;
+  }
+  .formText p{
+    font-size: 1rem;
+  }
+  .contatoSection {
+    flex-direction: column;
+    width: 100%;
+    gap: 2rem;
+    padding: 2rem 1rem;
+  }
+
+  .form {
+    padding: 1rem;
+  }
+
+  .nomeGroup {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .submitButton {
+    width: 100%;
+  }
+
+  .infoItem {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .info {
+    align-items: center;
+  }
+}

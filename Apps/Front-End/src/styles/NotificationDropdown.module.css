@@ -1,0 +1,35 @@
+.dropdown {
+  position: absolute;
+  top: 45px;
+  right: 0;
+  width: 260px;
+  background: white;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  z-index: 9999;
+}
+
+.item {
+  border-bottom: 1px solid #eee;
+  padding: 8px 0;
+}
+
+.item:last-child {
+  border: none;
+}
+
+.item strong {
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.item p {
+  margin: 4px 0;
+  font-size: 0.8rem;
+}
+
+.item small {
+  font-size: 0.7rem;
+  color: #777;
+}

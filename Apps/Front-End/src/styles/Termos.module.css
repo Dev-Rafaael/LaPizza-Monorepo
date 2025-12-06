@@ -1,0 +1,195 @@
+/* =====================
+   SEÇÃO TERMOS
+===================== */
+.termosSection {
+  background: linear-gradient(rgba(22, 22, 22, 0.831), rgba(8, 5, 5, 0.814));
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  backdrop-filter: blur(2px);
+}
+
+/* =====================
+   HEADER TERMOS
+===================== */
+.navTermos {
+  width: 100%;
+  height: 15rem;
+  background: linear-gradient(rgba(17, 17, 17, 0.412), rgba(20, 20, 20, 1)),
+    url(../assets/IMG/orcamentoLaPizza.jpg);
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.navTermos h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  letter-spacing: -2px;
+  font-style: italic;
+  color: rgb(146, 117, 60);
+}
+
+.navTermos p {
+  width: 59%;
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: rgb(185, 180, 180);
+}
+
+/* =====================
+   CONTEÚDO TERMOS
+===================== */
+.termosContent {
+  width: 90%;
+  margin: 0 auto;
+  padding: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+}
+
+.termosContent h2 {
+  font-size: 1.3rem;
+  color: white;
+  font-weight: 700;
+}
+
+.termosContent p,
+.termosContent li {
+  font-size: 1rem;
+  color: rgb(149, 143, 143);
+  line-height: 1.6rem;
+}
+/* ====== ANIMAÇÕES ====== */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ====== SEÇÃO TERMOS ====== */
+.termosSection {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+/* ====== HEADER ====== */
+.navTermos h1,
+.navTermos p {
+  animation: slideUp 0.7s ease-out forwards;
+  animation-delay: 0.15s;
+}
+
+/* ====== CONTEÚDO ====== */
+.termosContent,
+.termosContent h2,
+.termosContent p,
+.termosContent li {
+  animation: slideUp 0.7s ease-out forwards;
+  animation-delay: 0.2s;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+/* ====== INTERAÇÕES ====== */
+.termosContent p:hover,
+.termosContent li:hover {
+  transform: translateX(3px);
+  color: #f5d37f;
+}
+
+/* =====================
+   RESPONSIVIDADE
+===================== */
+
+/* Tablets */
+@media (max-width: 1024px) {
+  .navTermos h1 {
+    font-size: 2.5rem;
+  }
+
+  .navTermos p {
+    width: 80%;
+    font-size: 1rem;
+  }
+
+  .termosContent {
+    width: 90%;
+    gap: 1rem;
+  }
+
+  .termosContent h2 {
+    font-size: 1.2rem;
+  }
+
+  .termosContent p,
+  .termosContent li {
+    font-size: 0.95rem;
+  }
+}
+
+/* Celulares */
+@media (max-width: 768px) {
+  .navTermos {
+    height: 12rem;
+    padding: 0 1rem;
+  }
+
+  .navTermos h1 {
+    font-size: 2rem;
+    letter-spacing: -1px;
+    text-align: center;
+  }
+
+  .navTermos p {
+    width: 100%;
+    font-size: 0.95rem;
+    line-height: 1.4rem;
+  }
+
+  .termosContent {
+    width: 92%;
+    padding: 1rem 0.5rem;
+  }
+
+  .termosContent h2 {
+    font-size: 1.1rem;
+  }
+
+  .termosContent p,
+  .termosContent li {
+    font-size: 0.9rem;
+    line-height: 1.5rem;
+  }
+}
+
+/* Celulares menores */
+@media (max-width: 480px) {
+  .navTermos h1 {
+    font-size: 1.7rem;
+  }
+
+  .navTermos p {
+    font-size: 0.85rem;
+  }
+
+  .termosContent {
+    width: 95%;
+  }
+
+  .termosContent h2 {
+    font-size: 1rem;
+  }
+
+  .termosContent p,
+  .termosContent li {
+    font-size: 0.85rem;
+  }
+}

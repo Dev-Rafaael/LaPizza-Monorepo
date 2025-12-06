@@ -1,0 +1,19 @@
+.toast {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  background: #ff3b3b;
+  color: white;
+  padding: 14px 20px;
+  border-radius: 12px;
+  animation: slide 0.3s ease-out;
+}
+
+@keyframes slide {
+  from {
+    transform: translateX(120%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}

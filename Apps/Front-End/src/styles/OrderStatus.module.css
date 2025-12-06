@@ -1,0 +1,253 @@
+.container {
+  width: 100%;
+  min-height: 100vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.584), rgb(6, 6, 6));
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 3rem;
+  font-family: "Poppins", sans-serif;
+}
+
+.navOrderStatus {
+  width: 100%;
+  height: 13rem;
+  background: linear-gradient(rgba(17, 17, 17, 0.55), rgba(10, 10, 10, 1)),
+    url(../assets/IMG/orcamentoLaPizza.jpg);
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.navOrderStatus h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  letter-spacing: -1px;
+  font-style: italic;
+  color: rgb(146, 117, 60);
+  text-align: center;
+}
+
+.contentStatus {
+  max-width: 480px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+.title {
+  text-align: center;
+  font-size: 22px;
+  margin-bottom: 30px;
+  color: #222;
+  font-weight: 600;
+}
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin: 20px 0;
+}
+
+.step {
+  display: flex;
+  flex-direction: column; /* <-- muda para coluna */
+  align-items: flex-start; /* conteúdo à esquerda */
+  gap: 10px;
+  opacity: 0.9;
+  transition: 0.3s;
+  color: #333;
+}
+
+
+.active {
+  opacity: 1;
+}
+
+.circle {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 2px solid #ff4d2d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  background: white;
+  transition: 0.3s;
+}
+
+.active .circle {
+  background: #ff4d2d;
+  color: white;
+}
+.successMessage {
+  margin-top: 20px;
+  padding: 20px;
+  background: #fff7f0;
+  border-left: 4px solid #ff6a00;
+  border-radius: 10px;
+  animation: fadeIn 0.4s ease forwards;
+  box-shadow: 0 4px 10px rgba(255, 120, 20, 0.15);
+}
+
+.successTitle {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #ff6a00;
+  margin-bottom: 6px;
+}
+
+.successText {
+  font-size: 0.95rem;
+  color: #555;
+}
+
+.obs {
+  margin-top: 30px;
+  text-align: center;
+  font-size: 14px;
+  color: #666;
+}
+.buttons {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+/* Botão de voltar */
+.backBtn {
+  padding: 0.9rem 1.8rem;
+  background: #fff;
+  color: #333;
+  border: 2px solid #ff6a00;
+  border-radius: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.backBtn:hover {
+  background: #ff6a00;
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+/* Botão de atualizar */
+.reloadBtn {
+  padding: 0.9rem 1.8rem;
+  background: linear-gradient(135deg, #ff9100, #ff6a00);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s ease;
+  box-shadow: 0 4px 10px rgba(255, 120, 20, 0.3);
+}
+
+.reloadBtn:hover {
+  background: linear-gradient(135deg, #ffa733, #ff7b1c);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(255, 120, 20, 0.45);
+}
+
+
+/* ========================== */
+/*        ANIMAÇÕES           */
+/* ========================== */
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulseGlow {
+  0% { transform: scale(1); box-shadow: 0 0 0px rgba(255, 77, 45, 0.0); }
+  50% { transform: scale(1.07); box-shadow: 0 0 8px rgba(255, 77, 45, 0.4); }
+  100% { transform: scale(1); box-shadow: 0 0 0px rgba(255, 77, 45, 0); }
+}
+
+/* ========================== */
+/*      ENTRADAS DA TELA      */
+/* ========================== */
+
+.container {
+  animation: fadeIn 0.9s ease-out forwards;
+}
+
+.navOrderStatus h1 {
+  animation: slideUp 0.9s ease-out forwards;
+  animation-delay: 0.1s;
+}
+
+.contentStatus {
+  animation: slideUp 0.9s ease-out forwards;
+  animation-delay: 0.15s;
+}
+
+/* ========================== */
+/*          TIMELINE          */
+/* ========================== */
+
+.timeline {
+  animation: slideUp 1s ease-out forwards;
+  animation-delay: 0.2s;
+}
+
+.step {
+  animation: slideUp 0.7s ease-out forwards;
+}
+
+/* Active com destaque */
+.active .circle {
+  animation: pulseGlow 1.4s ease-in-out infinite;
+}
+
+/* Hover leve nos steps */
+.step:hover {
+  transform: translateX(4px);
+  opacity: 1;
+}
+
+/* ========================== */
+/*          BOTÕES            */
+/* ========================== */
+
+.backBtn,
+.reloadBtn {
+  animation: slideUp 0.8s ease-out forwards;
+  animation-delay: 0.25s;
+  transition: 0.25s ease;
+}
+
+.backBtn:hover,
+.reloadBtn:hover {
+  transform: translateY(-3px) scale(1.03);
+}
+
+@media (max-width: 768px) {
+
+  .navOrderStatus h1 {
+    font-size: 2rem;
+  }
+}
+@media (max-width: 1024px) {
+  .navOrderStatus h1 {
+    font-size: 2.5rem;
+  }
+
+}

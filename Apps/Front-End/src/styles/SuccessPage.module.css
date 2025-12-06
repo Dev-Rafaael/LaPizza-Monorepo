@@ -1,0 +1,294 @@
+.container {
+  width: 100%;
+  min-height: 100vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.584), rgb(6, 6, 6));
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 3rem;
+  font-family: "Poppins", sans-serif;
+}
+
+
+.navSuccess {
+  width: 100%;
+  height: 15rem;
+  background: linear-gradient(rgba(17, 17, 17, 0.55), rgba(10, 10, 10, 1)),
+    url(../assets/IMG/orcamentoLaPizza.jpg);
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.navSuccess h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  letter-spacing: -1px;
+  font-style: italic;
+  color: rgb(146, 117, 60);
+  text-align: center;
+}
+
+
+
+/* ORDER ID */
+.orderId {
+  margin-top: 2rem;
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: #d6d6d6;
+}
+
+.orderId strong {
+  color: rgb(146, 117, 60);
+  font-size: 1.4rem;
+}
+
+
+/* ORDER BOX */
+.orderBox {
+  margin-top: 2rem;
+  padding: 2rem;
+  width: 90%;
+  max-width: 450px;
+  border-radius: 1rem;
+  box-shadow: 0 0 10px rgba(146, 117, 60, 0.3);
+}
+
+.orderBox h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: rgb(146, 117, 60);
+}
+
+.orderBox p {
+  font-size: 1.2rem;
+  margin: 0.5rem 0;
+
+}
+.orderBox strong{
+  color: #c2c0be;
+}
+.loading {
+  margin-top: 2rem;
+  font-size: 1.2rem;
+  color: #ccc;
+}
+
+.buttons {
+  display: flex;
+  gap: 1.2rem;
+  margin-top: 2rem;
+  justify-content: center;
+}
+
+.statusBtn {
+  padding: 0.9rem 1.6rem;
+  background: linear-gradient(135deg, #ff9100, #ff6a00);
+  color: #fff;
+  font-size: 1rem;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s ease;
+  box-shadow: 0 4px 10px rgba(255, 120, 20, 0.3);
+}
+
+.statusBtn:hover {
+  background: linear-gradient(135deg, #ffa733, #ff7b1c);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(255, 120, 20, 0.45);
+}
+
+.backBtn {
+  padding: 0.9rem 1.6rem;
+  background: #fff;
+  color: #333;
+  border: 2px solid #ff6a00;
+  border-radius: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.backBtn:hover {
+  background: #ff6a00;
+  color: white;
+  border-color: #ff6a00;
+  transform: translateY(-2px);
+}
+
+/* ========================== */
+/*        ANIMAÇÕES           */
+/* ========================== */
+
+/* Fade suave para cima */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Slide mais longo */
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(22px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Brilho pulsando */
+@keyframes pulseGlow {
+  0%   { transform: scale(1);   box-shadow: 0 0 0px rgba(255,120,20,0); }
+  50%  { transform: scale(1.06); box-shadow: 0 0 10px rgba(255,120,20,0.45); }
+  100% { transform: scale(1);   box-shadow: 0 0 0px rgba(255,120,20,0); }
+}
+
+/* Fade + leve zoom */
+@keyframes fadeZoom {
+  from { opacity: 0; transform: scale(0.95); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* Vindo levemente da direita */
+@keyframes fadeRight {
+  from { opacity: 0; transform: translateX(20px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* Brilho mais suave contínuo */
+@keyframes softGlow {
+  0%   { box-shadow: 0 0 0px rgba(255,150,60,0); }
+  50%  { box-shadow: 0 0 12px rgba(255,150,60,0.25); }
+  100% { box-shadow: 0 0 0px rgba(255,150,60,0); }
+}
+
+/* Flutuação leve */
+@keyframes softFloat {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-6px); }
+  100% { transform: translateY(0); }
+}
+
+
+/* ========================== */
+/*      ENTRADA DA TELA       */
+/* ========================== */
+
+.container {
+  animation: fadeIn 0.9s ease-out forwards;
+}
+
+/* Header */
+.navSuccess {
+  animation: slideUp 0.9s ease-out forwards;
+  animation-delay: 0.05s;
+}
+
+.navSuccess h1 {
+  animation: fadeZoom 1s ease-out forwards;
+  animation-delay: 0.15s;
+}
+
+/* Order ID */
+.orderId {
+  animation: fadeIn 1s ease-out forwards;
+  animation-delay: 0.25s;
+}
+
+/* Order Box */
+.orderBox {
+  animation: fadeZoom 0.9s ease-out forwards;
+  animation-delay: 0.35s;
+}
+
+/* Loading */
+.loading {
+  animation: fadeIn 1s ease-out forwards;
+  animation-delay: 0.45s;
+}
+
+/* Container dos botões */
+.buttons {
+  animation: fadeIn 1s ease-out forwards;
+  animation-delay: 0.55s;
+}
+
+/* Extras caso queira aplicar manualmente */
+.extraFadeRight {
+  animation: fadeRight 0.8s ease-out forwards;
+}
+
+.extraFadeZoom {
+  animation: fadeZoom 0.8s ease-out forwards;
+}
+
+
+/* ========================== */
+/*          BOTÕES            */
+/* ========================== */
+
+.statusBtn {
+  animation:
+    slideUp 0.9s ease-out forwards,
+    pulseGlow 1.6s ease-in-out 0.7s;
+  transition: 0.25s ease;
+}
+
+.statusBtn:hover {
+  transform: translateY(-3px) scale(1.03);
+}
+
+/* Botão voltar */
+.backBtn {
+  animation:
+    slideUp 0.9s ease-out forwards,
+    softGlow 1.8s ease-in-out 1s;
+  transition: 0.25s ease;
+}
+
+.backBtn:hover {
+  transform: translateY(-3px) scale(1.03);
+}
+
+/* glow mais suave contínuo */
+.backBtn.soft,
+.statusBtn.soft {
+  animation: softGlow 2s ease-in-out infinite;
+}
+
+/* flutuação contínua */
+.backBtn.float,
+.statusBtn.float {
+  animation: softFloat 3s ease-in-out infinite;
+}
+
+/* RESPONSIVE */
+@media (max-width: 480px) {
+  .navSuccess h1 {
+     font-size: 1.7rem;
+  }
+
+
+  .orderBox {
+    width: 95%;
+  }
+
+  .orderId {
+    font-size: 1.1rem;
+  }
+}
+@media (max-width: 768px) {
+
+  .navSuccess h1 {
+    font-size: 2rem;
+  }
+}
+@media (max-width: 1024px) {
+  .navSuccess h1 {
+    font-size: 2.5rem;
+  }
+
+}

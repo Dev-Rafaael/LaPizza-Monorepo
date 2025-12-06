@@ -1,0 +1,319 @@
+.mainCadastro {
+  background: linear-gradient(rgba(22, 22, 22, 0.831), rgba(8, 5, 5, 0.814));
+}
+.navCadastro {
+  width: 100%;
+  height: 15rem;
+  background: linear-gradient(rgba(17, 17, 17, 0.412), rgba(20, 20, 20, 1)),
+    url("../assets/IMG/orcamentoLaPizza.jpg");
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.navCadastro h1 {
+  margin-bottom: 1rem;
+  font-size: 3rem;
+  font-weight: bold;
+  letter-spacing: -2px;
+  font-style: italic;
+  color: rgb(146, 117, 60);
+}
+/* Formulário */
+/* =======================
+   SEÇÃO PRINCIPAL
+======================= */
+.cadastroSection {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 1rem 3rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.cadastroSection h1 {
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: rgb(146, 117, 60);
+}
+
+/* =======================
+   FORMULÁRIO
+======================= */
+.formIdentificacao {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+fieldset {
+  border: 1px solid rgba(180, 176, 176, 0.5);
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+}
+
+legend {
+  padding: 0 0.5rem;
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: rgb(146, 117, 60);
+}
+
+/* GRID 2 COLUNAS */
+.grid2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.grid2 div {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Labels e Inputs */
+.cadastroSection label {
+  color: rgb(146, 117, 60);
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-bottom: 0.3rem;
+}
+
+.cadastroSection input,
+.cadastroSection select {
+  height: 3.5rem;
+  padding: 0 1rem;
+  color: wheat;
+  background-color: transparent;
+  border: 2px solid rgb(180, 176, 176);
+  border-radius: 0.3rem;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.cadastroSection input:focus,
+.cadastroSection select:focus {
+  outline: none;
+  border-color: rgb(146, 117, 60);
+}
+
+.accountSection select {
+  padding-left: 1rem;
+}
+
+/* BOTÃO */
+.btn {
+  width: 50%;
+  margin:  0 auto;
+  display: flex;
+  gap: 0.4rem ;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.btnEntrar,
+.btnFechar {
+  flex: 1;
+  padding: 0.8rem;
+  border: none;
+  border-radius: 0.4rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #fff;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.btnEntrar {
+  background-color: rgb(179, 138, 58);
+  opacity: 0.8;
+}
+
+.btnEntrar:hover {
+  opacity: 1;
+}
+
+.btnFechar {
+  background-color: rgb(93, 88, 88);
+  opacity: 0.8;
+}
+
+.btnFechar:hover {
+  opacity: 1;
+}
+/* ===================== */
+/*      ANIMAÇÕES        */
+/* ===================== */
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===================== */
+/*     ENTRADA GERAL     */
+/* ===================== */
+
+.mainCadastro {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+/* Banner */
+.navCadastro,
+.navCadastro h1 {
+  animation: slideUp 0.8s ease-out forwards;
+}
+
+/* ===================== */
+/*   SEÇÃO DO CADASTRO   */
+/* ===================== */
+
+.cadastroSection {
+  animation: slideUp 0.8s ease-out forwards;
+  animation-delay: 0.15s;
+}
+
+.cadastroSection h1 {
+  animation: slideUp 0.75s ease-out forwards;
+  animation-delay: 0.18s;
+}
+
+/* Fieldset e legend */
+fieldset,
+legend {
+  animation: slideUp 0.8s ease-out forwards;
+  animation-delay: 0.22s;
+}
+
+/* Grid / Itens */
+.grid2,
+.grid2 div,
+.cadastroSection label,
+.cadastroSection input,
+.cadastroSection select {
+  animation: slideUp 0.8s ease-out forwards;
+  animation-delay: 0.25s;
+}
+
+/* ===================== */
+/*        INTERAÇÕES     */
+/* ===================== */
+
+/* Inputs */
+.cadastroSection input,
+.cadastroSection select {
+  transition: border-color 0.25s ease, transform 0.25s ease;
+}
+
+.cadastroSection input:hover,
+.cadastroSection select:hover {
+  transform: translateY(-3px);
+  border-color: rgb(183, 143, 63);
+}
+
+/* ===================== */
+/*         BOTÕES        */
+/* ===================== */
+
+.btn {
+  animation: slideUp 0.9s ease-out forwards;
+  animation-delay: 0.35s;
+}
+
+.btnEntrar,
+.btnFechar {
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.btnEntrar:hover,
+.btnFechar:hover {
+  transform: translateY(-3px) scale(1.03);
+  opacity: 1;
+}
+
+/* =======================
+   RESPONSIVIDADE
+======================= */
+
+/* Tablet */
+@media (max-width: 992px) {
+  .navCadastro h1 {
+    font-size: 2rem;
+    text-align: center;
+  }
+  .grid2 {
+    grid-template-columns: 1fr;
+  }
+
+  legend {
+    font-size: 1.2rem;
+  }
+
+  .cadastroSection label {
+    font-size: 1rem;
+  }
+
+  .cadastroSection input,
+  .cadastroSection select {
+    height: 3rem;
+    font-size: 0.95rem;
+  }
+
+  .btn button {
+    width: 50%;
+    font-size: 0.95rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 576px) {
+  .navCadastro h1 {
+    font-size: 1.7rem;
+    text-align: center;
+  }
+  .cadastroSection {
+    padding: 1rem;
+  }
+
+  .cadastroSection h1 {
+    font-size: 1.5rem;
+  }
+
+  legend {
+    font-size: 1.1rem;
+  }
+
+  .grid2 {
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+  }
+
+  .cadastroSection label {
+    font-size: 0.95rem;
+  }
+
+  .cadastroSection input,
+  .cadastroSection select {
+    height: 2.8rem;
+    font-size: 0.9rem;
+    padding: 0 0.8rem;
+  }
+
+  .btn button {
+    width: 100%;
+    font-size: 0.9rem;
+    padding: 0.8rem;
+  }
+}

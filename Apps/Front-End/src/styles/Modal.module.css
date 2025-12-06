@@ -1,0 +1,187 @@
+/* ===========================
+   ESTILOS GERAIS DO MODAL
+=========================== */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  animation: fadeIn 0.4s ease;
+  backdrop-filter: blur(4px);
+}
+
+.modal {
+  background: linear-gradient(rgba(17, 17, 17, 0.95), rgba(20, 20, 20, 1));
+  color: rgb(146, 117, 60);
+  border-radius: 20px;
+  padding: 2rem;
+  width: 500px;
+  max-width: 90%;
+  text-align: center;
+  box-shadow: 0 0 25px rgba(146, 117, 60, 0.4);
+  animation: scaleIn 0.3s ease forwards;
+  transform-origin: center;
+  transition: all 0.3s ease-in-out;
+}
+
+.modal h2 {
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: rgb(230, 208, 148);
+}
+
+.modal h3 {
+  font-size: 1.4rem;
+  margin: 0.5rem 0;
+}
+
+.modal p {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.modal img {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 1rem auto;
+  border: 3px solid rgb(146, 117, 60);
+  box-shadow: 0 0 10px rgba(146, 117, 60, 0.6);
+}
+
+.content {
+  margin-top: 1rem;
+  font-size: 1rem;
+}
+
+/* ===========================
+   BOTÕES
+=========================== */
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1.2rem;
+  margin-top: 1.5rem;
+}
+
+button {
+  padding: 0.7rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.cancel {
+  background: transparent;
+  color: #fff;
+  border: 2px solid rgba(146, 117, 60, 0.7);
+}
+
+.cancel:hover {
+  background: rgba(146, 117, 60, 0.2);
+  transform: scale(1.05);
+}
+
+.confirm {
+  background: rgb(146, 117, 60);
+  color: #111;
+  box-shadow: 0 0 10px rgba(146, 117, 60, 0.5);
+}
+
+.confirm:hover {
+  background: rgb(170, 135, 60);
+  transform: scale(1.05);
+}
+
+/* ===========================
+   ANIMAÇÕES
+=========================== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* ===========================
+   RESPONSIVIDADE
+=========================== */
+
+/* 📱 Celulares pequenos */
+@media (min-width: 320px) and (max-width: 480px) {
+  .modal {
+    width: 90%;
+    padding: 1.5rem;
+  }
+
+  .modal h2 {
+    font-size: 1.4rem;
+  }
+
+  .modal img {
+    width: 120px;
+    height: 120px;
+  }
+
+  .buttons {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  button {
+    width: 100%;
+  }
+}
+
+/* 📱 Celulares médios */
+@media (min-width: 481px) and (max-width: 660px) {
+  .modal {
+    width: 80%;
+  }
+
+  .modal h2 {
+    font-size: 1.6rem;
+  }
+
+  .modal img {
+    width: 140px;
+    height: 140px;
+  }
+}
+
+/* 📱 Tablets */
+@media (min-width: 661px) and (max-width: 991px) {
+  .modal {
+    width: 70%;
+  }
+}
+
+/* 💻 Notebooks */
+@media (min-width: 992px) and (max-width: 1199px) {
+  .modal {
+    width: 50%;
+  }
+}

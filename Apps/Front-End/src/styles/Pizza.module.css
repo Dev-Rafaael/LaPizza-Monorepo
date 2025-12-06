@@ -1,0 +1,391 @@
+/* CARDAPIO */
+
+.cardapio {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  background: linear-gradient(rgba(22, 22, 22, 0.831), rgba(8, 5, 5, 0.814));
+}
+.navCardapio {
+  width: 100%;
+  height: 15rem;
+  background: linear-gradient(rgba(17, 17, 17, 0.412), rgba(20, 20, 20, 1)),
+    url(../assets/IMG/orcamentoLaPizza.jpg);
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.navCardapio h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  letter-spacing: -2px;
+  font-style: italic;
+  color: rgb(146, 117, 60);
+}
+.cardapioItens {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 3rem 0;
+  gap: 1rem;
+}
+.cardapioItens span {
+  color: rgb(183, 143, 63);
+  font-size: 2rem;
+}
+.cardapioItens h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  color: rgb(169, 176, 165);
+}
+.cardapioContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+}
+.pizzaItem {
+  background-color: rgba(22, 22, 22, 0.862);
+  border-radius: 1rem;
+  padding-bottom: 0.5rem;
+}
+
+.cardapio img {
+  border-radius: 0.4rem 0.4rem 0 0;
+  width: 330px;
+  height: 250px;
+}
+.pizzaItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.pizzaItem h1 {
+  text-transform: uppercase;
+  color: rgb(207, 152, 48);
+  text-align: center;
+  font-weight: bold;
+}
+.pizzaItem p {
+  width: 95%;
+  margin: 0 auto;
+  text-align: center;
+  color: #d7d5d5;
+  font-weight: bold;
+}
+.pizzaItem h4 {
+  text-align: center;
+  color: rgb(209, 151, 43);
+  font-weight: bold;
+}
+.cardapioOption {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cardapioOption button {
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 1rem 2rem;
+  text-decoration: none;
+  color: white;
+  background-color: #e6b800;
+  border-radius: 1rem;
+  border: none;
+  cursor: pointer;
+  transition: 1.5s;
+  margin-top: 1rem;
+  opacity: 0.8;
+  transition: 0.7s;
+}
+.cardapioItens a:hover {
+  opacity: 1;
+}
+
+.loadingPizza {
+  width: 100%;
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding: 2rem 0;
+  color: #e2e8f0;
+  animation: pulse 1.5s infinite;
+}
+/* ====== ANIMAÇÕES ====== */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes pulse {
+  0% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.3;
+  }
+}
+/* ====== CONTAINER CARDÁPIO ====== */
+.cardapio {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+/* ====== TÍTULO ====== */
+.navCardapio h1,
+.cardapioItens span,
+.cardapioItens h2 {
+  animation: slideUp 0.7s ease-out forwards;
+  animation-delay: 0.15s;
+}
+
+/* ====== CARDS DE PIZZA ====== */
+.pizzaItem {
+  animation: slideUp 0.6s ease-out forwards;
+  animation-delay: 0.2s;
+  transition: transform 0.2s ease, box-shadow 0.25s ease;
+}
+
+.pizzaItem:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+}
+
+/* ====== BOTÕES ====== */
+.cardapioOption button {
+  transition: transform 0.25s ease, opacity 0.25s ease, background-color 0.25s ease;
+}
+
+.cardapioOption button:hover {
+  transform: translateY(-2px) scale(1.05);
+  opacity: 1;
+  background-color: #ffc700;
+}
+
+/* ====== LINKS ====== */
+.cardapioItens a {
+  transition: opacity 0.25s ease;
+}
+
+.cardapioItens a:hover {
+  opacity: 1;
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+  .navCardapio h1 {
+    font-size: 1.6rem;
+    letter-spacing: 1px;
+    font-style: italic;
+    color: rgb(183, 143, 63);
+  }
+
+  .cardapioItens span {
+    color: rgb(183, 143, 63);
+    font-size: 1.1rem;
+  }
+  .cardapioItens h2 {
+    text-align: center;
+    padding-top: 1rem;
+    font-size: 1rem;
+    color: rgb(169, 176, 165);
+  }
+  .cardapioContainer {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+  }
+  .pizzaItem img {
+    width: 100%;
+    height: 11rem;
+    border-radius: 0.3rem;
+  }
+  .pizzaItem img:hover {
+    transform: translateY(-5px);
+  }
+
+  /* ORCAMENTO TIPO */
+  .pizzaItem {
+    height: 100%;
+    width: 100%;
+    border-radius: 0.7rem;
+    text-align: center;
+    margin: 3rem 0rem;
+    border: 1px solid transparent;
+    background-color: rgba(22, 22, 22, 0.862);
+  }
+
+  .pizzaItem p {
+    color: #d7d5d5;
+  }
+}
+@media (min-width: 481px) and (max-width: 660px) {
+  .navCardapio h1 {
+    font-size: 2rem;
+    letter-spacing: 1px;
+    font-style: italic;
+    color: rgb(183, 143, 63);
+  }
+
+  .cardapioItens span {
+    color: rgb(183, 143, 63);
+    font-size: 1.3rem;
+  }
+  .cardapioItens h2 {
+    text-align: center;
+    padding-top: 2rem;
+    font-size: 1.3rem;
+    color: rgb(169, 176, 165);
+  }
+  .cardapioContainer {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .pizzaItem img {
+    width: 100%;
+    height: 13rem;
+    border-radius: 0.3rem;
+  }
+  .pizzaItem img:hover {
+    transform: translateY(-5px);
+  }
+
+  /* ORCAMENTO TIPO */
+  .pizzaItem {
+    height: 100%;
+    width: 100%;
+    border-radius: 0.7rem;
+    padding-bottom: 1rem;
+    text-align: center;
+
+    border: 1px solid transparent;
+    background-color: rgba(22, 22, 22, 0.862);
+  }
+
+  .pizzaItem p {
+    color: #d7d5d5;
+  }
+}
+@media (min-width: 661px) and (max-width: 991px) {
+  .navCardapio h1 {
+    font-size: 2.5rem;
+    letter-spacing: 1px;
+    font-style: italic;
+    color: rgb(183, 143, 63);
+  }
+
+  .cardapioItens span {
+    color: rgb(183, 143, 63);
+    font-size: 1.5rem;
+  }
+  .cardapioItens h2 {
+    text-align: center;
+    padding-top: 2rem;
+    font-size: 1.5rem;
+    color: rgb(169, 176, 165);
+  }
+  .cardapioContainer {
+    width: 80%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+  .pizzaItem img {
+    width: 100%;
+    height: 12.5rem;
+    border-radius: 0.3rem;
+  }
+  .pizzaItem img:hover {
+    transform: translateY(-5px);
+  }
+
+  .pizzaItem {
+    height: 100%;
+    width: 100%;
+    border-radius: 0.7rem;
+    text-align: center;
+    margin: 1rem 0rem;
+    border: 1px solid transparent;
+    background-color: rgba(22, 22, 22, 0.862);
+  }
+
+  .pizzaItem p {
+    color: #d7d5d5;
+  }
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+  .navCardapio h1 {
+    font-size: 3rem;
+    letter-spacing: 1px;
+    font-style: italic;
+    color: rgb(183, 143, 63);
+  }
+
+  .cardapioItens span {
+    color: rgb(183, 143, 63);
+    font-size: 3rem;
+  }
+  .cardapioItens h2 {
+    text-align: center;
+    padding-top: 2rem;
+    font-size: 2rem;
+    color: rgb(169, 176, 165);
+  }
+  .cardapioItens span {
+    font-size: 2rem;
+  }
+  .cardapioContainer {
+    width: 90%;
+    margin: 0 auto;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .pizzaItem img {
+    width: 100%;
+    height: 15rem;
+    border-radius: 0.3rem;
+  }
+  .pizzaItem img:hover {
+    transform: translateY(-5px);
+  }
+
+  /* ORCAMENTO TIPO */
+  .pizzaItem {
+    height: 100%;
+    width: 100%;
+    border-radius: 0.7rem;
+    text-align: center;
+    border: 1px solid transparent;
+    background-color: rgba(22, 22, 22, 0.862);
+  }
+
+  .pizzaItem p {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: rgb(224, 218, 218);
+  }
+}

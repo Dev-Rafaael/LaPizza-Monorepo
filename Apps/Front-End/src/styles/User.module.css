@@ -1,0 +1,510 @@
+.mainAccount {
+  background: linear-gradient(rgba(17, 17, 17, 0.808), rgba(20, 20, 20, 1));
+}
+
+.navAccount {
+  width: 100%;
+  height: 15rem;
+  background: linear-gradient(rgba(17, 17, 17, 0.412), rgba(20, 20, 20, 1)),
+    url("../assets/IMG/orcamentoLaPizza.jpg");
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.navAccount h1 {
+  margin-bottom: 1rem;
+  font-size: 3rem;
+  font-weight: bold;
+  letter-spacing: -2px;
+  font-style: italic;
+  color: rgb(146, 117, 60);
+}
+.accountVoid{
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.accountVoid h2 {
+  font-size: 1.8rem;
+  text-align: center;
+  font-weight: bold;
+  font-style: italic;
+  color: rgb(146, 117, 60);
+  text-transform: uppercase;
+}
+.accountVoid p {
+  text-align: center;
+  color: rgb(185, 180, 180);
+}
+.buttonContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: transparent;
+  width: 20%;
+  gap: 0.5rem;
+  margin: 2rem auto 0;
+}
+.btnCadastrar {
+  width: 100%;
+  background-color: #858181;
+  padding: 1rem;
+  text-align: center;
+  font-weight: 700;
+  border-radius: 0.7rem;
+  opacity: 0.9;
+}
+.btnCadastrar:hover {
+  opacity: 1;
+}
+.btnLogar {
+  width: 100%;
+  background-color: rgb(146, 117, 60);
+  padding: 1rem;
+  text-align: center;
+  font-weight: 700;
+  border-radius: 0.7rem;
+  opacity: 0.9;
+}
+.btnLogar:hover {
+  opacity: 1;
+}
+
+.userCard {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 0 3rem;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.accountAside {
+  background-color: rgb(35, 34, 34);
+  width: 25%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-radius: 0.6rem;
+  padding: 1rem 0;
+}
+
+.accountAside img {
+  height: 11rem;
+  width: 12rem;
+  border-radius: 50%;
+  margin: 1rem 0;
+  background-color: white;
+}
+
+.accountAside h2 {
+  color: rgb(146, 117, 60);
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.accountAside p {
+  color: rgb(178, 178, 180);
+  font-weight: 600;
+}
+
+.userActions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  margin-top: 0.8rem;
+}
+
+.userActions button {
+  background-color: #e74c3c;
+  color: #fff;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.userActions button:hover {
+  background-color: #c0392b;
+}
+.userActions .btnPedidos {
+  background:rgb(146, 117, 60);
+  color: #fff;
+  border: none;
+  padding: 0.4rem 0.7rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  align-self: flex-start;
+  transition: 0.2s;
+}
+
+.userActions .btnPedidos:hover {
+  background: rgb(123, 99, 51);
+}
+.editIcon {
+  cursor: pointer;
+  font-size: 1.2rem;
+  color: #f6f4f4;
+  transition: color 0.2s;
+  background-color: #007bff;
+  padding: 0.4rem;
+  border-radius: 0.4rem;
+}
+
+.editIcon:hover {
+  background-color: #0a93fc;
+}
+
+.infoSection {
+  background-color: rgb(35, 34, 34);
+  width: 40%;
+  border-radius: 0.7rem;
+  padding: 2rem 0;
+}
+
+.infoArticle {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.infoArticle h3 {
+  font-size: 1.4rem;
+  text-align: center;
+  padding: 1rem;
+  color: rgb(146, 117, 60);
+  font-weight: bold;
+}
+
+.flexRow {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 8px;
+  border-bottom: 1px solid rgb(117, 117, 114);
+}
+
+.flexRow:last-child {
+  border: none;
+}
+
+dd {
+  padding: 0.3rem 0;
+  color: rgb(146, 117, 60);
+  font-weight: 700;
+}
+
+dt {
+  color: rgb(177, 169, 169);
+  font-weight: 700;
+}
+/* EDIT  */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  backdrop-filter: blur(4px);
+}
+
+.modalContent {
+  background: #2b2a2a;
+  padding: 2rem;
+  border-radius: 12px;
+  max-width: 650px;
+  width: 90%;
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.15);
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.modalContent h2 {
+  font-size: 1.3rem;
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;
+  color: rgb(199, 165, 75);
+  font-style: italic;
+  margin-bottom: 1.5rem;
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem 1.5rem;
+}
+
+@media (max-width: 600px) {
+  .formGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.formGroup,
+.formGroupFull {
+  display: flex;
+  flex-direction: column;
+}
+
+.formGroupFull {
+  grid-column: 1 / 3;
+}
+
+.formGroup label,.formGroupFull label {
+  color: rgb(199, 165, 75);
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+}
+
+.formGroup input,
+.formGroup select,
+.formGroupFull input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #555;
+  border-radius: 6px;
+  background-color: #3a3939;
+  color: #fff;
+  font-size: 0.95rem;
+  transition: border 0.2s, background 0.2s;
+}
+
+.formGroup input:focus,
+.formGroup select:focus,
+.formGroupFull input:focus {
+  border-color: rgb(199, 165, 75);
+  outline: none;
+  background-color: #444;
+}
+
+.modalButtons {
+  grid-column: 1 / 3;
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.closeButton,
+.saveButton
+ {
+  padding: 0.8rem 1.2rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  color: white;
+  transition: 0.2s ease-in-out;
+}
+
+.closeButton {
+  background-color: #666;
+}
+
+.closeButton:hover {
+  background-color: #777;
+}
+
+.saveButton {
+  background-color: rgb(199, 165, 75);
+  color: #1e1d1d;
+}
+
+.saveButton:hover {
+  background-color: rgb(219, 186, 96);
+}
+
+/* ====== ANIMAÇÕES ====== */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ====== MAIN ACCOUNT ====== */
+.mainAccount {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+/* ====== HEADER ====== */
+.navAccount h1 {
+  animation: slideUp 0.7s ease-out forwards;
+  animation-delay: 0.15s;
+}
+
+/* ====== MENSAGEM VAZIA ====== */
+.accountVoid h2,
+.accountVoid p,
+.buttonContainer {
+  animation: slideUp 0.7s ease-out forwards;
+  animation-delay: 0.2s;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+/* ====== USER CARDS ====== */
+.userCard {
+  animation: fadeIn 0.7s ease-out forwards;
+  transition: transform 0.2s ease, box-shadow 0.25s ease;
+}
+
+.userCard:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.25);
+}
+
+/* ====== ACCOUNT ASIDE E INFO ====== */
+.accountAside,
+.infoSection {
+  animation: slideUp 0.7s ease-out forwards;
+  animation-delay: 0.25s;
+}
+
+/* ====== BOTÕES ====== */
+.userActions button,
+.editIcon,
+.btnCadastrar,
+.btnLogar,
+.closeButton,
+.saveButton,
+.btnPedidos {
+  transition: transform 0.25s ease, opacity 0.25s ease, background-color 0.25s ease;
+}
+
+.userActions button:hover,
+.editIcon:hover,
+.btnCadastrar:hover,
+.btnLogar:hover,
+.closeButton:hover,
+.saveButton:hover,
+.btnPedidos:hover {
+  transform: translateY(-2px) scale(1.05);
+  opacity: 1;
+}
+
+/* Responsividade */
+@media (max-width: 1024px) {
+  .navAccount h1 {
+    font-size: 2rem;
+  }
+  .accountVoid h2 {
+    font-size: 1.9rem;
+  }
+
+  .buttonContainer {
+    width: 50%;
+  }
+  .userCard {
+    flex-direction: column;
+  }
+  .accountAside,
+  .infoSection {
+    width: 90%;
+  }
+  .grid2 {
+    grid-template-columns: 1fr;
+  } .modalContent {
+    max-width: 550px;
+    padding: 1.8rem;
+  }
+
+  .formGrid {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.8rem 1rem;
+  }
+
+  .modalContent h2 {
+    font-size: 1.3rem;
+  }
+
+  .formGroup label {
+    font-size: 0.95rem;
+  }
+
+  .formGroup input,
+  .formGroup select {
+    padding: 8px;
+    font-size: 0.9rem;
+  }
+
+  .modalButtons {
+    justify-content: space-between;
+  }
+
+  .closeButton,
+  .saveButton {
+    padding: 0.7rem 1rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .accountVoid h2 {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  .buttonContainer {
+    width: 50%;
+  }
+  .navAccount h1 {
+    font-size: 1.7rem;
+  }
+  .modalContent {
+    max-width: 90%;
+    padding: 1.5rem;
+  }
+
+  .formGrid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .formGroupFull {
+    grid-column: 1 / 2;
+  }
+
+  .modalContent h2 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
+
+  .formGroup label {
+    font-size: 0.9rem;
+  }
+
+  .formGroup input,
+  .formGroup select {
+    font-size: 0.9rem;
+    padding: 0.7rem;
+  }
+
+  .modalButtons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .closeButton,
+  .saveButton {
+    width: 100%;
+    padding: 0.8rem;
+  }
+}

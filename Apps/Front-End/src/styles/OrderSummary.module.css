@@ -1,0 +1,65 @@
+.summaryContainer {
+  background: #fff;
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  max-width: 380px;
+  margin-left: auto;
+}
+
+.title {
+  font-size: 1.5rem;
+   color: #f5b942;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+
+.itemsList {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  max-height: 420px;
+  overflow-y: auto;
+}
+
+.item {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.item img {
+  width: 80px;
+  height: 80px;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.info h4 {
+  font-size: 1.1rem;
+   color: #f5b942;
+}
+
+.info p {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.adicionais {
+  margin-top: 0.4rem;
+  padding-left: 1rem;
+  font-size: 0.85rem;
+  color: #777;
+}
+
+.total {
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #f5b942;
+}

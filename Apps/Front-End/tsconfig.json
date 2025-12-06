@@ -1,0 +1,24 @@
+{
+  "extends": "../../tsconfig.json",
+
+  "compilerOptions": {
+    "baseUrl": ".",
+    "jsx": "react-jsx",
+
+    "declaration": false,
+    "emitDeclarationOnly": false,
+    "noEmit": true,
+
+    "paths": {
+      "@packages/api/*": ["../../Packages/api/*"],
+      "@packages/types/*": ["../../Packages/types/*"],
+      "@packages/store/*": ["../../Packages/store/*"],
+      "@packages/hooks/*": ["../../Packages/hooks/*"],
+      "@packages/schemas/*": ["../../Packages/schemas/*"],
+      "@packages/*": ["../../Packages/*"]
+    }
+  },
+
+  "include": ["src"],
+  "files": []
+}

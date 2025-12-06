@@ -1,0 +1,118 @@
+.whatsappIcon {
+  position: fixed;
+  bottom: 1.9rem;
+  right: 2.45rem;
+  z-index: 1000;
+}
+.whatsappIcon {
+  height: 2.5rem;
+  width: 2.5rem;
+  font-size: 2rem;
+  text-align: center;
+  color: white;
+}
+.whatsappIcon .playIcon {
+  animation: pulse 1.5s infinite;
+  cursor: pointer;
+  z-index: 1; /* O ícone ficará sobre a bola */
+  transition: transform 0.3s ease-in-out;
+  z-index: 1000;
+}
+
+.bolaZap {
+  position: fixed;
+  bottom: 1.7rem;
+  right: 2.18rem;
+  width: 3.5rem; /* Ajuste o tamanho conforme necessário */
+  height: 3.5rem; /* Ajuste o tamanho conforme necessário */
+  border-radius: 50%;
+  background-color: rgb(16, 168, 34); /* Cor e opacidade da bola */
+  z-index: 0; /* Bola ficará abaixo do ícone */
+  animation: pulseBall 1.5s infinite;
+  z-index: 1000;
+}
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes pulseBall {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.4);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+}
+@media (min-width: 320px) and (max-width: 480px) {
+  .whatsappIcon {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 1000;
+  }
+  .whatsappIcon {
+    height: 1.8rem;
+    width: 1.8rem;
+    font-size: 1.7rem;
+    text-align: center;
+    color: white;
+  }
+  .playIcon {
+    animation: pulse 1.5s infinite;
+    cursor: pointer;
+    z-index: 1; /* O ícone ficará sobre a bola */
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .bolaZap {
+    position: fixed;
+    bottom: 1.7rem;
+    right: 1.7rem;
+    width: 2.6rem; /* Ajuste o tamanho conforme necessário */
+    height: 2.6rem; /* Ajuste o tamanho conforme necessário */
+    border-radius: 50%;
+    background-color: rgb(16, 168, 34); /* Cor e opacidade da bola */
+    z-index: 0; /* Bola ficará abaixo do ícone */
+    animation: pulseBall 1.5s infinite;
+  }
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.2);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  @keyframes pulseBall {
+    0% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    50% {
+      transform: scale(1.4);
+      opacity: 0.8;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 0.5;
+    }
+  }
+}

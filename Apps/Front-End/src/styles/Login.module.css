@@ -1,0 +1,150 @@
+.loginForm {
+  background: linear-gradient(rgba(17, 17, 17, 0.412), rgba(20, 20, 20, 1)),
+    url(../assets/IMG/orcamentoLaPizza.jpg);
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  min-height: 40rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 10;
+}
+
+.loginContent {
+  width: 90%;
+  max-width: 400px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.loginContent input {
+  padding: 0.5rem;
+  border-radius: 0.4rem;
+  border: 1px solid #ccc;
+  color: white;
+  background-color: #222;
+}
+
+.loginContent h2 {
+  font-size: 1.6rem;
+  text-align: center;
+  font-style: italic;
+  font-weight: bold;
+  color: rgb(179, 138, 58);
+}
+
+.btnLogin {
+  width: 100%;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.btnEntrar,
+.btnFechar {
+  flex: 1;
+  padding: 0.8rem;
+  border: none;
+  border-radius: 0.4rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #fff;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.btnEntrar {
+  background-color: rgb(179, 138, 58);
+  opacity: 0.8;
+}
+
+.btnEntrar:hover {
+  opacity: 1;
+}
+
+.btnFechar {
+  background-color: rgb(93, 88, 88);
+  opacity: 0.8;
+}
+
+.btnFechar:hover {
+  opacity: 1;
+}
+/* ====== LOGIN ====== */
+.loginForm,
+.loginContent,
+.loginContent h2,
+.loginContent input,
+.btnLogin,
+.btnEntrar,
+.btnFechar {
+  animation: slideUp 0.7s ease-out forwards;
+}
+
+.loginContent input,
+.btnEntrar,
+.btnFechar {
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.loginContent input:focus {
+  transform: translateY(-2px) scale(1.02);
+}
+
+.btnEntrar:hover,
+.btnFechar:hover {
+  transform: translateY(-2px) scale(1.03);
+  opacity: 1;
+}
+
+/* 📱 Responsividade para Tablets */
+@media (min-width: 769px) and(max-width: 992px) {
+  .loginContent {
+    width: 0%;
+  }
+
+  .loginContent h2 {
+    font-size: 1.4rem;
+  }
+
+  .loginContent input {
+    font-size: 0.95rem;
+  }
+}
+
+/* 📱 Responsividade para Celulares */
+@media (max-width: 768px) {
+  .loginForm {
+    height: auto;
+    padding: 2rem 1rem;
+  }
+
+  .loginContent {
+    width: 100%;
+    height: auto;
+    padding: 1rem;
+  }
+
+  .loginContent h2 {
+    font-size: 1.2rem;
+  }
+
+  .loginContent input {
+    font-size: 0.9rem;
+    padding: 0.6rem;
+  }
+
+  .btnLogin {
+    flex-direction: column;
+  }
+
+  .btnEntrar,
+  .btnFechar {
+    width: 100%;
+  }
+}

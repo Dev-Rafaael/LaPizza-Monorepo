@@ -1,0 +1,171 @@
+
+
+.navPoliticaPrivacidade {
+  width: 100%;
+  height: 15rem;
+  background: linear-gradient(rgba(17, 17, 17, 0.412), rgba(20,20,20,1)), url(../assets/IMG/orcamentoLaPizza.jpg);
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1rem;
+}
+
+.navPoliticaPrivacidade h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  letter-spacing: -2px;
+  font-style: italic;
+  color: rgb(146, 117, 60);
+}
+
+.navPoliticaPrivacidade p {
+  width: 59%;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: rgb(210, 205, 205);
+  margin-top: 0.5rem;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+    background: linear-gradient(rgba(12, 12, 12, 0.564), rgba(8, 5, 5, 0.164));
+    
+  padding: 5rem 1rem;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 80%;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-top: 1rem;
+  color: #fff;
+}
+
+.text {
+  margin-top: 0.5rem;
+  color: #979ba2;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.list {
+  list-style: disc inside;
+  margin-top: 0.5rem;
+  color: #ebedf1;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* ====== ANIMAÇÕES ====== */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ====== CONTAINER POLÍTICA ====== */
+.section {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+/* ====== HEADER ====== */
+.navPoliticaPrivacidade h1,
+.navPoliticaPrivacidade p {
+  animation: slideUp 0.7s ease-out forwards;
+  animation-delay: 0.15s;
+}
+
+/* ====== TÍTULOS E TEXTOS ====== */
+.title,
+.text,
+.list {
+  animation: slideUp 0.7s ease-out forwards;
+  animation-delay: 0.2s;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+/* ====== ITENS DA LISTA ====== */
+.list li {
+  transition: transform 0.25s ease, color 0.25s ease;
+}
+
+.list li:hover {
+  transform: translateX(4px);
+  color: #f5d37f;
+}
+
+@media (max-width: 1024px) {
+  .navPoliticaPrivacidade h1 {
+    font-size: 2rem;
+  }
+
+  .navPoliticaPrivacidade p {
+    width: 80%;
+    font-size: 1rem;
+  }
+
+  .title {
+    font-size: 1.5rem;
+  }
+
+  .text,
+  .list {
+    font-size: 1rem;
+  }
+}
+
+@media (min-width: 1025px) {
+  .title {
+    font-size: 2rem;
+  }
+
+  .text,
+  .list {
+    font-size: 1.1rem;
+  }
+}
+/* Desktop acima de 1024px */
+
+@media (max-width: 768px) {
+  .navPoliticaPrivacidade {
+    height: auto;
+    padding: 2rem 1rem;
+  }
+
+  .navPoliticaPrivacidade h1 {
+    font-size: 1.7rem;
+    letter-spacing: -1px;
+  }
+
+  .navPoliticaPrivacidade p {
+    width: 90%;
+    font-size: 0.95rem;
+  }
+
+  .title {
+    font-size: 1.25rem;
+    text-align: center;
+  }
+
+  .text,
+  .list {
+    font-size: 0.9rem;
+    text-align: justify;
+  }
+}

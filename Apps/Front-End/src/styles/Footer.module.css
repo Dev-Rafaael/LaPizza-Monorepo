@@ -1,0 +1,239 @@
+/* =====================
+   FOOTER PRINCIPAL
+===================== */
+.footer {
+  background: linear-gradient(rgba(22, 22, 22, 0.9), rgba(17, 17, 18, 1)),
+    url("../IMG/pizza3.jpg") center/cover no-repeat;
+  width: 100%;
+  color: white;
+}
+
+.footerContent {
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  padding: 2rem 0;
+  gap: 2rem;
+}
+
+.footer h2 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  color: #facc15;
+}
+
+.footer ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer li {
+  margin: 0.7rem 0;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.footer i {
+  color: #dad9d6;
+}
+
+.footer a {
+  color: #cac4c4;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer a:hover {
+  color: #facc15;
+}
+
+.bandeiras {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.bandeiras img {
+  width: 2.4rem;
+  margin-right: 0.5rem;
+  cursor: pointer;
+}
+
+/* =====================
+   COPYRIGHT
+===================== */
+.copy {
+  grid-column: 1 / -1;
+  text-align: center;
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+  border-top: 1px solid #333;
+  padding: 1rem 0;
+  color: #aaa;
+}
+/* ========================== */
+/*        ANIMAÇÕES           */
+/* ========================== */
+
+/* Fade suave para cima */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Slide mais longo */
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(22px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Brilho pulsando (já existente) */
+@keyframes pulseGlow {
+  0%   { transform: scale(1);   box-shadow: 0 0 0px rgba(255,120,20,0); }
+  50%  { transform: scale(1.06); box-shadow: 0 0 10px rgba(255,120,20,0.45); }
+  100% { transform: scale(1);   box-shadow: 0 0 0px rgba(255,120,20,0); }
+}
+
+/* Fade + leve zoom */
+@keyframes fadeZoom {
+  from { opacity: 0; transform: scale(0.95); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* Elemento vindo levemente da direita */
+@keyframes fadeRight {
+  from { opacity: 0; transform: translateX(20px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* Brilho pulsante mais suave */
+@keyframes softGlow {
+  0%   { box-shadow: 0 0 0px rgba(255, 150, 60, 0); }
+  50%  { box-shadow: 0 0 12px rgba(255, 150, 60, 0.25); }
+  100% { box-shadow: 0 0 0px rgba(255, 150, 60, 0); }
+}
+
+/* Balanço sutil */
+@keyframes softFloat {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-6px); }
+  100% { transform: translateY(0); }
+}
+
+
+/* ========================== */
+/*      ENTRADA DA TELA       */
+/* ========================== */
+
+.container {
+  animation: fadeIn 0.85s ease-out forwards;
+}
+
+.navCancel {
+  animation: slideUp 0.9s ease-out forwards;
+  animation-delay: 0.05s;
+}
+
+.navCancel h1 {
+  animation: slideUp 0.9s ease-out forwards;
+  animation-delay: 0.15s;
+}
+
+.message {
+  animation: fadeIn 1s ease-out forwards;
+  animation-delay: 0.25s;
+}
+
+/* Elementos extras caso queira usar */
+.extraFadeRight {
+  animation: fadeRight 0.8s ease-out forwards;
+}
+
+.extraFadeZoom {
+  animation: fadeZoom 0.8s ease-out forwards;
+}
+
+
+/* ========================== */
+/*          BOTÃO             */
+/* ========================== */
+
+.backBtn {
+  animation: 
+    slideUp 0.9s ease-out forwards,
+    pulseGlow 1.6s ease-in-out 0.7s; /* destaque inicial */
+  transition: 0.25s ease;
+}
+
+/* hover */
+.backBtn:hover {
+  transform: translateY(-3px) scale(1.03);
+}
+
+/* glow mais suave opcional */
+.backBtn.soft {
+  animation: softGlow 2s ease-in-out infinite;
+}
+
+/* pequeno flutuar contínuo */
+.backBtn.float {
+  animation: softFloat 3s ease-in-out infinite;
+}
+
+/* =====================
+   📱 RESPONSIVIDADE
+===================== */
+
+/* Tablets (até 1024px) */
+@media (max-width: 1024px) {
+  .footerContent {
+    width: 80%;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .footer h2 {
+    font-size: 1.1rem;
+  }
+
+  .footer li {
+    justify-content: center;
+  }
+
+  .bandeiras {
+    justify-content: center;
+  }
+}
+
+/* Celulares (até 767px) */
+@media (max-width: 767px) {
+  .footerContent {
+    width: 90%;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 2rem;
+  }
+
+  .footer h2 {
+    font-size: 1.05rem;
+  }
+
+  .footer a {
+    font-size: 0.95rem;
+  }
+
+  .bandeiras img {
+    width: 2rem;
+    margin: 0.3rem;
+  }
+
+  .copy {
+    font-size: 0.8rem;
+    padding: 0.8rem 0;
+  }
+}
