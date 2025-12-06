@@ -1,0 +1,104 @@
+.profile-section{
+    width: 90%;
+    margin: 0 auto 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.profile-section h1{
+       border-left: 0.4rem solid rgb(10, 90, 210);
+    border-radius: 0.2rem;
+    padding-left: 0.4rem;
+    color: rgb(220, 213, 213);
+}
+.profile-form {
+   background:linear-gradient(to right, #14141492, #0e09425c);
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+.profile-form .form-group label {
+    font-size: 1.1rem;
+  margin-bottom: 0.3rem;
+  font-weight: 700;
+margin-left: 0;
+}
+.permissoes-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom:1rem;
+  border-radius: 1rem;
+  color: rgb(237, 226, 226);
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: rgb(208, 201, 201);
+}
+
+.form-actions {
+  text-align: right;
+}
+
+.btn-submit {
+  background: #062cd7;
+  color: #fff;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+/* TABELA  */
+.profile-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.profile-table th,
+.profile-table td {
+  border: 1px solid #ddd;
+  padding: 0.8rem;
+  text-align: left;
+  color: white;
+}
+
+.profile-table th {
+background:linear-gradient(to right, #14141492, #0e09425c);
+  color: rgb(199, 188, 188);
+}
+.table-actions{ 
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+ 
+}
+.table-actions button {
+    
+  margin-right: 0.5rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+
+.table-actions .btn-delete {
+  background: #dc3545;
+  color: #fff;
+}
+
+.table-actions .btn-edit {
+  background: #007bff;
+  color: #fff;
+}

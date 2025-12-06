@@ -1,0 +1,81 @@
+.login-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 0rem;
+background-color: #0056b3;
+}
+
+.login-card {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 1rem 0 0 1rem;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  width: 100%;
+  max-width: 340px;
+  height: 25rem;
+}
+
+.loginTitle h1{
+  margin: 0rem;
+  color: #0543e2;
+  font-size: 1.4rem;
+}
+.loginTitle h3{
+    margin-bottom:0 ;
+    color: black;
+}
+.loginTitle h5{
+    width: 100%;
+    margin-top:0.5rem ;
+}
+
+.login-form .form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+
+}
+
+.login-form .form-group  label {
+  margin-bottom: 0.3rem;
+  font-weight: 600;
+  margin-left: 0;
+  
+}
+
+.login-form input {
+  padding: 0.6rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  background-color: #05080b;
+}
+
+.form-actions {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.btn-login {
+  background: #007bff;
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  font-size: 1rem;
+  transition: 0.2s;
+}
+
+.btn-login:hover {
+  background: #0056b3;
+}
+.ImageLogin img {
+    padding-top: 0.4rem;
+    width: 27rem;
+    height: 29rem;
+    border-radius: 0 1rem 1rem 0;
+}

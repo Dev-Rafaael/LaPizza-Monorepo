@@ -1,0 +1,154 @@
+.users-section {
+  width: 90%;
+  margin: 0 auto;
+}
+.users-section h2 {
+  border-left: 0.4rem solid rgb(10, 90, 210);
+  border-radius: 0.2rem;
+  padding-left: 0.4rem;
+  color: wheat;
+}
+.users-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto;
+  gap: 20px;
+  width: 100%;
+}
+.user-card {
+  margin: 0 auto;
+  width: 100%;
+  padding: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  border: none;
+  border-radius: 1rem;
+  background: linear-gradient(to right, #14141492, #1c1b1d16);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  transition: all 0.3s ease;
+}
+.user-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+}
+.user-card img {
+  margin-top: 1rem;
+  width: 7.5rem;
+  height: 7rem;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #6366f1; /* detalhe roxo */
+}
+.user-card h3 {
+  margin: 0.4rem 0 0;
+  color: white;
+}
+.infoUser {
+  display: flex;
+  gap: 0.5rem;
+}
+.infoUser p {
+  margin: 0.5rem 0;
+  color: rgb(196, 185, 185);
+}
+.user-actions {
+  display: flex;
+  gap: 1rem;
+}
+
+/* FORMULARIO  */
+
+.form-usuario {
+  width: 70%;
+  margin: 0 auto;
+  border: 1px solid black;
+  border-radius: 1rem;
+  padding: 1rem;
+}
+
+.fileOne,
+.fileTwo,
+.fileThree {
+  display: flex;
+  gap: 1rem;
+}
+.form-group {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.form-group label {
+  margin-left: 1rem;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+.form-actions {
+  margin-top: 1rem;
+}
+.btn-delete {
+  background: linear-gradient(to right, #ef4444, #dc2626);
+  color: white;
+  border: none;
+  padding: 0.5rem 1.2rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-delete:hover {
+  opacity: 0.9;
+}
+
+.btn-edit {
+  background: linear-gradient(to right, #22c55e, #16a34a);
+  color: white;
+  border: none;
+  padding: 0.5rem 1.2rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-edit:hover {
+  opacity: 0.9;
+}
+/* CARDS */
+
+.user-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+}
+
+.user-card img {
+  border-radius: 50%;
+  border: 3px solid #2563eb;
+  width: 100px;
+  height: 100px;
+}
+
+/* BOTÕES */
+.btn {
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1.3rem;
+  color: white;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.btn-delete {
+  background: linear-gradient(to right, #ef4444, #dc2626);
+}
+
+.btn-edit {
+  background: linear-gradient(to right, #22c55e, #16a34a);
+}
+
+.btn:hover {
+  opacity: 0.85;
+}

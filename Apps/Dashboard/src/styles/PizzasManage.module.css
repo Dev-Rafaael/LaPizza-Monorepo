@@ -1,0 +1,422 @@
+.container {
+  padding: 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0rem;
+
+  padding-top: 90px; 
+ min-height: 100vh;
+   background: #0b1120;
+}
+.pizzasFunction{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+    margin-bottom: 1rem;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #1e293b;
+}
+
+.searchBarWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 1.5rem 0;
+  gap: 0.5rem;
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+.searchInput {
+  width: 70%;
+  max-width: 450px;
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background: #f8f8f8;
+  color: #0b1120;
+  font-size: 1rem;
+  transition: all 0.2s ease-in-out;
+  outline: none;
+}
+
+.searchInput:focus {
+  border-color:#38bdf8;
+  background: #fff;
+  box-shadow: 0 0 6px rgba(31, 165, 226, 0.3);
+}
+
+.searchButton {
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  background: #46c4fa;
+  color: #faf7f7;
+  font-size: 1rem;
+  transition: 0.2s;
+}
+
+.searchButton:hover {
+  background: #2f9bca;
+  transform: scale(1.03);
+}
+
+/* TÍTULO */
+
+.title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #e2e8f0;
+
+}
+.btnNew{
+  height: 3rem;
+  padding: 0.5rem 1rem;
+  background: #38bdf8;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  color: #e6e7ea;
+  transition: 0.2s;
+  font-weight: bold;
+}
+.formCard {
+  background: #0f172a;
+  padding: 1rem;
+  border-radius: 12px;
+  color: #e2e8f0;
+  width: 500px;
+  margin: 0 auto;
+    border: 1px solid #1e293b;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+
+.form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  
+}
+.titleForm {
+  font-size: 1.6rem;
+  text-align: center;
+  margin-bottom: 1.2rem;
+  color: #e2e8f0;
+}
+.input {
+  padding: 0.8rem;
+  border-radius: 8px;
+  border: 1px solid #334155;
+  background: #1e293b;
+  color: #e2e8f0;
+}
+
+.button {
+  grid-column: span 2;
+  padding: 0.9rem;
+  background: #38bdf8;
+  color: #0f172a;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.button:hover {
+  background: #0ea5e9;
+}
+
+.list {
+   display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.card {
+  background: #0f172a;
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+.card img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  object-fit: cover;
+}
+
+.card h3, .card h4, .card h5 {
+  margin: 4px 0;
+  text-align: center;
+ color: #f5f5f5;
+}
+.card h3{
+     font-size: 1.1rem;
+  font-weight: bold;
+  color: #beb7b7;
+}
+.card h5{
+       font-size: 1.2rem;
+  font-weight: bold;
+  color: #d8d0d0;
+}
+.actions {
+  margin-top: 0.2rem;
+  display: flex;
+  gap: 10px;
+}
+
+.actionBtn {
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.actionBtn:hover {
+  transform: scale(1.05);
+}
+
+
+.actionBtn:nth-child(1) {
+  background: #4185f4;
+  color: white;
+}
+.actionBtn:nth-child(2) {
+  background: #f44336;
+  color: white;
+}
+/* BOTÕES */.btnGroup {
+     grid-column: span 2;
+    width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+.btnSave {
+  background: #22c55e;
+  border: none;
+  padding: 0.6rem 1.4rem;
+  border-radius: 8px;
+  color: #0f172a;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.2s;
+}
+
+.btnSave:hover {
+  background: #16a34a;
+}
+
+.btnClose {
+  background: #64748b;
+  border: none;
+  padding: 0.6rem 1.4rem;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.2s;
+}
+
+.btnClose:hover {
+  background: #475569;
+}
+.searchFail{
+  width: 120vh;
+    padding: 5rem 6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+font-size: 2rem;
+  color: rgb(255, 255, 255);
+}
+/* ====== ANIMAÇÕES ====== */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ====== CONTAINER ====== */
+.container {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+/* ====== TÍTULOS ====== */
+.title,
+.titleForm {
+  animation: slideUp 0.7s ease-out forwards;
+  animation-delay: 0.15s;
+}
+
+/* ====== CARDS ====== */
+.card {
+  animation: slideUp 0.6s ease-out forwards;
+  animation-delay: 0.2s;
+}
+
+/* ====== FORM CARD ====== */
+.formCard {
+  animation: fadeIn 0.8s ease-out forwards;
+  animation-delay: 0.2s;
+}
+
+/* ====== BOTÕES ====== */
+.btnNew,
+.button,
+.btnSave,
+.btnClose,
+.actionBtn {
+  transition: transform 0.2s ease, background-color 0.25s ease;
+}
+
+.btnNew:hover,
+.button:hover,
+.btnSave:hover,
+.btnClose:hover,
+.actionBtn:hover {
+  transform: translateY(-2px);
+}
+
+/* ====== LISTA ====== */
+.list {
+  animation: fadeIn 0.8s ease-out forwards;
+  animation-delay: 0.1s;
+}
+
+/* ====== AÇÕES DOS CARDS ====== */
+.actions .actionBtn {
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.actions .actionBtn:hover {
+  transform: scale(1.05);
+}
+
+
+
+
+@media (max-width: 1024px) {
+
+  .container {
+    padding: 2.5rem;
+    padding-top: 90px;
+  }
+
+  .formCard {
+    width: 420px;
+  }
+
+  .list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
+@media (max-width: 768px) {
+
+  .container {
+    padding: 2rem;
+    padding-top: 90px;
+  }
+
+  .pizzasFunction {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .formCard {
+    width: 100%;
+  }
+
+  .form {
+    grid-template-columns: 1fr;
+  }
+
+  .btnGroup {
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .card img {
+    height: 160px;
+  }
+}
+@media (max-width: 480px) {
+
+  .container {
+    padding: 1.2rem;
+    padding-top: 90px;
+  }
+
+  .title {
+    font-size: 1.4rem;
+  }
+
+  .btnNew {
+    width: 100%;
+  }
+
+  .list {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    padding: 12px;
+  }
+
+  .card img {
+    height: 150px;
+  }
+
+  .actions {
+    gap: 6px;
+  }
+
+  .actionBtn {
+    padding: 7px 12px;
+  }
+
+  .formCard {
+    width: 100%;
+    padding: 1rem;
+  }
+
+  .form {
+    grid-template-columns: 1fr;
+  }
+
+  .btnGroup {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .btnSave, .btnClose {
+    width: 100%;
+    padding: 0.8rem;
+  }
+}

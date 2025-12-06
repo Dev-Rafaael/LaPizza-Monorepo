@@ -1,0 +1,38 @@
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal {
+  background: #fff;
+  padding: 24px;
+  border-radius: 12px;
+  width: 300px;
+  text-align: center;
+}
+
+.modalButtons {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.btnConfirmar {
+  background: #b91c1c;
+  color: #fff;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+}
+
+.btnFechar {
+  background: #374151;
+  color: #fff;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+}

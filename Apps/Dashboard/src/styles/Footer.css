@@ -1,0 +1,134 @@
+.footer {
+  height: 70px;
+  background: #1e293b;
+  color: #374151; /* cinza escuro */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 30px;
+  border-top: 1px solid #e5e7eb;
+  font-size: 0.9rem;
+}
+
+/* Lado esquerdo */
+.footer-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-logo {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #2563eb; /* azul */
+  margin: 0;
+}
+
+.footer-copy {
+  font-size: 0.75rem;
+  color: #e2e6ed;
+  margin: 2px 0 0;
+}
+
+/* Centro */
+.footer-center {
+  display: flex;
+  gap: 20px;
+}
+
+.footer-link {
+  text-decoration: none;
+  color: #cbd0d7;
+  transition: color 0.2s ease;
+}
+
+.footer-link:hover {
+  color: #2563eb;
+}
+
+/* Direita */
+.footer-right {
+  display: flex;
+  gap: 15px;
+}
+
+.footer-icon {
+  text-decoration: none;
+  color: #d9dde2;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.footer-icon:hover {
+  color: #2563eb;
+}
+/* ======== RESPONSIVO ======== */
+
+/* Tablets (até 1024px) */
+@media (max-width: 1024px) {
+  .footer {
+    padding: 0 20px;
+    font-size: 0.85rem;
+  }
+
+  .footer-center {
+    gap: 15px;
+  }
+
+  .footer-right {
+    gap: 10px;
+  }
+}
+
+/* Mobile médio (até 768px) */
+@media (max-width: 768px) {
+  .footer {
+    flex-direction: column;
+    height: auto;
+    padding: 15px 20px;
+    text-align: center;
+    gap: 10px;
+  }
+
+  .footer-left {
+    align-items: center;
+  }
+
+  .footer-center {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .footer-right {
+    justify-content: center;
+  }
+}
+
+/* Mobile pequeno (até 480px) */
+@media (max-width: 480px) {
+  .footer {
+    gap: 15px;
+    padding: 20px 15px;
+  }
+
+  .footer-logo {
+    font-size: 0.9rem;
+  }
+
+  .footer-copy {
+    font-size: 0.7rem;
+  }
+
+  .footer-center {
+    gap: 10px;
+    font-size: 0.8rem;
+  }
+
+  .footer-right {
+    gap: 8px;
+  }
+
+  .footer-icon {
+    font-size: 0.85rem;
+  }
+}

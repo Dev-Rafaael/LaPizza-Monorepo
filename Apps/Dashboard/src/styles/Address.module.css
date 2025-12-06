@@ -1,0 +1,443 @@
+/* CONTAINER GERAL */
+.container {
+  padding: 4rem;
+
+  padding-top: 90px;
+  background: #0b1120;
+  min-height: 100vh;
+}
+.addressFunction{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+    margin-bottom: 1rem;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #1e293b;
+}
+/* TÍTULO */
+
+.title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #e2e8f0;
+
+}
+.btnNew{
+  height: 3rem;
+  padding: 0.5rem 1rem;
+  background: #38bdf8;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  color: #e6e7ea;
+  transition: 0.2s;
+  font-weight: bold;
+}
+
+.searchBarWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 1.5rem 0;
+  gap: 0.5rem;
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+.searchInput {
+  width: 70%;
+  max-width: 450px;
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background: #f8f8f8;
+  color: #0b1120;
+  font-size: 1rem;
+  transition: all 0.2s ease-in-out;
+  outline: none;
+}
+
+.searchInput:focus {
+  border-color:#38bdf8;
+  background: #fff;
+  box-shadow: 0 0 6px rgba(31, 165, 226, 0.3);
+}
+
+.searchButton {
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  background: #46c4fa;
+  color: #faf7f7;
+  font-size: 1rem;
+  transition: 0.2s;
+}
+
+.searchButton:hover {
+  background: #2f9bca;
+  transform: scale(1.03);
+}
+/* LISTA DE ENDEREÇOS — AGORA É GRID */
+.addressList {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 por linha */
+  gap: 1.5rem;
+}
+
+/* CARD */
+.card {
+  background: #0f172a;
+  padding: 1.6rem;
+  border-radius: 12px;
+  border: 1px solid #1e293b;
+  color: #e2e8f0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  transition: 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+}
+
+/* CAMPOS DE TEXTO */
+.card p {
+  font-size: 0.95rem;
+  margin: 2px 0;
+  color: #cbd5e1;
+}
+
+/* BOTÕES */
+.actions {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.btnEdit {
+  padding: 0.5rem 1rem;
+  background: #38bdf8;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  color: #0f172a;
+  transition: 0.2s;
+}
+
+.btnEdit:hover {
+  background: #0ea5e9;
+}
+
+.btnDelete {
+  padding: 0.5rem 1rem;
+  background: #ef4444;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  color: white;
+  transition: 0.2s;
+}
+
+.btnDelete:hover {
+  background: #dc2626;
+}
+/* FORM CARD */
+.formCard {
+  background: #0f172a;
+  padding: 2rem;
+  border-radius: 14px;
+  border: 1px solid #1e293b;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+  width: 100%;
+  max-width: 650px;
+  margin: 0 auto;
+}
+.searchFail{
+  width: 120vh;
+    padding: 5rem 6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+font-size: 2rem;
+  color: rgb(255, 255, 255);
+}
+/* FORM */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.titleForm {
+  font-size: 1.6rem;
+  text-align: center;
+  margin-bottom: 1.2rem;
+  color: #e2e8f0;
+}
+/* GRID DOS CAMPOS */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.2rem;
+}
+
+/* CAMPO INDIVIDUAL */
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.field label {
+  color: #94a3b8;
+  font-size: 0.95rem;
+}
+
+.field input,
+.field select {
+  background: #1e293b;
+  border: 1px solid #334155;
+  padding: 0.6rem 0.8rem;
+  border-radius: 8px;
+  color: #e2e8f0;
+  font-size: 1rem;
+  transition: 0.2s;
+}
+
+.field input:focus,
+.field select:focus {
+  border-color: #38bdf8;
+  outline: none;
+}
+
+/* BOTÕES */
+.btnGroup {
+    width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+.btnSave {
+  background: #22c55e;
+  border: none;
+  padding: 0.6rem 1.4rem;
+  border-radius: 8px;
+  color: #0f172a;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.2s;
+}
+
+.btnSave:hover {
+  background: #16a34a;
+}
+
+.btnClose {
+  background: #64748b;
+  border: none;
+  padding: 0.6rem 1.4rem;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.2s;
+}
+
+.btnClose:hover {
+  background: #475569;
+}
+/* ====== ANIMAÇÕES ====== */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ====== CONTAINER ====== */
+.container {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+/* ====== TÍTULOS ====== */
+.title,
+.titleForm {
+  animation: slideUp 0.7s ease-out forwards;
+  animation-delay: 0.15s;
+}
+
+/* ====== CARDS DE ENDEREÇO ====== */
+.card {
+  animation: slideUp 0.6s ease-out forwards;
+  animation-delay: 0.2s;
+}
+
+/* ====== FORM CARD ====== */
+.formCard {
+  animation: fadeIn 0.8s ease-out forwards;
+  animation-delay: 0.2s;
+}
+
+/* ====== BOTÕES ====== */
+.btnNew,
+.btnSave,
+.btnClose,
+.btnEdit,
+.btnDelete {
+  transition: transform 0.2s ease, background-color 0.25s ease;
+}
+
+.btnNew:hover,
+.btnSave:hover,
+.btnClose:hover,
+.btnEdit:hover,
+.btnDelete:hover {
+  transform: translateY(-2px);
+}
+
+/* ====== LISTA ====== */
+.addressList {
+  animation: fadeIn 0.8s ease-out forwards;
+  animation-delay: 0.1s;
+}
+
+/* ====== AÇÕES DOS CARDS ====== */
+.actions .btnEdit,
+.actions .btnDelete {
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.actions .btnEdit:hover,
+.actions .btnDelete:hover {
+  transform: scale(1.05);
+}
+
+@media (max-width: 1024px) {
+
+  .container {
+    padding: 2.5rem;
+    padding-top: 90px;
+  }
+
+  .addressList {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .formCard {
+    max-width: 550px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* 🔹 Mobile grande (entre 500px e 768px) */
+@media (max-width: 768px) {
+
+  .container {
+    padding: 2rem;
+    padding-top: 90px;
+  }
+
+  .addressFunction {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .btnNew {
+    width: 100%;
+  }
+
+  .addressList {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .card {
+    padding: 1.2rem;
+  }
+
+  .actions {
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .formCard {
+    padding: 1.5rem;
+    max-width: 100%;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .btnGroup {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .btnSave,
+  .btnClose {
+    width: 100%;
+  }
+}
+
+
+@media (max-width: 480px) {
+
+  .container {
+    padding: 1.2rem;
+    padding-top: 90px;
+  }
+
+  .title {
+    font-size: 1.5rem;
+  }
+
+  .addressList {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    padding: 1rem;
+  }
+
+  .card p {
+    font-size: 0.85rem;
+  }
+
+  .btnEdit,
+  .btnDelete {
+    padding: 0.45rem 0.8rem;
+    font-size: 0.9rem;
+  }
+
+  .formCard {
+    padding: 1.2rem;
+  }
+
+  .titleForm {
+    font-size: 1.3rem;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .btnGroup {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .btnSave,
+  .btnClose {
+    width: 100%;
+    padding: 0.9rem;
+  }
+}

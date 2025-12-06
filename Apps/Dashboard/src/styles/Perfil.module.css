@@ -1,0 +1,563 @@
+.mainAccount {
+    background: #0b1120;
+    margin-left: 0rem;
+}
+
+.navAccount {
+  width: 100%;
+  height: 7rem;
+      background: #0b1120;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.navAccount h1 {
+  font-size: 2.6rem;
+  font-weight: 800;
+  color: #caa95a;
+  letter-spacing: -1px;
+  font-style: italic;
+  text-transform: uppercase;
+}
+.accountVoid{
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.accountVoid h2 {
+  font-size: 1.8rem;
+  text-align: center;
+  font-weight: bold;
+  font-style: italic;
+  color: rgb(146, 117, 60);
+  text-transform: uppercase;
+}
+.accountVoid p {
+  text-align: center;
+  color: rgb(185, 180, 180);
+}
+.buttonContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: transparent;
+  width: 20%;
+  gap: 0.5rem;
+  margin: 2rem auto 0;
+}
+.btnCadastrar {
+  width: 100%;
+  background-color: #858181;
+  padding: 1rem;
+  text-align: center;
+  font-weight: 700;
+  border-radius: 0.7rem;
+  opacity: 0.9;
+}
+.btnCadastrar:hover {
+  opacity: 1;
+}
+.btnLogar {
+  width: 100%;
+  background-color: rgb(146, 117, 60);
+  padding: 1rem;
+  text-align: center;
+  font-weight: 700;
+  border-radius: 0.7rem;
+  opacity: 0.9;
+}
+.btnLogar:hover {
+  opacity: 1;
+}
+
+.userCard {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 0 3rem;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.accountAside {
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(6px);
+  width: 26%;
+  min-width: 260px;
+  border-radius: 1rem;
+  text-align: center;
+  padding: 0rem;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
+}
+
+.accountAside img {
+  height: 11rem;
+  width: 12rem;
+  border-radius: 50%;
+  margin: 1rem 0;
+  border: 3px solid #caa95a;
+}
+
+.accountAside h2 {
+  color: #caa95a;
+  font-size: 1.4rem;
+  margin-bottom: 0.3rem;
+}
+
+.accountAside p {
+  color: #bdbcbc;
+  font-size: 1rem;
+  font-weight: 500;
+}
+/* Buttons */
+.userActions {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.userActions button {
+  border: none;
+  padding: 0.7rem 1.2rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.deleteIcon {
+  background: #e74c3c;
+}
+
+.deleteIcon:hover {
+  background: #c0392b;
+}
+
+.editIcon {
+  background: #007bff;
+}
+
+.editIcon:hover {
+  background: #0a93fc;
+}
+/* ===========================
+   INFO SEÇÃO
+=========================== */
+.infoSection {
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(6px);
+  width: 48%;
+  min-width: 300px;
+  border-radius: 1rem;
+  padding: 2rem 0;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+.infoArticle {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.infoArticle h3 {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #caa95a;
+  margin-bottom: 1.5rem;
+}
+
+.flexRow {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.7rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.flexRow:last-child {
+  border-bottom: none;
+}
+
+dt {
+  color: #bdbcbc;
+  font-weight: 600;
+}
+
+dd {
+  color: #caa95a;
+  font-weight: 700;
+}
+/* ===========================
+   MODAL
+=========================== */
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(3px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+.modalContent {
+  background: #222;
+  padding: 2rem;
+  width: 90%;
+  max-width: 650px;
+  border-radius: 1rem;
+  border: 1px solid #444;
+  animation: fadeIn 0.4s ease;
+}
+
+.modalContent h2 {
+  text-align: center;
+  color: #caa95a;
+  font-weight: 800;
+  font-style: italic;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem 1.5rem;
+}
+
+.formGroup,
+.formGroupFull {
+  display: flex;
+  flex-direction: column;
+}
+
+.formGroupFull {
+  grid-column: span 2;
+}
+
+label {
+  color: #caa95a;
+  font-size: 1rem;
+  margin-bottom: 0.4rem;
+  font-weight: 600;
+}
+
+input,
+select {
+  background: #2e2e2e;
+  color: white;
+  border: 1px solid #555;
+  padding: 0.7rem;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+}
+
+input:focus,
+select:focus {
+  border-color: #caa95a;
+  outline: none;
+}
+
+/* Buttons Modal */
+.modalButtons {
+  grid-column: span 2;
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.closeButton,
+.saveButton {
+  padding: 0.8rem 1.3rem;
+  border-radius: 0.6rem;
+  border: none;
+  cursor: pointer;
+  transition: 0.2s;
+  font-weight: 600;
+}
+
+.closeButton {
+  background: #666;
+  color: white;
+}
+
+.closeButton:hover {
+  background: #777;
+}
+
+.saveButton {
+  background: #caa95a;
+  color: #1e1d1d;
+}
+
+.saveButton:hover {
+  background: #e2c174;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* ====== ANIMAÇÕES ADICIONAIS ====== */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ====== CONTAINER PRINCIPAL ====== */
+.mainAccount {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+/* ====== NAV ACCOUNT ====== */
+.navAccount h1 {
+  animation: slideUp 0.7s ease-out forwards;
+  animation-delay: 0.2s;
+}
+
+/* ====== ACCOUNT VOID ====== */
+.accountVoid h2,
+.accountVoid p {
+  animation: fadeIn 0.8s ease-out forwards;
+  animation-delay: 0.3s;
+}
+
+/* ====== BOTÕES PRINCIPAIS ====== */
+.btnCadastrar,
+.btnLogar,
+.closeButton,
+.saveButton,
+.deleteIcon,
+.editIcon {
+  transition: transform 0.2s ease, background-color 0.25s ease, opacity 0.2s ease;
+}
+
+.btnCadastrar:hover,
+.btnLogar:hover,
+.closeButton:hover,
+.saveButton:hover,
+.deleteIcon:hover,
+.editIcon:hover {
+  transform: translateY(-2px);
+}
+
+/* ====== USER CARD ====== */
+.userCard .accountAside {
+  animation: slideUp 0.6s ease-out forwards;
+  animation-delay: 0.2s;
+}
+
+/* ====== INFO SECTION ====== */
+.infoSection {
+  animation: fadeIn 0.8s ease-out forwards;
+  animation-delay: 0.25s;
+}
+
+.infoArticle h3,
+.flexRow {
+  animation: slideUp 0.7s ease-out forwards;
+  animation-delay: 0.3s;
+}
+
+/* ====== MODAL ====== */
+.modalOverlay {
+  animation: fadeIn 0.4s ease forwards;
+}
+
+.modalContent {
+  animation: slideUp 0.5s ease-out forwards;
+}
+
+/* Responsividade */
+@media (max-width: 1024px) {
+  .navAccount h1 {
+    font-size: 2rem;
+  }
+  .accountVoid h2 {
+    font-size: 1.9rem;
+  }
+
+  .buttonContainer {
+    width: 50%;
+  }
+  .userCard {
+    flex-direction: column;
+  }
+  .accountAside,
+  .infoSection {
+    width: 90%;
+  }
+  .infoArticle{
+    width: 80%;
+  }
+  .grid2 {
+    grid-template-columns: 1fr;
+  } .modalContent {
+    max-width: 550px;
+    padding: 1.8rem;
+  }
+
+  .formGrid {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.8rem 1rem;
+  }
+
+  .modalContent h2 {
+    font-size: 1.3rem;
+  }
+  .formGroupFull {
+    grid-column: span 1;
+  }
+  .formGroup label {
+    font-size: 0.95rem;
+  }
+
+  .formGroup input,
+  .formGroup select {
+    padding: 8px;
+    font-size: 0.9rem;
+  }
+
+  .modalButtons {
+    justify-content: space-between;
+  }
+
+  .closeButton,
+  .saveButton {
+    padding: 0.7rem 1rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .accountVoid h2 {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  .buttonContainer {
+    width: 50%;
+  }
+  .navAccount h1 {
+    font-size: 1.7rem;
+  }
+  .modalContent {
+    max-width: 90%;
+    padding: 1.5rem;
+  }
+
+  .formGrid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+   .formGroupFull {
+    grid-column: span 1;
+  }
+
+  .modalContent h2 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
+
+  .formGroup label {
+    font-size: 0.9rem;
+  }
+
+  .formGroup input,
+  .formGroup select {
+    font-size: 0.9rem;
+    padding: 0.7rem;
+  }
+
+  .modalButtons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .closeButton,
+  .saveButton {
+    width: 100%;
+    padding: 0.8rem;
+  }
+}
+@media (max-width: 468px) {
+  .accountVoid h2 {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  .buttonContainer {
+    width: 50%;
+  }
+  .navAccount h1 {
+    font-size: 1.7rem;
+  }  .accountAside,
+  .infoSection {
+    width: 90%;
+  }
+  .infoArticle{
+    width: 80%;
+  }
+  .modalContent {
+    max-width: 90%;
+    padding: 1.5rem;
+  }
+
+  .formGrid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+   .formGroupFull {
+    grid-column: span 1;
+  }
+
+  .modalContent h2 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
+
+  .formGroup label {
+    font-size: 0.9rem;
+  }
+
+  .formGroup input,
+  .formGroup select {
+    font-size: 0.9rem;
+    padding: 0.7rem;
+  }
+
+  .modalButtons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .closeButton,
+  .saveButton {
+    width: 100%;
+    padding: 0.8rem;
+  }
+}

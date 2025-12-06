@@ -1,0 +1,450 @@
+
+.userSection {
+  padding: 4rem;
+ padding-top: 90px;
+  box-sizing: border-box;
+  overflow-x: hidden; 
+     background: #0b1120;
+}
+.userFunction{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+    margin-bottom: 1rem;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #1e293b;
+}
+/* TÍTULO */
+
+.title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #e2e8f0;
+
+}
+.btnNew{
+  height: 3rem;
+  padding: 0.5rem 1rem;
+  background: #38bdf8;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  color: #e6e7ea;
+  transition: 0.2s;
+  font-weight: bold;
+}
+
+.searchBarWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 1.5rem 0;
+  gap: 0.5rem;
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+.searchInput {
+  width: 70%;
+  max-width: 450px;
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background: #f8f8f8;
+  color: #0b1120;
+  font-size: 1rem;
+  transition: all 0.2s ease-in-out;
+  outline: none;
+}
+
+.searchInput:focus {
+  border-color:#38bdf8;
+  background: #fff;
+  box-shadow: 0 0 6px rgba(31, 165, 226, 0.3);
+}
+
+.searchButton {
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  background: #46c4fa;
+  color: #faf7f7;
+  font-size: 1rem;
+  transition: 0.2s;
+}
+
+.searchButton:hover {
+  background: #2f9bca;
+  transform: scale(1.03);
+}
+.userList {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.userCard {
+  padding: 1rem;
+ background: #0f172a;
+  border-radius: 12px;
+   border: 1px solid #1e293b;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.userCard:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+}
+
+.userCard h3 {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #f1eeee;
+  margin-bottom: 4px;
+}
+
+.infoUser {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding-left: 4px;
+}
+.infoUser p {
+  font-size: 14px;
+  color: #4b5563;
+  background: #f9fafb;
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid #f3f4f6;
+}
+
+.userCard button {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-right: 10px;
+  transition: transform 0.2s ease;
+}
+
+.userCard button:hover {
+  transform: scale(1.05);
+}
+
+.userCard button:nth-of-type(1) {
+  background: #3b82f6;
+  color: white;
+}
+
+.userCard button:nth-of-type(2) {
+  background: #ef4444;
+  color: white;
+}
+.searchFail{
+  width: 120vh;
+    padding: 5rem 6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+font-size: 2rem;
+  color: rgb(255, 255, 255);
+}
+/* ====== FORMULÁRIO ====== */
+/* ===== WRAPPER DO FORM ===== */
+.userForm {
+  background: #0f172a;
+  padding: 2rem;
+  border-radius: 12px;
+  color: #e2e8f0;
+  width: 100%;
+  max-width: 650px;
+  margin: 0 auto;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+.titleForm {
+  font-size: 1.6rem;
+  text-align: center;
+  margin-bottom: 1.2rem;
+  color: #e2e8f0;
+}
+
+
+/* ===== GRID DAS LINHAS ===== */
+.fileOne,
+.fileTwo {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+/* Terceira linha com 3 inputs */
+.fileTwo {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+/* ===== GRUPO DE CAMPOS ===== */
+.formGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.formGroup label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #cbd5e1;
+  margin-bottom: 0.3rem;
+}
+
+/* ===== INPUTS E SELECTS ===== */
+.formGroup input,
+.formGroup select {
+  padding: 0.8rem;
+  border-radius: 8px;
+  border: 1px solid #334155;
+  background: #1e293b;
+  color: #e2e8f0;
+  outline: none;
+  transition: border 0.2s;
+}
+
+.formGroup input:focus,
+.formGroup select:focus {
+  border-color: #38bdf8;
+}
+
+/* BOTÕES */
+.btnGroup {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+.btnSave {
+  background: #22c55e;
+  border: none;
+  padding: 0.6rem 1.4rem;
+  border-radius: 8px;
+  color: #0f172a;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.2s;
+}
+
+.btnSave:hover {
+  background: #16a34a;
+}
+
+.btnClose {
+  background: #64748b;
+  border: none;
+  padding: 0.6rem 1.4rem;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.2s;
+}
+
+.btnClose:hover {
+  background: #475569;
+}
+
+/* ====== ANIMAÇÕES ====== */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ====== CONTAINER ====== */
+.userSection {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+/* ====== TÍTULOS ====== */
+.title,
+.titleForm {
+  animation: slideUp 0.7s ease-out forwards;
+  animation-delay: 0.15s;
+}
+
+/* ====== CARDS DE USUÁRIO ====== */
+.userCard {
+  animation: slideUp 0.6s ease-out forwards;
+  animation-delay: 0.2s;
+}
+
+/* ====== FORMULÁRIO ====== */
+.userForm {
+  animation: fadeIn 0.8s ease-out forwards;
+  animation-delay: 0.2s;
+}
+
+/* ====== BOTÕES ====== */
+.btnNew,
+.btnSave,
+.btnClose,
+.userCard button {
+  transition: transform 0.2s ease, background-color 0.25s ease;
+}
+
+.btnNew:hover,
+.btnSave:hover,
+.btnClose:hover,
+.userCard button:hover {
+  transform: translateY(-2px);
+}
+
+/* ====== LISTA ====== */
+.userList {
+  animation: fadeIn 0.8s ease-out forwards;
+  animation-delay: 0.1s;
+}
+
+/* ====== BOTÕES DOS CARDS ====== */
+.userCard button:nth-of-type(1),
+.userCard button:nth-of-type(2) {
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.userCard button:nth-of-type(1):hover,
+.userCard button:nth-of-type(2):hover {
+  transform: scale(1.05);
+}
+
+@media (max-width: 1024px) {
+
+  .userSection {
+    padding: 2.5rem;
+    padding-top: 90px;
+  }
+
+  .userList {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .userForm {
+    max-width: 550px;
+  }
+
+  .fileOne,
+  .fileTwo {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* 🔹 Mobile grande (entre 500px e 768px) */
+@media (max-width: 768px) {
+
+  .userSection {
+    padding: 2rem;
+    padding-top: 90px;
+  }
+
+  .userFunction {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .btnNew {
+    width: 100%;
+  }
+
+  .userList {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .userCard {
+    padding: 1.2rem;
+  }
+
+  .userCard button {
+    margin-right: 6px;
+  }
+
+  .userForm {
+    padding: 1.5rem;
+    max-width: 100%;
+  }
+
+  .fileOne,
+  .fileTwo {
+    grid-template-columns: 1fr;
+  }
+
+  .btnGroup {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .btnSave,
+  .btnClose {
+    width: 100%;
+  }
+}
+
+/* 🔹 Mobile pequeno (até 500px) */
+@media (max-width: 500px) {
+
+  .userSection {
+    padding: 1.2rem;
+    padding-top: 90px;
+  }
+
+  .title {
+    font-size: 1.5rem;
+  }
+
+  .userList {
+    grid-template-columns: 1fr;
+  }
+
+  .userCard {
+    padding: 1rem;
+  }
+
+  .infoUser p {
+    font-size: 0.85rem;
+  }
+
+  .userCard button {
+    padding: 0.45rem 0.8rem;
+    font-size: 0.9rem;
+    margin-right: 5px;
+  }
+
+  .userForm {
+    padding: 1.2rem;
+  }
+
+  .titleForm {
+    font-size: 1.3rem;
+  }
+
+  .fileOne,
+  .fileTwo {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .btnGroup {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .btnSave,
+  .btnClose {
+    width: 100%;
+    padding: 0.9rem;
+  }
+}

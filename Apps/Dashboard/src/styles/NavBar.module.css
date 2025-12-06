@@ -1,0 +1,165 @@
+/* NAVBAR FIXA NO TOPO */
+.navbar {
+  position: sticky;
+  top: 0;
+  height: 70px;
+
+  /* espaço quando sidebar está aberta */
+  width: calc(100% - 290px);
+  margin-left: 290px;
+
+  background: #1e293b;
+  color: #e2e8f0;
+  display: flex;
+  align-items: center;
+  z-index: 120;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+
+  transition: margin-left 0.3s ease, width 0.3s ease;
+}
+
+/* Quando sidebar está fechada → classe adicionada pelo App.jsx */
+.navbar.closed {
+  margin-left: 0;
+  width: 100%;
+}
+
+.navBarContent {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+}
+
+.left {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.mobileMenu {
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: #e2e8f0;
+  display: none;
+}
+
+.link {
+  color: #38bdf8;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.right {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.profile {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: #e2e8f0;
+  padding: 0.3rem 0.6rem;
+  border-radius: 8px;
+}
+
+.profile:hover {
+  background: #334155;
+}
+
+.name {
+  font-weight: 600;
+}
+
+.email {
+  font-size: 0.78rem;
+  opacity: 0.85;
+}
+/* ========================== */
+/*        RESPONSIVIDADE      */
+/* ========================== */
+
+/* --- Tablets e celulares (até 1024px) --- */
+@media (max-width: 1024px) {
+  .navbar {
+    margin-left: 0 !important;       /* navbar ocupa a tela inteira */
+    width: 100% !important;
+  }
+}
+
+/* --- Breakpoint Mobile (até 768px) --- */
+@media (max-width: 768px) {
+  .mobileMenu {
+    display: block;                 /* mostra botão hamburger */
+  }
+
+  .left p {
+    display: none;                  /* esconde breadcrumb "Pages / Dashboard" */
+  }
+ 
+  .link {
+   display: none;  
+  }
+
+  .navbar {
+    height: 60px;                   /* navbar menor */
+    padding: 0;
+  }
+
+  .navBarContent {
+    padding: 0 0.7rem;
+  }
+
+  .name {
+    font-size: 0.85rem;
+  }
+
+  .email {
+    font-size: 0.68rem;
+  }
+}
+
+/* --- Celulares pequenos (até 480px) --- */
+@media (max-width: 480px) {
+  .link {
+    display: none;                  /* deixa só o conteúdo essencial */
+  }
+
+  .right {
+    gap: 0.5rem;
+  }
+
+  .profile {
+    padding: 0.25rem 0.4rem;
+  }
+
+  .name {
+    font-size: 0.8rem;
+  }
+
+  .email {
+    font-size: 0.65rem;
+  }
+}
+
+/* --- Muito pequenos (até 360px) --- */
+@media (max-width: 360px) {
+  .profile {
+    padding: 0.2rem 0.3rem;
+  }
+
+  .name {
+    font-size: 0.75rem;
+  }
+
+  .email {
+    display: none;                  /* tira e-mail pra não quebrar linha */
+  }
+  
+}

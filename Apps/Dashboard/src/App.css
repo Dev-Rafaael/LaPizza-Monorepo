@@ -1,0 +1,45 @@
+/* Reset simples */
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  font-family: sans-serif;
+  background: #0b1120;
+}
+
+/* Estrutura principal */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Área que contém Sidebar + Conteúdo */
+.content {
+  display: flex;
+  flex: 1;
+  width: 100%;
+}
+
+/* Conteúdo principal */
+.main-content {
+  flex: 1;
+
+  /* espaço quando sidebar está visível no desktop */
+  margin-left: 250px;
+
+  background: linear-gradient(to right, #1e293b, #e4e4e8);
+  min-height: calc(100vh - 140px); /* Ajuste pro navbar + footer */
+  transition: margin-left 0.3s ease;
+}
+
+/* --------------------------
+      RESPONSIVIDADE
+--------------------------- */
+
+/* Sidebar vira overlay, então main precisa ocupar a tela toda */
+@media (max-width: 820px) {
+  .main-content {
+    margin-left: 0;
+  }
+}

@@ -1,0 +1,234 @@
+/* ========================== */
+/*   DASHBOARD CONTAINER      */
+/* ========================== */
+
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 4rem;
+  padding-top: 90px;
+  animation: fadeIn 0.6s ease-in-out;
+  background: #f5f7fb;
+  min-height: 100vh;
+}
+.loading{
+
+  padding: 0rem 7rem;
+  font-size: 2rem;
+  color:white;
+}
+/* Fade suave ao carregar */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ========================== */
+/*           CARDS            */
+/* ========================== */
+
+.cardsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.cardsGrid > div {
+  background: white;
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  transition: transform .25s ease, box-shadow .25s ease;
+  animation: slideUp 0.6s ease both;
+}
+
+/* Cards entrando com movimento */
+@keyframes slideUp {
+  from { transform: translateY(15px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.cardsGrid > div:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+}
+
+/* ========================== */
+/*         CHARTS GRID        */
+/* ========================== */
+
+.chartsGrid {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+}
+
+/* Cada gráfico */
+.chartBox {
+  background: white;
+  padding:  0  1rem 5rem;
+  height: 500px;
+  border-radius: 20px;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.07);
+  animation: fadeCard .7s ease both;
+  transition: transform .25s ease, box-shadow .25s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Gráficos surgindo suavemente */
+@keyframes fadeCard {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Hover do gráfico */
+.chartBox:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+}
+
+/* Título */
+.chartBox h3 {
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+  color: #333;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+}
+
+/* ========================== */
+/*      EFEITO DE BRILHO      */
+/* ========================== */
+
+.chartBox::before {
+  content: "";
+  position: absolute;
+  top: -120%;
+  left: -120%;
+  width: 250%;
+  height: 250%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.25),
+    transparent
+  );
+  transform: rotate(25deg);
+  transition: opacity .4s ease;
+  opacity: 0;
+}
+
+.chartBox:hover::before {
+  opacity: 1;
+  animation: shimmer 1.2s linear;
+}
+
+/* Passada de brilho */
+@keyframes shimmer {
+  0% { transform: translate(-150%, -150%) rotate(25deg); }
+  100% { transform: translate(150%, 150%) rotate(25deg); }
+}
+/* ============================== */
+/*        RESPONSIVIDADE         */
+/* ============================== */
+
+@media (max-width: 1400px) {
+  .dashboard {
+    padding-left: 5rem;
+    padding-top: 90px;
+  }
+
+  .chartBox {
+    height: 380px; /* diminui gráfico */
+       padding-bottom: 4rem;
+  }
+
+  .chartBox h3 {
+    font-size: 1.1rem;
+  }
+}
+/* --- Tablets (até 1024px) --- */
+@media (max-width: 1024px) {
+  .dashboard {
+    padding: 2rem;
+    padding-top: 90px;
+  }
+
+  .chartBox {
+    height: 380px; /* diminui gráfico */
+       padding-bottom: 4rem;
+  }
+
+  .chartBox h3 {
+    font-size: 1.1rem;
+  }
+}
+
+/* --- Celulares grandes (até 768px) --- */
+@media (max-width: 768px) {
+  .dashboard {
+    padding: 1.5rem;
+    padding-top: 90px;
+    gap: 1.5rem;
+  }
+
+  .cardsGrid {
+    grid-template-columns: 1fr 1fr; /* duas colunas no celular grande */
+    gap: 1rem;
+  }
+
+  .chartBox {
+    height: 320px; /* reduz mais */
+        padding-bottom: 4rem;
+  }
+
+  .chartBox h3 {
+    font-size: 1rem;
+  }
+}
+
+/* --- Celulares pequenos (até 480px) --- */
+@media (max-width: 480px) {
+  .dashboard {
+    padding: 1rem;
+    padding-top: 90px;
+    gap: 1.3rem;
+  }
+
+  .cardsGrid {
+    grid-template-columns: 1fr; /* apenas uma coluna */
+  }
+
+  .chartsGrid {
+    grid-template-columns: 1fr; /* gráficos empilhados */
+    gap: 1.2rem;
+  }
+
+  .chartBox {
+    height: 260px; /* ideal no mobile */
+    padding-bottom: 4rem;
+    border-radius: 14px;
+  }
+
+  .chartBox h3 {
+    font-size: 0.95rem;
+  }
+}
+
+/* --- Muito pequenos (até 360px) --- */
+@media (max-width: 360px) {
+  .dashboard {
+    padding: 0.8rem;
+  }
+
+  .chartBox {
+    height: 220px;
+        padding-bottom: 4rem;
+  }
+
+  .cardsGrid > div {
+    padding: 1rem;
+  }
+}
