@@ -7,6 +7,7 @@ import { IMaskInput } from "react-imask";
 import UseAccount from "@packages/hooks/useUser";
 
 function User() {
+
 const {
     user,
     nome,

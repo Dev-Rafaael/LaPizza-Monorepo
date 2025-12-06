@@ -7,7 +7,7 @@ interface SidebarProps {
   setOpen: (open: boolean) => void;
 }
 
-function NavBar({ setOpen }: SidebarProps) {
+function NavBar({ setOpen }: SidebarProps) {;
   const { user } = useUser();
 
   return (

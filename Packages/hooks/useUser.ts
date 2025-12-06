@@ -6,8 +6,7 @@ import { toast } from "react-toastify";
 import { api } from "../api/api";
 
 function useUser() {
-  const navigate = useNavigate();
-
+ const navigate = useNavigate();
   // Zustand store
   const user = useUserStore((s) => s.user);
   const logout = useUserStore((s) => s.logout);
