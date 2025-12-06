@@ -2,57 +2,45 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App'
-
-
-import {createBrowserRouter, RouterProvider} from 'react-router-dom'
-
-
 import Login from './app/pages/Login'
-import Produtos from './app/pages/admin/pizzasManage'
 import Metricas from './app/pages/Metricas/metricas'
-import UserManage from './app/pages/admin/userManage'
+import Produtos from './app/pages/admin/pizzasManage'
 import PizzasManage from './app/pages/admin/pizzasManage'
+import UserManage from './app/pages/admin/userManage'
 import AddressManage from './app/pages/admin/AddressManage'
 import AdicionaisManage from './app/pages/admin/AdicionaisManage'
 import OrderItemManage from './app/pages/admin/OrderItemManage'
 import PerfilManage from './app/pages/admin/PerfilManage'
-import PrivateRoute from './middlewares/PrivateRoute'
 import PedidosManage from './app/pages/admin/orderManage'
-
-
+import PrivateRoute from './middlewares/PrivateRoute'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
 const router = createBrowserRouter([
+  { path: "/login", element: <Login /> },
   {
-    element: <Login />, // sem sidebar
-    children: [
-      { path: "/login"},
-    ],
-  }, 
-   {
     path: "/",
     element: <App />,
     children: [
       {
-         element: <PrivateRoute />,
+        element: <PrivateRoute />,
         children: [
-          { path: "/dashboard", element: <Metricas /> },
-          { path: "/Pedidos", element: <PedidosManage /> },
-          { path: "/produtos", element: <Produtos /> },
-          { path: "/Pizzas", element: <PizzasManage /> },
-          { path: "/Usuarios", element: <UserManage /> },
-          { path: "/Endereços", element: <AddressManage /> },
-          { path: "/Adicionais", element: <AdicionaisManage /> },
-          { path: "/OrdersItems", element: <OrderItemManage /> },
-          { path: "/perfil", element: <PerfilManage /> },
-
+          { path: "dashboard", element: <Metricas /> },
+          { path: "pedidos", element: <PedidosManage /> },
+          { path: "produtos", element: <Produtos /> },
+          { path: "pizzas", element: <PizzasManage /> },
+          { path: "usuarios", element: <UserManage /> },
+          { path: "enderecos", element: <AddressManage /> },
+          { path: "adicionais", element: <AdicionaisManage /> },
+          { path: "ordersitems", element: <OrderItemManage /> },
+          { path: "perfil", element: <PerfilManage /> },
         ],
       },
     ],
   },
-]);
+])
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-      <RouterProvider router={router} />
+    <RouterProvider router={router} />
   </StrictMode>
-);
+)
