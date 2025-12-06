@@ -2,10 +2,14 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@packages/*": ["Packages/*"],
-      "@backend/*": ["Apps/Back-End/*"],
-      "@frontend/*": ["Apps/Front-End/*"],
-      "@dashboard/*": ["Apps/Dashboard/*"]
-    }
+      "@packages/*": ["Packages/*"]
+    },
+    "target": "ES2020",
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "jsx": "react-jsx",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true
   }
 }
