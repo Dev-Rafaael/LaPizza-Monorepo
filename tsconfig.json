@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@packages/*": ["Packages/*"],
+      "@backend/*": ["Apps/Back-End/*"],
+      "@frontend/*": ["Apps/Front-End/*"],
+      "@dashboard/*": ["Apps/Dashboard/*"]
+    }
+  }
+}
