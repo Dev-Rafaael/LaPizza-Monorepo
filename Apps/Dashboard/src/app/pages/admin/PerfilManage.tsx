@@ -1,9 +1,11 @@
 
+import { useNavigate } from "react-router-dom";
 import styles from "../../../styles/Perfil.module.css";
 
 import UseAccount from "@packages/hooks/useUser";
 
 function PerfilManage() {
+  const navigate = useNavigate();
     const {
     user,
     nome,
@@ -20,7 +22,7 @@ function PerfilManage() {
     edit,
     handleCloseModal,
     isModalOpen,
-    handleEdit} = UseAccount()
+    handleEdit} = UseAccount(navigate)
   
     if(!user) return 'Nescessario Login'
   return (

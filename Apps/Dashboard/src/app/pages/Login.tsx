@@ -6,10 +6,12 @@ import pizzaLogin from '../../assets/pizzaLogin.jpg'
 import '../../styles/Login.css'
 import { useEffect } from "react";
 import useLogin from "@packages/hooks/useLogin";
+import { useNavigate } from "react-router-dom";
 
 
 function Login() {
-const {email, setEmail,senha, setSenha,handleSubmit} = useLogin()
+  const navigate = useNavigate();
+const {email, setEmail,senha, setSenha,handleSubmit} = useLogin(navigate)
 const{
  user,
  } = useUserStore()

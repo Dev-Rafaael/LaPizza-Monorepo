@@ -33,7 +33,7 @@ function PizzasManage() {
   useEffect(() => {
     fetchPizzas();
   }, []);
-console.log(searchTerm);
+
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();

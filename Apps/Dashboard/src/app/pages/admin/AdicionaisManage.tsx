@@ -29,7 +29,6 @@ function AdicionaisManage() {
   useEffect(() => {
     fetchAdicionais();
   }, []);
-  console.log(adicionais);
 
   const handleAdicionais = async (e: FormEvent) => {
     e.preventDefault();

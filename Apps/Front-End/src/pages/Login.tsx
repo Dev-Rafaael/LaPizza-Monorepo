@@ -5,11 +5,12 @@ import { useNavigate } from 'react-router-dom';
 import  {useUserStore}  from '@packages/store/useUserStore';
 import { useEffect } from 'react';
 function Login() {
-const {email, setEmail,senha, setSenha,loading,handleSubmit} = useLogin()
+  const navigate = useNavigate(); 
+const {email, setEmail,senha, setSenha,loading,handleSubmit} = useLogin(navigate)
 const{
  user,
  } = useUserStore()
-const navigate = useNavigate(); 
+
 
 useEffect(() => {
   if (user?.email) {

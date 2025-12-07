@@ -1,12 +1,11 @@
-import { useNavigate } from "react-router-dom";
+
 
 import { useState, type FormEvent } from "react";
 import  {useUserStore}  from "../store/useUserStore";
 import { toast } from "react-toastify";
 import { api } from "../api/api";
 
-function useUser() {
- const navigate = useNavigate();
+function useUser(navigate?: (path: string) => void) {
   // Zustand store
   const user = useUserStore((s) => s.user);
   const logout = useUserStore((s) => s.logout);
@@ -27,7 +26,7 @@ function useUser() {
   const deletarAccount = () => {
     logout();
     toast.info("Você saiu da conta");
-    navigate("/login");
+     if (navigate) navigate("/login");
   };
 
   // Fecha o modal

@@ -1,4 +1,4 @@
-import { Link} from "react-router-dom";
+import { Link, useNavigate} from "react-router-dom";
 import styles from "../styles/User.module.css";
 import { faPenToSquare } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -7,7 +7,7 @@ import { IMaskInput } from "react-imask";
 import UseAccount from "@packages/hooks/useUser";
 
 function User() {
-
+const navigate = useNavigate();
 const {
     user,
     nome,
@@ -24,7 +24,7 @@ const {
     edit,
     handleCloseModal,
     isModalOpen,
-    handleEdit} = UseAccount()
+    handleEdit} = UseAccount(navigate)
   
     
   return (

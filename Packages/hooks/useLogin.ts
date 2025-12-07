@@ -4,11 +4,8 @@ import { toast } from "react-toastify";
 import { useUserStore } from '../store/useUserStore';
 import { loginSchema } from "../schemas/loginSchema";
 import { useAuthRedirect } from "./useAuthRedirect";
-import { useNavigate } from "react-router-dom";
 
-
-function useLogin() {
-   const navigate = useNavigate();
+function useLogin(navigate?: (path: string) => void) {
   const [email, setEmail] = useState<string>("");
   const [senha, setSenha] = useState<string>("");
   const [loading, setLoading] = useState(false);

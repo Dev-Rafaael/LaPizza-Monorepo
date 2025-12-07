@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import styles from "../../styles/NavBar.module.css";
 import useUser from "@packages/hooks/useUser";
 
@@ -7,8 +7,9 @@ interface SidebarProps {
   setOpen: (open: boolean) => void;
 }
 
-function NavBar({ setOpen }: SidebarProps) {;
-  const { user } = useUser();
+function NavBar({ setOpen }: SidebarProps) {
+    const navigate = useNavigate(); 
+  const { user } = useUser(navigate);
 
   return (
     <header className={styles.navbar}>

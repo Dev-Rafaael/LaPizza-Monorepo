@@ -7,6 +7,7 @@ import { useUserCart } from "../store/useCartStore";
 import AuthModal from "../pages/AuthModal";
 import { useNavigate } from "react-router-dom";
 function useCart() {
+    const navigate = useNavigate(); 
   const [newQuantidade, setNewQuantidade] = useState<number>(0);
   const [editId, setEditId] = useState<number | null>(null);
   const [animatePrices, setAnimatePrices] = useState<{
@@ -15,8 +16,7 @@ function useCart() {
   const itemUpdate = useUserCart((s) => s.updateItem);
   const deleteItem = useUserCart((s) => s.deleteItem);
   const items = useUserCart((s) => s.items);
-const { requireAuth, showAuthModal, setShowAuthModal } = useAuthRedirect();
-const navigate = useNavigate()
+const { requireAuth, showAuthModal, setShowAuthModal } = useAuthRedirect(navigate);
 
   const deletarItem = async (cartId: number) => {
     if (!cartId) return;
