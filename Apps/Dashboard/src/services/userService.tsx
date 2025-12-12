@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { api } from "@packages/api/api";
-import type { User, UserRegister } from "@packages/types/types";
+import type { User, } from "@packages/types/types";
 import { toast } from "react-toastify";
 
 function useUserService() {
@@ -57,7 +57,7 @@ function useUserService() {
   const createUser = async (newUser: Partial<User>) => {
     setLoading(true);
     try {
-      const { data } = await api.post<User>("/users/", newUser);
+      const { data } = await api.post("/users/", newUser);
       setUsers((prev) => [...prev, data]);
       setError(null);
       return data;
@@ -68,7 +68,7 @@ function useUserService() {
     }
   };
 
-  const updateUser = async (id: number, updatedUser: Partial<UserRegister>) => {
+  const updateUser = async (id: number, updatedUser: Partial<User>) => {
     setLoading(true);
     try {
       const { data } = await api.put<User>(`/users/${id}`, updatedUser);

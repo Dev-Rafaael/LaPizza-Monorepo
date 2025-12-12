@@ -95,6 +95,12 @@ function useOrderService() {
   };
   const edit = (order: Order) => {
     setStatus(order.status);
+    setNome(order.user.nome);
+    setSobreNome(order.user.sobreNome);
+    setCep(order.address.cep);
+    setNascimento(order.user.nascimento);
+    setEmail(order.user.email);
+    setTelefone(order.user.telefone);
     setEditId(order.id);
   };
   const deleteOrderConfirm = (id: number) => {

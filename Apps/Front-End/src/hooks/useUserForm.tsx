@@ -45,7 +45,7 @@ function useUserForm() {
       if (dataAccount) {
         const newAccount = (await api.post("/users/", dataAccount)).data;
         storeCreate(newAccount);
-        toast.success("🍕 Pedido realizado com sucesso!");
+        toast.success("Usuario Criado Com Sucesso");
         navigate('/Login')
         setLoading(false);
         setNome("");

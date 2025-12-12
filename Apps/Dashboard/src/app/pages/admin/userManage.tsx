@@ -2,6 +2,7 @@ import { useEffect, type FormEvent } from "react";
 import { toast } from "react-toastify";
 import useUserService from "../../../services/userService";
 import styles from "../../../styles/UserManage.module.css";
+import { useUserStore } from "@packages/store/useUserStore";
 
 function UserManage() {
   const {
@@ -22,6 +23,8 @@ function UserManage() {
     setCpf,
     email,
     setEmail,
+    senha,
+    setSenha,
     searchTerm,
     dadosSearch,
     setDadosSearch,
@@ -40,6 +43,7 @@ function UserManage() {
   useEffect(() => {
     fetchUsers();
   }, []);
+  const user = useUserStore((e) => e.user);
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
 
@@ -49,6 +53,7 @@ function UserManage() {
       email,
       cpf,
       sexo,
+      senha,
       nascimento,
       telefone,
       role,
@@ -87,53 +92,60 @@ function UserManage() {
         <>
           <div className={styles.userFunction}>
             <h2 className={styles.title}>🧑‍🦱Usuarios</h2>
-            <button
-              className={styles.btnNew}
-              onClick={() => {
-                setIsCreating(true);
-                setEditId(null);
-                limparFormulario();
-              }}
-            >
-              🧑‍🦱Novo Usuario
-            </button>
+            {user?.role === "admin" && (
+              <button
+                className={styles.btnNew}
+                onClick={() => {
+                  setIsCreating(true);
+                  setEditId(null);
+                  limparFormulario();
+                }}
+              >
+                🧑‍🦱Novo Usuario
+              </button>
+            )}
           </div>
           <article className={styles.userList}>
-            {searchTerm.length === 0 ?
-             <p className={styles.searchFail}>Usuario Não Encontrado</p>
-            :searchTerm.map((user) => (
-              <div key={user.id} className={styles.userCard}>
-                <h3>
-                  {user.nome} {user.sobreNome}
-                </h3>
+            {searchTerm.length === 0 ? (
+              <p className={styles.searchFail}>Usuario Não Encontrado</p>
+            ) : (
+              searchTerm.map((user) => (
+                <div key={user.id} className={styles.userCard}>
+                  <h3>
+                    {user.nome} {user.sobreNome}
+                  </h3>
 
-                <div className={styles.infoUser}>
-                  <p>
-                    <strong>Sexo:</strong> {user.sexo}
-                  </p>
-                  <p>
-                    <strong>Email:</strong> {user.email}
-                  </p>
-                  <p>
-                    <strong>CPF:</strong> {user.cpf}
-                  </p>
-                  <p>
-                    <strong>Nascimento:</strong> {user.nascimento}
-                  </p>
-                  <p>
-                    <strong>Telefone:</strong> {user.telefone}
-                  </p>
-                  <p>
-                    <strong>Função:</strong> {user.role}
-                  </p>
+                  <div className={styles.infoUser}>
+                    <p>
+                      <strong>Sexo:</strong> {user.sexo}
+                    </p>
+                    <p>
+                      <strong>Email:</strong> {user.email}
+                    </p>
+                    <p>
+                      <strong>CPF:</strong> {user.cpf}
+                    </p>
+                    <p>
+                      <strong>Nascimento:</strong> {user.nascimento}
+                    </p>
+                    <p>
+                      <strong>Telefone:</strong> {user.telefone}
+                    </p>
+                    <p>
+                      <strong>Função:</strong> {user.role}
+                    </p>
+                  </div>
+                  {user?.role === "admin" && (
+                    <div>
+                      <button onClick={() => edit(user)}>Editar</button>
+                      <button onClick={() => deleteUserConfirm(user.id)}>
+                        Deletar
+                      </button>
+                    </div>
+                  )}
                 </div>
-
-                <button onClick={() => edit(user)}>Editar</button>
-                <button onClick={() => deleteUserConfirm(user.id)}>
-                  Deletar
-                </button>
-              </div>
-            ))}
+              ))
+            )}
           </article>
         </>
       ) : (
@@ -182,7 +194,17 @@ function UserManage() {
                     required
                   />
                 </div>
-
+                <div className={styles.formGroup}>
+                  <label htmlFor="senha">*Senha</label>
+                  <input
+                    id="senha"
+                    type="password"
+                    value={senha}
+                    placeholder="Senha"
+                    onChange={(e) => setSenha(e.target.value)}
+                    required
+                  />
+                </div>
                 <div className={styles.formGroup}>
                   <label htmlFor="nascimento">*Data Nascimento</label>
                   <input
@@ -235,6 +257,7 @@ function UserManage() {
                       Selecione o Role
                     </option>
                     <option value="Admin">Admin</option>
+                    <option value="Supervisor">Supervisor</option>
                     <option value="User">User</option>
                   </select>
                 </div>

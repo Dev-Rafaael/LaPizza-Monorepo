@@ -11,6 +11,7 @@ export interface User {
 }
 
 export interface UserRegister {
+    id: number;
   nome: string;
   sobreNome: string;
   email: string;

@@ -16,6 +16,8 @@ function useUser(navigate?: (path: string) => void) {
   const [nome, setNome] = useState("");
   const [sobreNome, setSobreNome] = useState("");
   const [nascimento, setNascimento] = useState("");
+  const [email, setEmail] = useState("");
+  const [senha, setSenha] = useState("");
   const [sexo, setSexo] = useState("");
   const [telefone, setTelefone] = useState("");
 
@@ -39,8 +41,10 @@ function useUser(navigate?: (path: string) => void) {
     if (!user) return;
     setIsModalOpen(true);
     setNome(user.nome);
+    setSenha(user.senha);
     setSobreNome(user.sobreNome);
     setNascimento(user.nascimento);
+    setEmail(user.email);
     setSexo(user.sexo);
     setTelefone(user.telefone);
   };
@@ -57,7 +61,9 @@ function useUser(navigate?: (path: string) => void) {
     const dados = {
       nome,
       sobreNome,
+      senha,
       nascimento,
+      email,
       sexo,
       telefone,
     };
@@ -85,6 +91,10 @@ function useUser(navigate?: (path: string) => void) {
     sexo,
     setSexo,
     telefone,
+    setEmail,
+    email,
+    senha,
+    setSenha,
     setTelefone,
     deletarAccount,
     edit,

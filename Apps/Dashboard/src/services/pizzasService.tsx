@@ -15,6 +15,8 @@ function usePizzasService() {
   const [dadosSearch, setDadosSearch] = useState("");
   const [editId, setEditId] = useState<number | null>(null);
   const [isCreating, setIsCreating] = useState(false);
+
+
   const handleError = (err: unknown) => {
     if (err instanceof Error) {
       setError(err.message);
@@ -35,6 +37,7 @@ function usePizzasService() {
       setLoading(false);
     }
   };
+
 
   const fetchPizzaBySabor = async (sabor: string) => {
     setLoading(true);

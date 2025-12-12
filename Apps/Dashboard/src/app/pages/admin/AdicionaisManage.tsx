@@ -2,6 +2,7 @@ import { useEffect, type FormEvent } from "react";
 import { toast } from "react-toastify";
 import useAdicionaisService from "../../../services/adicionaisService";
 import styles from "../../../styles/Adicionais.module.css";
+import { useUserStore } from "@packages/store/useUserStore";
 
 function AdicionaisManage() {
   const {
@@ -29,7 +30,7 @@ function AdicionaisManage() {
   useEffect(() => {
     fetchAdicionais();
   }, []);
-
+  const user = useUserStore((e)=> e.user)
   const handleAdicionais = async (e: FormEvent) => {
     e.preventDefault();
 
@@ -70,7 +71,7 @@ function AdicionaisManage() {
         <>
           <div className={styles.adicionaisFunction}>
             <h2 className={styles.title}>➕Adicionais</h2>
-            <button
+          {user?.role === 'admin'&& <button
               className={styles.btnNew}
               onClick={() => {
                 setIsCreating(true);
@@ -80,6 +81,7 @@ function AdicionaisManage() {
             >
               ➕ Novo Adicional
             </button>
+}
           </div>
 
           <article className={styles.list}>
@@ -89,7 +91,7 @@ function AdicionaisManage() {
               <div className={styles.card} key={i}>
                 <p className={styles.nome}>{adicional.nome}</p>
                 <p className={styles.preco}>R$ {adicional.preco.toFixed(2)}</p>
-
+    {user?.role === 'admin'&&
                 <div className={styles.actions}>
                   <button
                     className={styles.btnEdit}
@@ -104,6 +106,7 @@ function AdicionaisManage() {
                     Deletar
                   </button>
                 </div>
+}
               </div>
             ))}
           </article>

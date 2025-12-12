@@ -4,7 +4,7 @@ export default function PrivateRoute() {
   const l = 1; 
 
   if (l !== 1) {
-    return <Navigate to="/" replace />;
+    return <Navigate to="/dashboard" replace />;
   }
 
   return <Outlet />;

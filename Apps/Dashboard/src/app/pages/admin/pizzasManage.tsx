@@ -2,12 +2,12 @@ import React, { useEffect } from "react";
 import usePizzasService from "../../../services/pizzasService";
 import { toast } from "react-toastify";
 import styles from "../../../styles/PizzasManage.module.css";
+import { useUserStore } from "@packages/store/useUserStore";
 
 function PizzasManage() {
   const {
     pizzas,
     createPizza,
-    fetchPizzas,
     sabor,
     setSabor,
     descricao,
@@ -27,13 +27,13 @@ function PizzasManage() {
     isCreating,
     setIsCreating,
     limparFormulario,
-    searchButton
+    searchButton,
+    fetchPizzas,
   } = usePizzasService();
-
+  const user = useUserStore((e) => e.user);
   useEffect(() => {
-    fetchPizzas();
-  }, []);
-
+    fetchPizzas()
+  }, [pizzas]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -64,49 +64,56 @@ function PizzasManage() {
           value={dadosSearch}
           onChange={(e) => setDadosSearch(e.target.value)}
         />
-        <button className={styles.searchButton} onClick={searchButton}>🔍</button>
+        <button className={styles.searchButton} onClick={searchButton}>
+          🔍
+        </button>
       </header>
       {pizzas.length === 0 || (!isCreating && editId === null) ? (
         <>
           <div className={styles.pizzasFunction}>
             <h2 className={styles.title}>🍕Pizzas</h2>
-            <button
-              className={styles.btnNew}
-              onClick={() => {
-                setIsCreating(true);
-                setEditId(null);
-                limparFormulario();
-              }}
-            >
-              🍕Nova Pizza
-            </button>
+            {user?.role === "admin" && (
+              <button
+                className={styles.btnNew}
+                onClick={() => {
+                  setIsCreating(true);
+                  setEditId(null);
+                  limparFormulario();
+                }}
+              >
+                🍕Nova Pizza
+              </button>
+            )}
           </div>
           <article className={styles.list}>
-            {searchTerm.length === 0 ?
-             <p className={styles.searchFail}>Pizza Não Encontrado</p>
-            :searchTerm.map((pizza) => (
-              <div className={styles.card} key={pizza.id}>
-                <img src={pizza.imagem} />
-                <h3>{pizza.sabor}</h3>
-                <h4>{pizza.descricao}</h4>
-                <h5>R${pizza.preco.toFixed(2)}</h5>
-
-                <div className={styles.actions}>
-                  <button
-                    className={styles.actionBtn}
-                    onClick={() => edit(pizza)}
-                  >
-                    Editar
-                  </button>
-                  <button
-                    className={styles.actionBtn}
-                    onClick={() => deletePizzaConfirm(pizza.id)}
-                  >
-                    Deletar
-                  </button>
+            {searchTerm.length === 0 ? (
+              <p className={styles.searchFail}>Pizza Não Encontrado</p>
+            ) : (
+              searchTerm.map((pizza) => (
+                <div className={styles.card} key={pizza.id}>
+                  <img src={pizza.imagem} />
+                  <h3>{pizza.sabor}</h3>
+                  <h4>{pizza.descricao}</h4>
+                  <h5>R${pizza.preco.toFixed(2)}</h5>
+                  {user?.role === "admin" && (
+                    <div className={styles.actions}>
+                      <button
+                        className={styles.actionBtn}
+                        onClick={() => edit(pizza)}
+                      >
+                        Editar
+                      </button>
+                      <button
+                        className={styles.actionBtn}
+                        onClick={() => deletePizzaConfirm(pizza.id)}
+                      >
+                        Deletar
+                      </button>
+                    </div>
+                  )}
                 </div>
-              </div>
-            ))}
+              ))
+            )}
           </article>
         </>
       ) : (

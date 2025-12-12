@@ -2,6 +2,7 @@ import { toast } from "react-toastify";
 import useOrderService from "../../../services/orderService";
 import { useEffect, type FormEvent } from "react";
 import styles from "../../../styles/Order.module.css";
+import { useUserStore } from "@packages/store/useUserStore";
 function PedidosManage() {
   const {
     orders,
@@ -37,6 +38,7 @@ function PedidosManage() {
   useEffect(() => {
     fetchOrders();
   }, []);
+     const user = useUserStore((e)=> e.user)
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
 
@@ -51,7 +53,6 @@ function PedidosManage() {
     };
     try {
       if (editId === null) {
-        console.log(orderData);
         await createOrder(orderData);
         toast.success(" Order Criado Com Sucesso!");
       } else {
@@ -65,8 +66,6 @@ function PedidosManage() {
       setEditId(null);
     }
   };
-  console.log(orders);
-
   return (
     <section className={styles.container}>
          <header className={styles.searchBarWrapper}>
@@ -83,7 +82,7 @@ function PedidosManage() {
         <>
           <div className={styles.orderItemFunction}>
             <h2 className={styles.title}>📦 Orders</h2>
-
+{user?.role === 'admin'&&
             <button
               className={styles.btnNew}
               onClick={() => {
@@ -94,6 +93,7 @@ function PedidosManage() {
             >
               ➕ Novo Order
             </button>
+}
           </div>
 
           <article className={styles.list}>
@@ -151,7 +151,7 @@ function PedidosManage() {
                   >
                     Status: {pedido.status}
                   </p>
-
+{user?.role === 'admin'&&
                   <div className={styles.actions}>
                     <button
                       className={styles.btnEdit}
@@ -167,6 +167,7 @@ function PedidosManage() {
                       Deletar
                     </button>
                   </div>
+}
                 </div>
               ))
             )}

@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import Modal from "../components/modais/Modal";
 import useOrderItem from "../hooks/useOrderItem";
-import { usePizzaStore } from "../store/usePizzaStore";
+import { usePizzaStore } from "@packages/store/usePizzaStore";
 import styles from "../styles/OrderItem.module.css";
 import { useUserCart } from "../store/useCartStore";
 import { toast } from "react-toastify";

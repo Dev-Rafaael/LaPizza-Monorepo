@@ -2,6 +2,7 @@ import { useEffect, type FormEvent } from "react";
 import styles from "../../../styles/Address.module.css";
 import { toast } from "react-toastify";
 import useAddressService from "../../../services/addressService";
+import { useUserStore } from "@packages/store/useUserStore";
 
 function AddressManage() {
   const {
@@ -38,6 +39,7 @@ function AddressManage() {
   useEffect(() => {
     fetchAddresses();
   }, []);
+  const user = useUserStore((e)=> e.user)
 
   const handleAddress = async (e: FormEvent) => {
     e.preventDefault();
@@ -85,7 +87,7 @@ function AddressManage() {
         <>
         <div className={styles.addressFunction}>
           <h2 className={styles.title}>🏠Endereços</h2>
-          <button
+          {user?.role === 'admin'&& <button
             className={styles.btnNew}
             onClick={() => {
               setIsCreating(true);
@@ -95,6 +97,7 @@ function AddressManage() {
           >
             🏠 Novo Endereço
           </button>
+}
           </div>
           <article className={styles.addressList}>
             {searchTerm.length === 0 ?
@@ -119,7 +122,7 @@ function AddressManage() {
                 <p>
                   <strong>Complemento:</strong> {address.complemento}
                 </p>
-
+                {user?.role === 'admin'&&
                 <div className={styles.actions}>
                   <button
                     className={styles.btnEdit}
@@ -135,6 +138,7 @@ function AddressManage() {
                     Deletar
                   </button>
                 </div>
+                }
               </div>
             ))}
           </article>

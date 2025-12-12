@@ -2,6 +2,7 @@ import { useEffect, type FormEvent } from "react";
 import { toast } from "react-toastify";
 import { useOrderItemsService } from "../../../services/orderItemService";
 import styles from "../../../styles/OrderItems.module.css";
+import { useUserStore } from "@packages/store/useUserStore";
 function OrderItemManage() {
   const {
     orderItems,
@@ -35,6 +36,7 @@ function OrderItemManage() {
   useEffect(() => {
     fetchOrderItems();
   }, []);
+   const user = useUserStore((e)=> e.user)
   const handleOrderItem = async (e: FormEvent) => {
     e.preventDefault();
     const orderItemData = {
@@ -78,7 +80,7 @@ function OrderItemManage() {
         <>
           <div className={styles.orderItemFunction}>
             <h2 className={styles.title}>🛒Order Items</h2>
-            <button
+           {user?.role === 'admin'&&  <button
               className={styles.btnNew}
               onClick={() => {
                 setIsCreating(true);
@@ -88,6 +90,7 @@ function OrderItemManage() {
             >
               🛒Novo Order Item
             </button>
+}
           </div>
           <article className={styles.list}>
             {searchTerm.length === 0 ?
@@ -103,7 +106,7 @@ function OrderItemManage() {
                 <p className={styles.preco}>
                   Total: R$ {orderItem.precoTotal.toFixed(2)}
                 </p>
-
+ {user?.role === 'admin'&&
                 <div className={styles.actions}>
                   <button
                     className={styles.btnEdit}
@@ -119,6 +122,7 @@ function OrderItemManage() {
                     Deletar
                   </button>
                 </div>
+}
               </div>
             ))}
           </article>

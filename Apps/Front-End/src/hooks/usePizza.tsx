@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import type {  Pizzas } from "@packages/types/types";
 import { api } from "@packages/api/api";
-import { usePizzaStore } from "../store/usePizzaStore";
+import { usePizzaStore } from "@packages/store/usePizzaStore";
 import { useNavigate } from "react-router-dom";
 
 function usePizza() {

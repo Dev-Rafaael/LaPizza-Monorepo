@@ -1,4 +1,3 @@
-
 import { useNavigate } from "react-router-dom";
 import styles from "../../../styles/Perfil.module.css";
 
@@ -6,7 +5,7 @@ import UseAccount from "@packages/hooks/useUser";
 
 function PerfilManage() {
   const navigate = useNavigate();
-    const {
+  const {
     user,
     nome,
     setNome,
@@ -22,85 +21,100 @@ function PerfilManage() {
     edit,
     handleCloseModal,
     isModalOpen,
-    handleEdit} = UseAccount(navigate)
-  
-    if(!user) return 'Nescessario Login'
+    handleEdit,
+  } = UseAccount(navigate);
+
+  if (!user) return "Nescessario Login";
   return (
-   <section className={styles.accountContent}>
-    {user !== null  ? 
-   
+    <section className={styles.accountContent}>
+      {user !== null ? (
         <>
           <header className={styles.navAccount}>
             <h1>MINHA CONTA</h1>
           </header>
           <main className={styles.mainAccount}>
             <section className={styles.accountSection}>
-             
-                <article  className={styles.userCard}>
-                  <aside className={styles.accountAside}>
-                    <figure>
-                      <img
-                        src={
-                          user.sexo === "feminino"
-                            ? "https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava4-bg.webp"
-                            : "https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3-bg.webp"
-                        }
-                        alt="avatar"
-                      />
+              <article className={styles.userCard}>
+                <aside className={styles.accountAside}>
+                  <figure>
+                    <img
+                      src={
+                        user.sexo === "feminino"
+                          ? "https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava4-bg.webp"
+                          : "https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3-bg.webp"
+                      }
+                      alt="avatar"
+                    />
 
-                      <figcaption>
-                        <h2>Olá {user.nome}</h2>
-                        <p> {  user.sexo === "feminino" ? 'Seja Bem Vinda!': 'Seja Bem Vindo!'}</p>
-                      </figcaption>
-
+                    <figcaption>
+                      <h2>Olá {user.nome}</h2>
+                      <p>
+                        {" "}
+                        {user.sexo === "feminino"
+                          ? "Seja Bem Vinda!"
+                          : "Seja Bem Vindo!"}
+                      </p>
+                    </figcaption>
+                    {user?.role === "admin" && (
                       <div className={styles.userActions}>
-                        <button onClick={() => deletarAccount()} className={styles.deleteIcon}>Logout</button>
-                        <button onClick={() => edit()} className={styles.editIcon}>Editar</button>
-                      
+                        <button
+                          onClick={() => deletarAccount()}
+                          className={styles.deleteIcon}
+                        >
+                          Logout
+                        </button>
+                        <button
+                          onClick={() => edit()}
+                          className={styles.editIcon}
+                        >
+                          Editar
+                        </button>
                       </div>
-                    </figure>
-                  </aside>
+                    )}
+                  </figure>
+                </aside>
 
-                  <section className={styles.infoSection}>
-                    <article className={styles.infoArticle}>
-                      <h3>Informações Pessoais</h3>
-                      <dl>
-                        <div className={styles.flexRow}>
-                          <dt>Nome Completo</dt>
-                          <dd>
-                            {user.nome} {user.sobreNome}
-                          </dd>
-                        </div>
+                <section className={styles.infoSection}>
+                  <article className={styles.infoArticle}>
+                    <h3>Informações Pessoais</h3>
+                    <dl>
+                      <div className={styles.flexRow}>
+                        <dt>Nome Completo</dt>
+                        <dd>
+                          {user.nome} {user.sobreNome}
+                        </dd>
+                      </div>
 
-                        <div className={styles.flexRow}>
-                          <dt>Sexo</dt>
-                          <dd>{user.sexo}</dd>
-                        </div>
+                      <div className={styles.flexRow}>
+                        <dt>Sexo</dt>
+                        <dd>{user.sexo}</dd>
+                      </div>
 
-                        <div className={styles.flexRow}>
-                          <dt>Email</dt>
-                          <dd>{user.email}</dd>
-                        </div>
+                      <div className={styles.flexRow}>
+                        <dt>Email</dt>
+                        <dd>{user.email}</dd>
+                      </div>
 
-                        <div className={styles.flexRow}>
-                          <dt>Telefone</dt>
-                          <dd>{user.telefone}</dd>
-                        </div>
+                      <div className={styles.flexRow}>
+                        <dt>Telefone</dt>
+                        <dd>{user.telefone}</dd>
+                      </div>
 
-                        <div className={styles.flexRow}>
-                          <dt>Data de Nascimento</dt>
-                          <dd>{user.nascimento}</dd>
-                        </div>
-                      </dl>
-                    </article>
-                  </section>
-                </article>
-            
+                      <div className={styles.flexRow}>
+                        <dt>Data de Nascimento</dt>
+                        <dd>{user.nascimento}</dd>
+                      </div>
+                    </dl>
+                  </article>
+                </section>
+              </article>
             </section>
           </main>
-   
-      </>  : ''}
-    
+        </>
+      ) : (
+        ""
+      )}
+
       {isModalOpen && (
         <div className={styles.modalOverlay}>
           <div className={styles.modalContent}>

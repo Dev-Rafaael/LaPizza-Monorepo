@@ -3,7 +3,7 @@ import { useEffect, useState, type FormEvent } from "react";
 import { api } from "@packages/api/api";
 import type { Adicional, Pizzas } from "@packages/types/types";
 import { toast } from "react-toastify";
-import { usePizzaStore } from "../store/usePizzaStore";
+import { usePizzaStore } from "@packages/store/usePizzaStore";
 import { cartSchema } from "@packages/schemas/cartSchema";
 
 function useOrderItem() {
