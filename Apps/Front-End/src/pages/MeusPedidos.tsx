@@ -1,5 +1,5 @@
 import ModalCancelar from "../components/modais/ModalCancelar";
-import {useUserStore, type UserStore} from "@packages/store/useUserStore";
+import { useUserStore, type UserStore } from "@packages/store/useUserStore";
 import styles from "../styles/MeusPedidos.module.css";
 import { useEffect, useState } from "react";
 import { api } from "@packages/api/api";
@@ -8,9 +8,9 @@ import getStatusClass from "../utils/getStatusClass";
 import { toast } from "react-toastify";
 import { useOrder } from "../hooks/useOrder";
 
-function MeusPedidos() {  
-  const user = useUserStore((s:UserStore) => s.user);
-const [, setPedidos] = useState<Order[]>([]);
+function MeusPedidos() {
+  const user = useUserStore((s: UserStore) => s.user);
+  const [, setPedidos] = useState<Order[]>([]);
 
   const [modalOpen, setModalOpen] = useState(false);
   const [pedidoSelecionado, setPedidoSelecionado] = useState<number | null>(
@@ -25,9 +25,8 @@ const [, setPedidos] = useState<Order[]>([]);
   const handlePedido = async () => {
     const data = (await api.get(`/orders/`)).data;
 
-    const pedidosUser = data.filter((i:Order) => i.userId === user?.id);
+    const pedidosUser = data.filter((i: Order) => i.userId === user?.id);
     setPedidos(pedidosUser);
-    
   };
   const fetchOrders = async () => {
     try {
@@ -145,7 +144,9 @@ const [, setPedidos] = useState<Order[]>([]);
                       <h3>{item.sabor}</h3>
                       <h4>{item.descricao}</h4>
                       <h4>Quantidade: {item.quantidade}</h4>
-                      <p><strong>R$ {item.precoUnitario.toFixed(2)}</strong></p>
+                      <p>
+                        <strong>R$ {item.precoUnitario.toFixed(2)}</strong>
+                      </p>
                     </div>
                   </div>
                 ))}
@@ -153,10 +154,10 @@ const [, setPedidos] = useState<Order[]>([]);
 
               <footer className={styles.pedidoFooter}>
                 <h3>Total: R$ {pedido.precoTotal.toFixed(2)}</h3>
-</footer>
+              </footer>
 
-<div className={styles.btnOption}>
-                {pedido.status === "PENDENTE" && (
+              <div className={styles.btnOption}>
+                {pedido.status === "PENDENTE" && user?.role === 'admin' &&(
                   <button
                     className={styles.btnPagar}
                     onClick={() => pagarPedido(pedido)}
@@ -167,7 +168,7 @@ const [, setPedidos] = useState<Order[]>([]);
 
                 {["PENDENTE", "PAID", "EM_PREPARAÇÃO"].includes(
                   pedido.status
-                ) && (
+                ) && user?.role === 'admin' && (
                   <button
                     className={styles.btnCancelar}
                     onClick={() => abrirModal(pedido.id)}

@@ -25,7 +25,15 @@ const {
     handleCloseModal,
     isModalOpen,
     handleEdit} = UseAccount(navigate)
-  
+  const ajustarDataParaInput = (dataISO: string | number | Date) => {
+  if (!dataISO) return "";
+
+  const date = new Date(dataISO);
+  date.setMinutes(date.getMinutes() + date.getTimezoneOffset());
+
+  return date.toISOString().split("T")[0];
+};
+
     
   return (
     <section className={styles.accountContent}>
@@ -64,7 +72,7 @@ const {
                         <h2>Olá {user.nome}</h2>
                         <p> {  user.sexo === "feminino" ? 'Seja Bem Vinda!': 'Seja Bem Vindo!'}</p>
                       </figcaption>
-
+                        {user.role === 'admin' &&
                       <div className={styles.userActions}>
                         <button onClick={() => deletarAccount()}>Logout</button>
                         <Link to={'/Meus-Pedidos'} className={styles.btnPedidos}>Minha Compras</Link>
@@ -75,6 +83,7 @@ const {
                         />
                        
                       </div>
+                      }
                     </figure>
                   </aside>
 
@@ -106,7 +115,10 @@ const {
 
                         <div className={styles.flexRow}>
                           <dt>Data de Nascimento</dt>
-                          <dd>{user.nascimento}</dd>
+                         <dd>
+                          {new Date(user.nascimento).toLocaleDateString("pt-BR")}
+                        </dd>
+                        
                         </div>
                       </dl>
                     </article>
@@ -170,7 +182,7 @@ const {
                   type="date"
                   id="data"
                   name="data"
-                  value={nascimento}
+                    value={ajustarDataParaInput(nascimento)}
                   onChange={(e) => setNascimento(e.target.value)}
                   required
                 />

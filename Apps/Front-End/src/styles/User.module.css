@@ -94,14 +94,14 @@
   align-items: center;
   text-align: center;
   border-radius: 0.6rem;
-  padding: 1rem 0;
+  padding: 2rem 0;
 }
 
 .accountAside img {
   height: 11rem;
   width: 12rem;
   border-radius: 50%;
-  margin: 1rem 0;
+ margin: 0 auto;
   background-color: white;
 }
 
@@ -461,7 +461,11 @@ dt {
     font-size: 1.5rem;
     text-align: center;
   }
-
+  .userActions, .btnPedidos{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
   .buttonContainer {
     width: 50%;
   }

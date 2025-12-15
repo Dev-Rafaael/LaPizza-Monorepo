@@ -126,7 +126,8 @@ function UserManage() {
                       <strong>CPF:</strong> {user.cpf}
                     </p>
                     <p>
-                      <strong>Nascimento:</strong> {user.nascimento}
+                      <strong>Nascimento:</strong>{new Date(user.nascimento).toLocaleDateString("pt-BR")}
+
                     </p>
                     <p>
                       <strong>Telefone:</strong> {user.telefone}

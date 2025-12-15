@@ -69,13 +69,14 @@ await handleSubmitOrder(Number(user.id), addressId);
                       </li>
                     ))}
                   </ul>
-
+ {user.role === 'admin' &&
                   <button
                     onClick={() => setShowForm(true)}
                     className={styles.botaoNovoEndereco}
                   >
                     + Adicionar novo endereço
                   </button>
+}
                 </>
               ) : (
                 <AddressForm

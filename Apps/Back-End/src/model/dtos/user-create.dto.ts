@@ -1,4 +1,5 @@
 export interface UserCreateDTO {
+  id:number;
   nome: string;
   sobreNome: string;
   email: string;
@@ -9,3 +10,4 @@ export interface UserCreateDTO {
   telefone: string;
   role?: string;
 }
+
