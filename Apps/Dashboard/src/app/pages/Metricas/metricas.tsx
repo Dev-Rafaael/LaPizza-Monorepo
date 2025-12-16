@@ -121,7 +121,7 @@ const doughnutOptions = {
           metrics.pedidosPorStatus.entregue,
           metrics.pedidosPorStatus.pendente,
           metrics.pedidosPorStatus.paid,
-          metrics.pedidosPorStatus.saiu_pra_entrega,
+          metrics.pedidosPorStatus.saiu_para_entrega,
           
         ],
         backgroundColor: [ "#4f46e5",

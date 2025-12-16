@@ -16,14 +16,13 @@ function SuccessPage() {
         const itemsRes = (await api.get(`/ordersItems/${orderId}`)).data;
         setItems(itemsRes);
       } catch (err) {
-        console.log("Erro ao buscar pedido:", err);
+        console.error("Erro ao buscar pedido:", err);
       }
     }
 
     if (orderId) loadOrder();
   }, [orderId]);
 
-  console.log(items);
 
   if (!orderId) return <p className={styles.message}>Pedido não encontrado.</p>;
 

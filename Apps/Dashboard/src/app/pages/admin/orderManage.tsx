@@ -158,8 +158,8 @@ function PedidosManage() {
                         ? "PAGO"
                         : pedido.status === "EM_PREPARACAO"
                         ? "EM PREPARAÇÃO"
-                        : pedido.status === "SAIU_PRA_ENTREGA"
-                        ? "SAIU PRA ENTREGA"
+                        : pedido.status === "SAIU_PARA_ENTREGA"
+                        ? "SAIU PARA ENTREGA"
                         : pedido.status
                     }
 

@@ -27,13 +27,13 @@ function OrderStatus() {
           const response = (await api.get(`/orders/${orderId}`)).data;
           setStatus(response.status);
         } catch (err) {
-          console.log("Erro ao buscar pedido:", err);
+          console.error("Erro ao buscar pedido:", err);
         }
       }
    
        if (orderId) loadOrderStatus();
   }, [orderId]);
-console.log(status );
+
 
   return (
     <section className={styles.container}>

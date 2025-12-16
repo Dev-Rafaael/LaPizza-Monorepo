@@ -55,7 +55,6 @@ function Home() {
   };
 
   const openModal = () => {
-    console.log("Modal aberto");
     setModalIsOpen(true);
   };
   

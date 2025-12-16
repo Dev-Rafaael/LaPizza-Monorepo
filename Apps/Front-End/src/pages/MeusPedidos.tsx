@@ -34,7 +34,7 @@ function MeusPedidos() {
 
       setOrders(data);
     } catch (err: unknown) {
-      console.log(err);
+      console.error(err);
     }
   };
 
@@ -107,6 +107,7 @@ function MeusPedidos() {
               <option value="EM_PREPARAÇÃO">Em preparação</option>
               <option value="ENTREGUE">Entregue</option>
               <option value="CANCELADO">Cancelado</option>
+              <option value="SAIU_PARA_ENTREGA">Saiu Para Entrega</option>
             </select>
 
             <input
@@ -132,7 +133,13 @@ function MeusPedidos() {
                     styles
                   )}`}
                 >
-                  {pedido.status}
+                  {  pedido.status === "PAID"
+                  ? "PAGO"
+                  : pedido.status === "EM_PREPARACAO"
+                  ? "EM PREPARAÇÃO"
+                  : pedido.status === "SAIU_PARA_ENTREGA"
+                  ? "SAIU PARA ENTREGA"
+                  : pedido.status}
                 </span>
               </header>
 

@@ -26,7 +26,6 @@ const {
     handleCloseModal,
     isModalOpen,
     handleEdit} = UseAccount(navigate)
-      const loggedUser  = useUserStore((e) => e.user);
   const ajustarDataParaInput = (dataISO: string | number | Date) => {
   if (!dataISO) return "";
 

@@ -15,7 +15,7 @@ export interface PedidosStatus {
   em_preparacao: number;
   entregue: number;
   cancelado: number;
-  saiu_pra_entrega: number;
+  saiu_para_entrega: number;
 }
 
 export interface VendasPorHora {
