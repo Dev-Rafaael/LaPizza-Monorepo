@@ -24,7 +24,6 @@ function UserManage() {
     email,
     setEmail,
     senha,
-    setSenha,
     searchTerm,
     dadosSearch,
     setDadosSearch,
@@ -43,7 +42,7 @@ function UserManage() {
   useEffect(() => {
     fetchUsers();
   }, []);
-  const user = useUserStore((e) => e.user);
+  const loggedUser  = useUserStore((e) => e.user);
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
 
@@ -92,7 +91,7 @@ function UserManage() {
         <>
           <div className={styles.userFunction}>
             <h2 className={styles.title}>🧑‍🦱Usuarios</h2>
-            {user?.role === "admin" && (
+            {loggedUser?.role === "admin" && (
               <button
                 className={styles.btnNew}
                 onClick={() => {
@@ -136,14 +135,14 @@ function UserManage() {
                       <strong>Função:</strong> {user.role}
                     </p>
                   </div>
-                  {user?.role === "admin" && (
+                   {loggedUser?.role === "admin" && (
                     <div>
                       <button onClick={() => edit(user)}>Editar</button>
                       <button onClick={() => deleteUserConfirm(user.id)}>
                         Deletar
                       </button>
                     </div>
-                  )}
+                   )}
                 </div>
               ))
             )}
@@ -195,17 +194,7 @@ function UserManage() {
                     required
                   />
                 </div>
-                <div className={styles.formGroup}>
-                  <label htmlFor="senha">*Senha</label>
-                  <input
-                    id="senha"
-                    type="password"
-                    value={senha}
-                    placeholder="Senha"
-                    onChange={(e) => setSenha(e.target.value)}
-                    required
-                  />
-                </div>
+
                 <div className={styles.formGroup}>
                   <label htmlFor="nascimento">*Data Nascimento</label>
                   <input
@@ -257,9 +246,9 @@ function UserManage() {
                     <option value="" disabled>
                       Selecione o Role
                     </option>
-                    <option value="Admin">Admin</option>
+                    <option value="admin">Admin</option>
                     <option value="Supervisor">Supervisor</option>
-                    <option value="User">User</option>
+                    <option value="user">User</option>
                   </select>
                 </div>
 

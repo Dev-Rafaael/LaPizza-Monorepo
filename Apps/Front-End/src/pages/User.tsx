@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { IMaskInput } from "react-imask";
 
 import UseAccount from "@packages/hooks/useUser";
+import { useUserStore } from "@packages/store/useUserStore";
 
 function User() {
 const navigate = useNavigate();
@@ -25,6 +26,7 @@ const {
     handleCloseModal,
     isModalOpen,
     handleEdit} = UseAccount(navigate)
+      const loggedUser  = useUserStore((e) => e.user);
   const ajustarDataParaInput = (dataISO: string | number | Date) => {
   if (!dataISO) return "";
 
@@ -72,18 +74,19 @@ const {
                         <h2>Olá {user.nome}</h2>
                         <p> {  user.sexo === "feminino" ? 'Seja Bem Vinda!': 'Seja Bem Vindo!'}</p>
                       </figcaption>
-                        {user.role === 'admin' &&
+                     
                       <div className={styles.userActions}>
                         <button onClick={() => deletarAccount()}>Logout</button>
                         <Link to={'/Meus-Pedidos'} className={styles.btnPedidos}>Minha Compras</Link>
+                          {user.role === 'admin' && 
                         <FontAwesomeIcon
                           icon={faPenToSquare}
                           className={styles.editIcon}
                           onClick={() => edit()}
                         />
-                       
+                        }
                       </div>
-                      }
+                    
                     </figure>
                   </aside>
 

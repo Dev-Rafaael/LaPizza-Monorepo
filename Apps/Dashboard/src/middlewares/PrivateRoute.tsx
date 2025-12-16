@@ -1,12 +1,12 @@
-import { Outlet, Navigate } from "react-router-dom";
+import { Navigate, Outlet } from "react-router-dom";
+import { useUserStore } from "@packages/store/useUserStore";
 
 export default function PrivateRoute() {
-  const l = 1; 
+  const token = useUserStore((state) => state.token);
 
-  if (l !== 1) {
-    return <Navigate to="/dashboard" replace />;
+  if (!token) {
+    return <Navigate to="/login" replace />;
   }
 
   return <Outlet />;
 }
-

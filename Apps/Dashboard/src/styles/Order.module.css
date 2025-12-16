@@ -2,7 +2,7 @@
 .container {
   padding: 4rem;
   padding-top: 90px;
-  background: #0b1120;
+ background: #eceef1;
   min-height: 100vh;
 }
 
@@ -13,7 +13,7 @@
   align-items: center;
   margin-bottom: 1rem;
   padding-bottom: 10px;
-  border-bottom: 1px solid #1e293b;
+   border-bottom: 1px solid #7e7b78;
 }
 
 .searchBarWrapper {
@@ -39,7 +39,7 @@
 }
 
 .searchInput:focus {
-  border-color:#38bdf8;
+  border-color:#d1921d;
   background: #fff;
   box-shadow: 0 0 6px rgba(31, 165, 226, 0.3);
 }
@@ -49,28 +49,28 @@
   border-radius: 8px;
   border: none;
   cursor: pointer;
-  background: #46c4fa;
+background: #d1921d;
   color: #faf7f7;
   font-size: 1rem;
   transition: 0.2s;
 }
 
 .searchButton:hover {
-  background: #2f9bca;
+ background: #d1921d;
   transform: scale(1.03);
 }
 /* ====== TÍTULO ====== */
 .title {
   font-size: 1.8rem;
   font-weight: bold;
-  color: #e2e8f0;
+ color: #d1921d;
 }
 
 /* ====== BOTÃO NOVO ====== */
 .btnNew {
   height: 3rem;
   padding: 0.5rem 1rem;
-  background: #38bdf8;
+ background: #d1921d;
   border-radius: 6px;
   border: none;
   cursor: pointer;
@@ -80,7 +80,7 @@
 }
 
 .btnNew:hover {
-  background: #0ea5e9;
+ background: #eda115;
 }
 
 /* ====== LISTA EM GRID ====== */
@@ -93,26 +93,24 @@
 
 /* ====== CARD ====== */
 .card {
-  background: #111a2e; /* mais vivo */
+background: white;
   padding: 1.8rem;
   border-radius: 14px;
-  border: 1px solid #1f2d45;
   color: #e8ecf5;
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
   transition: 0.25s ease;
 }
 
-.card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.42);
-  border-color: #3b82f6;
-}
-
+  .card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.32);
+   
+  }
 /* ====== TÍTULO ====== */
 .nome {
   font-size: 1.35rem;
   font-weight: 700;
-  color: #ffffff;
+   color: #d1921d;
 }
 
 /* ====== EMAIL ====== */
@@ -126,14 +124,14 @@
 .info {
   margin-top: 6px;
   font-size: 0.97rem;
-  color: #d7e2f0; /* mais contraste */
+  color: #333230;
 }
 
 /* infos secundárias (CEP, estado...) */
 .subInfo {
   margin-top: 4px;
   font-size: 0.85rem;
-  color: #9cb3cc;
+ color: #333230;
 }
 
 /* ====== TOTAL ====== */
@@ -141,9 +139,7 @@
   margin-top: 14px;
   font-size: 1.2rem;
   font-weight: 800;
-  color: #3b82f6; /* azul mais forte */
-  text-shadow: 0 0 4px rgba(59, 130, 246, 0.4);
-}
+  color: #d1921d;}
 
 /* ====== STATUS PADRÃO ====== */
 .status {

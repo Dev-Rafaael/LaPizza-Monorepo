@@ -1,39 +1,37 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App'
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import "./index.css";
 
+import App from "./App";
+import Login from "./app/pages/Login";
 
-import {createBrowserRouter, RouterProvider} from 'react-router-dom'
+import Metricas from "./app/pages/Metricas/metricas";
+import Produtos from "./app/pages/admin/pizzasManage";
+import PizzasManage from "./app/pages/admin/pizzasManage";
+import UserManage from "./app/pages/admin/userManage";
+import AddressManage from "./app/pages/admin/AddressManage";
+import AdicionaisManage from "./app/pages/admin/AdicionaisManage";
+import OrderItemManage from "./app/pages/admin/OrderItemManage";
+import PerfilManage from "./app/pages/admin/PerfilManage";
+import PedidosManage from "./app/pages/admin/orderManage";
 
-
-import Login from './app/pages/Login'
-import Produtos from './app/pages/admin/pizzasManage'
-import Metricas from './app/pages/Metricas/metricas'
-import UserManage from './app/pages/admin/userManage'
-import PizzasManage from './app/pages/admin/pizzasManage'
-import AddressManage from './app/pages/admin/AddressManage'
-import AdicionaisManage from './app/pages/admin/AdicionaisManage'
-import OrderItemManage from './app/pages/admin/OrderItemManage'
-import PerfilManage from './app/pages/admin/PerfilManage'
-import PrivateRoute from './middlewares/PrivateRoute'
-import PedidosManage from './app/pages/admin/orderManage'
-
-
+import PrivateRoute from "./middlewares/PrivateRoute";
+import PublicRoute from "./middlewares/PublicRoute";
 
 const router = createBrowserRouter([
   {
-    element: <Login />, // sem sidebar
+    element: <PublicRoute />,
     children: [
-      { path: "/login"},
+      { path: "/login", element: <Login /> },
     ],
-  }, 
-   {
+  },
+  {
     path: "/",
     element: <App />,
     children: [
       {
-         element: <PrivateRoute />,
+        element: <PrivateRoute />,
         children: [
           { path: "/dashboard", element: <Metricas /> },
           { path: "/Pedidos", element: <PedidosManage /> },
@@ -44,7 +42,6 @@ const router = createBrowserRouter([
           { path: "/Adicionais", element: <AdicionaisManage /> },
           { path: "/OrdersItems", element: <OrderItemManage /> },
           { path: "/perfil", element: <PerfilManage /> },
-
         ],
       },
     ],
@@ -53,6 +50,6 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-      <RouterProvider router={router} />
+    <RouterProvider router={router} />
   </StrictMode>
 );

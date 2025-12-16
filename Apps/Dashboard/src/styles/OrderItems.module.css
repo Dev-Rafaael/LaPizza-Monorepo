@@ -2,7 +2,7 @@
   .container {
   padding: 4rem;
     padding-top: 90px;
-    background: #0b1120;
+ background: #eceef1;
     min-height: 100vh;
   }
   .orderItemFunction{
@@ -11,7 +11,7 @@
     align-items: center;
       margin-bottom: 1rem;
     padding-bottom: 10px;
-    border-bottom: 1px solid #1e293b;
+  border-bottom: 1px solid #7e7b78;
   }
 
   
@@ -30,7 +30,7 @@
   padding: 0.8rem 1rem;
   border-radius: 8px;
   border: 1px solid #ccc;
-  background: #f8f8f8;
+  background: #e4dfdf;
   color: #0b1120;
   font-size: 1rem;
   transition: all 0.2s ease-in-out;
@@ -38,7 +38,7 @@
 }
 
 .searchInput:focus {
-  border-color:#38bdf8;
+  border-color:#d1921d;
   background: #fff;
   box-shadow: 0 0 6px rgba(31, 165, 226, 0.3);
 }
@@ -48,14 +48,14 @@
   border-radius: 8px;
   border: none;
   cursor: pointer;
-  background: #46c4fa;
+  background: #d1921d;
   color: #faf7f7;
   font-size: 1rem;
   transition: 0.2s;
 }
 
 .searchButton:hover {
-  background: #2f9bca;
+  background: #d1921d;
   transform: scale(1.03);
 }
   /* TÍTULO */
@@ -63,13 +63,13 @@
   .title {
     font-size: 1.8rem;
     font-weight: bold;
-    color: #e2e8f0;
+     color: #d1921d;
 
   }
   .btnNew{
     height: 3rem;
     padding: 0.5rem 1rem;
-    background: #38bdf8;
+    background: #d1921d;
     border-radius: 6px;
     border: none;
     cursor: pointer;
@@ -86,41 +86,42 @@
 
   /* ====== CARD ====== */
   .card {
-    background: #0f172a;
+  background: white;
     padding: 1.6rem;
     border-radius: 12px;
-    border: 1px solid #1e293b;
     color: #e2e8f0;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08); 
     transition: 0.2s ease;
   }
 
   .card:hover {
     transform: translateY(-4px);
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.32);
+   
   }
 
   /* ====== CAMPOS ====== */
   .nome {
     font-size: 1.3rem;
     font-weight: 700;
+     color: #d1921d;
   }
 
   .descricao {
     margin-top: 4px;
-    color: #94a3b8;
+    color: #333230;
   }
 
   .info {
     margin-top: 4px;
-    color: #cbd5e1;
+        color: #333230;
   }
 
   .preco {
     margin-top: 10px;
     font-size: 1.1rem;
     font-weight: 700;
-    color: #38bdf8;
+    color: #d1921d;
   }
 
   /* ====== AÇÕES ====== */

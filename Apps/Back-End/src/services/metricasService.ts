@@ -100,11 +100,13 @@ export async function getNovosClientesMes() {
 // 7. PEDIDOS POR STATUS
 // ==========================
 export async function getPedidosPorStatus() {
-  const aberto = await prisma.order.count({ where: { status: "aberto" } });
-  const preparo = await prisma.order.count({ where: { status: "preparo" } });
-  const entregue = await prisma.order.count({ where: { status: "entregue" } });
+  const pendente = await prisma.order.count({ where: { status: "PENDENTE" } });
+  const pago = await prisma.order.count({ where: { status: "PAID" } });
+  const entregue = await prisma.order.count({ where: { status: "ENTREGUE" } });
+  const em_preparacao = await prisma.order.count({ where: { status: "EM_PREPARACAO" } });
+  const cancelado = await prisma.order.count({ where: { status: "CANCELADO" } });
 
-  return { aberto, preparo, entregue };
+  return { pendente,pago,entregue,em_preparacao,cancelado};
 }
 
 export async function getVendasPorHora() {

@@ -4,7 +4,9 @@
   align-items: center;
   min-height: 100vh;
   padding: 0rem;
-background-color: #0056b3;
+  background: linear-gradient(rgba(17, 17, 17, 0.412), rgba(20,20,20,1)), url("https://res.cloudinary.com/dwi9yz8wj/image/upload/v1765817245/pizzaLogin_znyonz.jpg");
+   background-position: center;
+  background-size: cover;
 }
 
 .login-card {
@@ -19,7 +21,7 @@ background-color: #0056b3;
 
 .loginTitle h1{
   margin: 0rem;
-  color: #0543e2;
+ color: #d1921d;
   font-size: 1.4rem;
 }
 .loginTitle h3{
@@ -50,7 +52,8 @@ background-color: #0056b3;
   border-radius: 6px;
   border: 1px solid #ccc;
   font-size: 1rem;
-  background-color: #05080b;
+  background-color: #6a6d6f;
+  color:#323231;
 }
 
 .form-actions {
@@ -59,7 +62,7 @@ background-color: #0056b3;
 }
 
 .btn-login {
-  background: #007bff;
+  background: #d1921d;
   color: white;
   padding: 0.6rem 1.2rem;
   border-radius: 6px;
@@ -71,7 +74,7 @@ background-color: #0056b3;
 }
 
 .btn-login:hover {
-  background: #0056b3;
+  background: #e79a0b;
 }
 .ImageLogin img {
     padding-top: 0.4rem;

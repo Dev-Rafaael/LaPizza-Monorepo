@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import styles from "../../../styles/Perfil.module.css";
 
 import UseAccount from "@packages/hooks/useUser";
+import { useUserStore } from "@packages/store/useUserStore";
 
 function PerfilManage() {
   const navigate = useNavigate();
@@ -23,7 +24,7 @@ function PerfilManage() {
     isModalOpen,
     handleEdit,
   } = UseAccount(navigate);
-
+  const loggedUser  = useUserStore((e) => e.user);
   if (!user) return "Nescessario Login";
   return (
     <section className={styles.accountContent}>
@@ -55,7 +56,7 @@ function PerfilManage() {
                           : "Seja Bem Vindo!"}
                       </p>
                     </figcaption>
-                    {user?.role === "admin" && (
+                   
                       <div className={styles.userActions}>
                         <button
                           onClick={() => deletarAccount()}
@@ -63,14 +64,15 @@ function PerfilManage() {
                         >
                           Logout
                         </button>
+                         {loggedUser?.role === "admin" && (
                         <button
                           onClick={() => edit()}
                           className={styles.editIcon}
                         >
                           Editar
-                        </button>
+                        </button>)}
                       </div>
-                    )}
+                    
                   </figure>
                 </aside>
 

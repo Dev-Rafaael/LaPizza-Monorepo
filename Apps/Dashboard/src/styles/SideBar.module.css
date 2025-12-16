@@ -21,7 +21,8 @@
   font-weight: 700;
   margin-bottom: 2.5rem;
   letter-spacing: 1px;
-  color: rgb(146, 117, 60);
+   color: #d1921d;
+   font-style: italic;
   text-transform: uppercase;
   text-align: center;
 }
@@ -51,7 +52,7 @@
 }
 
 .link:hover {
-  background: #1e293b;
+  background:  #d1921d;
   padding-left: 1.4rem;
   color: #fff;
 }

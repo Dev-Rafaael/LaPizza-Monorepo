@@ -120,8 +120,7 @@ function AddressManage() {
                   <strong>Número:</strong> {address.numero}
                 </p>
                 <p>
-                  <strong>Complemento:</strong> {address.complemento}
-                </p>
+                  <strong>Complemento:</strong> {address.complemento? address.complemento : 'Não tem'}</p>
                 {user?.role === 'admin'&&
                 <div className={styles.actions}>
                   <button

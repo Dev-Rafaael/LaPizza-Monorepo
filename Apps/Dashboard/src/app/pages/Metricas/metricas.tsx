@@ -109,9 +109,10 @@ const doughnutOptions = {
     datasets: [
       {
         data: [
-          metrics.pedidosPorStatus.aberto,
-          metrics.pedidosPorStatus.preparo,
-          metrics.pedidosPorStatus.entregue,
+          metrics.pedidosPorStatus.PAID,
+          metrics.pedidosPorStatus.EM_PREPARACAO,
+          metrics.pedidosPorStatus.ENTREGUE,
+          metrics.pedidosPorStatus.PENDENTE,
         ],
         backgroundColor: [ "#4f46e5",
           "#06b6d4",
