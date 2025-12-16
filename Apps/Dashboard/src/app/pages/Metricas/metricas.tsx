@@ -105,14 +105,24 @@ const doughnutOptions = {
   };
 
   const pedidosPorStatusData = {
-    labels: ["PENDENTE", "PAGO", "EM_PREPARAÇÃO","SAIU_PARA_ENTREGA","ENTREGUE"],
+    labels: [
+    "Pendente",
+    "Pago",
+    "Em preparação",
+    "Saiu para entrega",
+    "Entregue",
+    "Cancelado",
+  ],
     datasets: [
       {
         data: [
-          metrics.pedidosPorStatus.PAID,
-          metrics.pedidosPorStatus.EM_PREPARACAO,
-          metrics.pedidosPorStatus.ENTREGUE,
-          metrics.pedidosPorStatus.PENDENTE,
+          metrics.pedidosPorStatus.cancelado,
+          metrics.pedidosPorStatus.em_preparacao,
+          metrics.pedidosPorStatus.entregue,
+          metrics.pedidosPorStatus.pendente,
+          metrics.pedidosPorStatus.paid,
+          metrics.pedidosPorStatus.saiu_pra_entrega,
+          
         ],
         backgroundColor: [ "#4f46e5",
           "#06b6d4",

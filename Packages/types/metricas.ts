@@ -10,11 +10,12 @@ export interface PizzaMaisVendida {
 }
 
 export interface PedidosStatus {
-  PENDENTE: number;
-  PAID: number;
-  EM_PREPARACAO: number;
-  ENTREGUE: number;
-  CANCELADO: number;
+  pendente: number;
+  paid: number;
+  em_preparacao: number;
+  entregue: number;
+  cancelado: number;
+  saiu_pra_entrega: number;
 }
 
 export interface VendasPorHora {

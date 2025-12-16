@@ -105,8 +105,9 @@ export async function getPedidosPorStatus() {
   const entregue = await prisma.order.count({ where: { status: "ENTREGUE" } });
   const em_preparacao = await prisma.order.count({ where: { status: "EM_PREPARACAO" } });
   const cancelado = await prisma.order.count({ where: { status: "CANCELADO" } });
+  const saiu_pra_entrega = await prisma.order.count({ where: { status: "SAIU_PRA_ENTREGA" } });
 
-  return { pendente,pago,entregue,em_preparacao,cancelado};
+  return { pendente, paid: pago,entregue,em_preparacao,cancelado,saiu_pra_entrega};
 }
 
 export async function getVendasPorHora() {
@@ -123,18 +124,15 @@ export async function getVendasPorHora() {
   `;
 }
 export async function getClientesNovos() {
-  return prisma.$queryRaw<
-    { dia: string; total: number }[]
-  >`
-    SELECT 
-      TO_CHAR("criadoEm", 'YYYY-MM-DD') AS dia,
-      COUNT(*)::int AS total
-    FROM "User"
-    WHERE "criadoEm" >= NOW() - INTERVAL '7 DAYS'
-    GROUP BY dia
-    ORDER BY dia;
-  `;
+  return prisma.user.count({
+    where: {
+      criadoEm: {
+        gte: new Date(Date.now() - 7 * 24 * 60 * 60 * 1000),
+      },
+    },
+  });
 }
+
 export async function getClientesRecorrentes() {
   const result = await prisma.order.groupBy({
     by: ["userId"],
@@ -150,6 +148,7 @@ export async function getClientesRecorrentes() {
 
   return result.length;
 }
+
 export async function getCategorias() {
   return prisma.$queryRaw<
     { categoria: string; total: number }[]
