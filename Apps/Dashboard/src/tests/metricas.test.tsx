@@ -11,7 +11,7 @@ const mockMetrics: Metrics = {
     { pizzaId: 1, sabor: "Mussarela", quantidade: 5 },
     { pizzaId: 2, sabor: "Calabresa", quantidade: 3 }
   ],
-  pedidosPorStatus: { aberto: 1, preparo: 2, entregue: 3 },
+  pedidosPorStatus: { pendente: 1, em_preparacao: 2, entregue: 3, saiu_pra_entrega: 4,paid: 5, cancelado: 6 },
   vendasPorHora: [{ hora: "10:00", total: 2 }],
   clientesNovos: [
     { dia: "Rafael", total: 3333 },
