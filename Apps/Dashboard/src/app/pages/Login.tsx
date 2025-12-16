@@ -1,13 +1,8 @@
-
-
-import  {useUserStore}  from "@packages/store/useUserStore";
-import pizzaLogin from '../../assets/pizzaLogin.jpg'
-
 import '../../styles/Login.css'
 import { useEffect } from "react";
 import useLogin from "@packages/hooks/useLogin";
 import { useNavigate } from "react-router-dom";
-
+import  {useUserStore}  from "@packages/store/useUserStore";
 
 function Login() {
   const navigate = useNavigate();
@@ -31,7 +26,14 @@ useEffect(() => {
     <h5>Entre Com seu E-Mail e senha Para acessar O DashBoard</h5>
     </div>
     <form onSubmit={handleSubmit} className="login-form">
-      
+        <div className="demo-box">
+    <strong>Modo Demo</strong>
+    <p>
+      E-mail: <span>user@demo.com</span><br />
+      Senha: <span>user1234</span>
+    </p>
+  </div>
+
       <div className="form-group">
         <label htmlFor="email">E-mail</label>
         <input
@@ -64,7 +66,7 @@ useEffect(() => {
   </article>
   <article className="ImageLogin">
 
-    <img src={pizzaLogin} alt="ImagemLogin"/>
+    <img src={"https://res.cloudinary.com/dwi9yz8wj/image/upload/v1765817245/pizzaLogin_znyonz.jpg"} alt="ImagemLogin"/>
   </article>
 </section>
 

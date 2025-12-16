@@ -33,12 +33,12 @@ function PedidosManage() {
     isCreating,
     setIsCreating,
     limparFormulario,
-    searchButton
+    searchButton,
   } = useOrderService();
   useEffect(() => {
     fetchOrders();
   }, []);
-     const user = useUserStore((e)=> e.user)
+  const user = useUserStore((e) => e.user);
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
 
@@ -68,108 +68,122 @@ function PedidosManage() {
   };
   return (
     <section className={styles.container}>
-         <header className={styles.searchBarWrapper}>
+      <header className={styles.searchBarWrapper}>
         <input
           type="text"
-          placeholder="Pesquisar informações da Pizza..."
+          placeholder="Pesquisar informações dos Orders..."
           className={styles.searchInput}
           value={dadosSearch}
           onChange={(e) => setDadosSearch(e.target.value)}
         />
-        <button className={styles.searchButton} onClick={searchButton}>🔍</button>
+        <button className={styles.searchButton} onClick={searchButton}>
+          🔍
+        </button>
       </header>
       {orders.length === 0 || (!isCreating && editId === null) ? (
         <>
           <div className={styles.orderItemFunction}>
             <h2 className={styles.title}>📦 Orders</h2>
-{user?.role === 'admin'&&
-            <button
-              className={styles.btnNew}
-              onClick={() => {
-                setIsCreating(true);
-                setEditId(null);
-                limparFormulario();
-              }}
-            >
-              ➕ Novo Order
-            </button>
-}
+            {user?.role === "admin" && (
+              <button
+                className={styles.btnNew}
+                onClick={() => {
+                  setIsCreating(true);
+                  setEditId(null);
+                  limparFormulario();
+                }}
+              >
+                ➕ Novo Order
+              </button>
+            )}
           </div>
 
           <article className={styles.list}>
-            {searchTerm.length === 0 ?
-             <p className={styles.searchFail}>Order Não Encontrado</p>
-            :
-            searchTerm.map((pedido, i) =>
-              pedido.items.map((item) => (
-                <div className={styles.card} key={i}>
-                  <header className={styles.cardHeader}>
-                    <h3 className={styles.nome}>{pedido.user?.nome ?? "—"}</h3>
-                    <span className={styles.email}>
-                      {pedido.user?.email ?? "—"}
-                    </span>
-                  </header>
+            {searchTerm.length === 0 ? (
+              <p className={styles.searchFail}>Order Não Encontrado</p>
+            ) : (
+              searchTerm.map((pedido, i) =>
+                pedido.items.map((item) => (
+                  <div className={styles.card} key={i}>
+                    <header className={styles.cardHeader}>
+                      <h3 className={styles.nome}>
+                        {pedido.user?.nome ?? "—"}
+                      </h3>
+                      <span className={styles.email}>
+                        {pedido.user?.email ?? "—"}
+                      </span>
+                    </header>
 
-                  <section className={styles.pedidoInfo}>
-                    <p className={styles.info}>
-                      <strong>Pizza:</strong> {item.sabor} ({item.quantidade}{" "}
-                      un)
-                    </p>
-
-                    <p className={styles.info}>
-                      <strong>Descrição:</strong> {item.descricao}
-                    </p>
-                  </section>
-
-                  <section className={styles.endereco}>
-                    <p className={styles.info}>
-                      <strong>Endereço:</strong> {pedido.address?.rua},{" "}
-                      {pedido.address?.numero} — {pedido.address?.bairro},{" "}
-                      {pedido.address?.cidade}
-                    </p>
-
-                    <p className={styles.subInfo}>
-                      CEP: {pedido.address?.cep} | {pedido.address?.estado}
-                    </p>
-
-                    {pedido.address?.complemento && (
-                      <p className={styles.subInfo}>
-                        Complemento: {pedido.address.complemento}
+                    <section className={styles.pedidoInfo}>
+                      <p className={styles.info}>
+                        <strong>Pizza:</strong> {item.sabor} ({item.quantidade}{" "}
+                        un)
                       </p>
+
+                      <p className={styles.info}>
+                        <strong>Descrição:</strong> {item.descricao}
+                      </p>
+                    </section>
+
+                    <section className={styles.endereco}>
+                      <p className={styles.info}>
+                        <strong>Endereço:</strong> {pedido.address?.rua},{" "}
+                        {pedido.address?.numero} — {pedido.address?.bairro},{" "}
+                        {pedido.address?.cidade}
+                      </p>
+
+                      <p className={styles.subInfo}>
+                       <strong> CEP:</strong> {pedido.address?.cep} | {pedido.address?.estado}
+                      </p>
+
+                      {pedido.address?.complemento && (
+                        <p className={styles.subInfo}>
+                           <strong>Complemento:</strong> {pedido.address.complemento}
+                        </p>
+                      )}
+                    </section>
+
+                    <p className={styles.preco}>
+                      <strong>Total:</strong> R${" "}
+                      {Number(item.precoTotal).toFixed(2)}
+                    </p>
+
+                    <p
+                      className={`${styles.status} ${
+                        styles[pedido.status.toLowerCase()]
+                      }`}
+                    >
+                   Status: {
+                      pedido.status === "PAID"
+                        ? "PAGO"
+                        : pedido.status === "EM_PREPARACAO"
+                        ? "EM PREPARAÇÃO"
+                        : pedido.status === "SAIU_PRA_ENTREGA"
+                        ? "SAIU PRA ENTREGA"
+                        : pedido.status
+                    }
+
+                    </p>
+                    {user?.role === "admin" && (
+                      <div className={styles.actions}>
+                        <button
+                          className={styles.btnEdit}
+                          onClick={() => edit(pedido)}
+                        >
+                          Editar
+                        </button>
+
+                        <button
+                          className={styles.btnDelete}
+                          onClick={() => deleteOrderConfirm(pedido.id)}
+                        >
+                          Deletar
+                        </button>
+                      </div>
                     )}
-                  </section>
-
-                  <p className={styles.preco}>
-                    <strong>Total:</strong> R${" "}
-                    {Number(item.precoTotal).toFixed(2)}
-                  </p>
-
-                  <p
-                    className={`${styles.status} ${
-                      styles[pedido.status.toLowerCase()]
-                    }`}
-                  >
-                    Status: {pedido.status}
-                  </p>
-{user?.role === 'admin'&&
-                  <div className={styles.actions}>
-                    <button
-                      className={styles.btnEdit}
-                      onClick={() => edit(pedido)}
-                    >
-                      Editar
-                    </button>
-
-                    <button
-                      className={styles.btnDelete}
-                      onClick={() => deleteOrderConfirm(pedido.id)}
-                    >
-                      Deletar
-                    </button>
                   </div>
-}
-                </div>
-              ))
+                ))
+              )
             )}
           </article>
         </>

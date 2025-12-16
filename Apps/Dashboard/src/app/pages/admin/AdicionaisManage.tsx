@@ -60,7 +60,7 @@ function AdicionaisManage() {
     <header className={styles.searchBarWrapper}>
         <input
           type="text"
-          placeholder="Pesquisar informações da Pizza..."
+          placeholder="Pesquisar informações dos Adicionais..."
           className={styles.searchInput}
           value={dadosSearch}
           onChange={(e) => setDadosSearch(e.target.value)}

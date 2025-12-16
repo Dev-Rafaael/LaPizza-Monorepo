@@ -76,7 +76,7 @@ function AddressManage() {
      <header className={styles.searchBarWrapper}>
         <input
           type="text"
-          placeholder="Pesquisar informações da Pizza..."
+          placeholder="Pesquisar informações do Endereço(Bairro)..."
           className={styles.searchInput}
           value={dadosSearch}
           onChange={(e) => setDadosSearch(e.target.value)}

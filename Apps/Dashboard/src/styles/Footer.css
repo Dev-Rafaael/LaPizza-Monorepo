@@ -4,52 +4,53 @@
   color: #374151; /* cinza escuro */
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   padding: 0 30px;
   border-top: 1px solid #e5e7eb;
   font-size: 0.9rem;
 }
 
-/* Lado esquerdo */
-.footer-left {
-  display: flex;
-  flex-direction: column;
-}
-
 .footer-logo {
   font-size: 1rem;
   font-weight: bold;
-  color: #2563eb; /* azul */
+  color:  rgb(225, 84, 29);
   margin: 0;
 }
 
-.footer-copy {
-  font-size: 0.75rem;
-  color: #e2e6ed;
-  margin: 2px 0 0;
-}
-
-/* Centro */
 .footer-center {
   display: flex;
-  gap: 20px;
+  align-items:start;
+  gap: 10px;
+  font-size: 0.85rem;
+
+}
+.footer-meta {
+  font-weight: 500;
+  color:  rgb(225, 84, 29);
+  white-space: nowrap;
 }
 
-.footer-link {
-  text-decoration: none;
-  color: #cbd0d7;
-  transition: color 0.2s ease;
+/* Separador • */
+.footer-dot {
+  color: #475569;
+  margin: 0 2px;
 }
 
-.footer-link:hover {
-  color: #2563eb;
+
+/* Copyright compacto */
+.footer-center  {
+  font-size: 0.9rem;
+  margin: 0;
+  white-space: nowrap;
 }
 
-/* Direita */
-.footer-right {
-  display: flex;
-  gap: 15px;
+/* Status online */
+.status-online {
+  color: #e51f0d;
+  font-weight: 600;
 }
+
+
 
 .footer-icon {
   text-decoration: none;
@@ -59,7 +60,7 @@
 }
 
 .footer-icon:hover {
-  color: #2563eb;
+  color: rgb(225, 84, 29);
 }
 /* ======== RESPONSIVO ======== */
 
@@ -74,9 +75,6 @@
     gap: 15px;
   }
 
-  .footer-right {
-    gap: 10px;
-  }
 }
 
 /* Mobile médio (até 768px) */
@@ -89,19 +87,19 @@
     gap: 10px;
   }
 
-  .footer-left {
-    align-items: center;
-  }
 
-  .footer-center {
-    justify-content: center;
+
+ .footer-center {
     flex-wrap: wrap;
-    gap: 12px;
+    justify-content: center;
+    row-gap: 6px;
   }
 
-  .footer-right {
-    justify-content: center;
+  .footer-dot {
+    display: none;
   }
+
+ 
 }
 
 /* Mobile pequeno (até 480px) */
@@ -124,9 +122,6 @@
     font-size: 0.8rem;
   }
 
-  .footer-right {
-    gap: 8px;
-  }
 
   .footer-icon {
     font-size: 0.85rem;

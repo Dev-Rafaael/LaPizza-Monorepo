@@ -78,7 +78,7 @@ function UserManage() {
       <header className={styles.searchBarWrapper}>
         <input
           type="text"
-          placeholder="Pesquisar informações da Pizza..."
+          placeholder="Pesquisar informações dos Usuários..."
           className={styles.searchInput}
           value={dadosSearch}
           onChange={(e) => setDadosSearch(e.target.value)}

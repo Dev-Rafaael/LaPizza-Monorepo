@@ -112,12 +112,17 @@ background: white;
   font-weight: 700;
    color: #d1921d;
 }
+.email {
+  font-size: 1rem;
+  font-weight: 700;
+   color: #d1921d;
+}
 
 /* ====== EMAIL ====== */
 .descricao {
   margin-top: 4px;
   font-size: 0.95rem;
-  color: #b8c5db; /* mais claro */
+  color: #323130; /* mais claro */
 }
 
 /* ====== INFORMAÇÕES ====== */
@@ -168,13 +173,13 @@ background: white;
   text-shadow: 0 0 4px rgba(239, 68, 68, 0.4);
 }
 
-.em_preparação {
-  color: #ffa500;
+.em_preparacao {
+  color: #ff5100;
   text-shadow: 0 0 4px rgba(127, 139, 30, 0.35);
 }
 
-.saiu_para_entrega {
-  color: #e76e04;
+.saiu_pra_entrega {
+  color: #e704b6;
   text-shadow: 0 0 4px rgba(216, 89, 21, 0.35);
 }
 /* ====== AÇÕES ====== */
@@ -219,7 +224,7 @@ background: white;
   align-items: center;
   justify-content: center;
 font-size: 2rem;
-  color: rgb(255, 255, 255);
+ color: rgb(225, 84, 29);
 }
 /* ====== FORM ====== */
 .formWrapper {

@@ -28,9 +28,6 @@ function Sidebar({ open, setOpen }: SidebarProps) {
             📊 DashBoard
           </Link>
 
-          <Link to="/DashBoard" className={styles.link} onClick={() => setOpen(false)}>
-            📈 Métricas
-          </Link>
 
           <Link to="/Pizzas" className={styles.link} onClick={() => setOpen(false)}>
             🍕 Pizzas

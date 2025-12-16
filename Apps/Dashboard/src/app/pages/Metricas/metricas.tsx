@@ -63,7 +63,7 @@ const doughnutOptions = {
     legend: {
       position: "bottom" as const, 
       labels: {
-        color: "#fff",
+        color: "#2c2929ff",
       },
     },
   },
@@ -128,9 +128,10 @@ const doughnutOptions = {
           "#06b6d4",
           "#10b981",
           "#f59e0b",
-          "#ef4444",],
+          "#191fe2ff",
+        "#ef4444",],
       },
-    ],
+    ],  
   };
 
   const vendasHoraData = {
@@ -147,15 +148,19 @@ const doughnutOptions = {
     ],
   };
 
-  const clientesData = {
-    labels: ["Novos", "Recorrentes"],
-    datasets: [
-      {
-        data: [metrics.clientesNovos, metrics.clientesRecorrentes],
-        backgroundColor: ["#4f46e5", "#10b981"],
-      },
-    ],
-  };
+ const clientesData = {
+  labels: ["Novos", "Recorrentes"],
+  datasets: [
+    {
+      data: [
+        metrics.clientesNovos,
+        metrics.clientesRecorrentes,
+      ],
+      backgroundColor: ["#4f46e5", "#10b981"],
+    },
+  ],
+};
+
 
   const categoriasData = {
     labels: metrics.categorias.map((c) => c.categoria),

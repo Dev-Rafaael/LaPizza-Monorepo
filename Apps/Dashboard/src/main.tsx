@@ -15,7 +15,6 @@ import AdicionaisManage from "./app/pages/admin/AdicionaisManage";
 import OrderItemManage from "./app/pages/admin/OrderItemManage";
 import PerfilManage from "./app/pages/admin/PerfilManage";
 import PedidosManage from "./app/pages/admin/orderManage";
-
 import PrivateRoute from "./middlewares/PrivateRoute";
 import PublicRoute from "./middlewares/PublicRoute";
 
