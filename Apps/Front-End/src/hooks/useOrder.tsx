@@ -26,9 +26,7 @@ export function useOrder() {
         adicionais: item.adicionais ? JSON.parse(JSON.stringify(item.adicionais)) : undefined,
       }));
 
-      console.log("Payload enviado:", { userId, addressId, precoTotal, items: itemsMapped });
-
-      // Cria pedido com itens de uma vez
+    
       const { data: orderData } = await api.post("/orders/", {
         userId: userId ?? null,
         addressId,

@@ -163,11 +163,8 @@ width: fit-content;
 }
 .statusCancelado {
   background: #ef4444;
+  color: white;
   text-shadow: 0 0 4px rgba(239, 68, 68, 0.4);
-}
-.statusPreparo {
-  background:  #ffa500;
-  color: black;
 }
 .statusAndamento {
    background: #8310ef;

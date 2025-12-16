@@ -9,7 +9,7 @@ const getStatusClass = (status: string, styles:any) => {
        case "CANCELADO":
       return styles.statusCancelado;
       case "SAIU_PARA_ENTREGA":
-      return styles.statusSaiuEntrega;
+      return styles.statusSaiuParaEntrega;
     case "PENDENTE":
     default:
       return styles.statusAndamento;

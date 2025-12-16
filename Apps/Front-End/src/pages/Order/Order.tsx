@@ -22,7 +22,7 @@ export default function Order() {
       return;
     }
     
- 
+    
 await handleSubmitOrder(Number(user.id), addressId);
   };
 
