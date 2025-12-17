@@ -388,6 +388,97 @@ opacity: 1;
   color: rgb(146, 117, 60);
 }/* NavBar.module.css */
 
+@media (max-width: 480px) {
+  /* Container geral da navbar */
+  .navBar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    
+  }
+
+  /* Ajuste da barra de navegação */
+  .content {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 1rem;
+    position: relative;
+    top: 0;
+    z-index: 999;
+   
+  }
+
+  /* Centraliza a logo */
+  .title {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  
+    text-align: center;
+    display: flex;
+    flex-direction: column; 
+  }
+  .title img{
+    height: 2.3rem;
+  }
+  .title span{
+    display: none;
+  }
+  /* Estilo dos itens de navegação */
+  .navItens {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 80%;
+    background-color: rgb(26, 24, 24);
+    height: 100vh;
+    z-index: 10;
+    display: none; /* Esconde o menu inicialmente */
+    flex-direction: column;
+    align-items: center;
+    padding-top: 4rem;
+  }
+
+  /* Itens dentro do menu */
+  .navItens ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  /* Quando o menu estiver aberto */
+  .navItens.open {
+    display: flex; /* Exibe o menu */
+  }
+
+  /* Ícone de menu hambúrguer visível no responsivo */
+  .hamburgerMenu {
+    display: block;
+    position: absolute;
+    left: 1rem; /* Alinha o hambúrguer à esquerda */
+    top: 1rem;
+    color: white;
+  }
+.userDropdown {
+  top: -20%; /* distancia do ícone */
+  right: 130%;
+  
+}
+  /* Esconde a logo na versão responsiva, se necessário */
+  .logoImg {
+    display: none;
+  }
+
+
+}
 
 /* Estilos para telas menores */
 @media (max-width: 768px) {
@@ -469,7 +560,11 @@ opacity: 1;
     top: 1rem;
     color: white;
   }
-
+.userDropdown {
+  top: -20%; /* distancia do ícone */
+  right: 130%;
+  
+}
   /* Esconde a logo na versão responsiva, se necessário */
   .logoImg {
     display: none;

@@ -3,51 +3,98 @@ import { useUserStore, type UserStore } from "@packages/store/useUserStore";
 import styles from "../styles/MeusPedidos.module.css";
 import { useEffect, useState } from "react";
 import { api } from "@packages/api/api";
-import type { Order } from "@packages/types/types";
+import type { LocalOrder, Order, OrderView } from "@packages/types/types";
 import getStatusClass from "../utils/getStatusClass";
 import { toast } from "react-toastify";
 import { useOrder } from "../hooks/useOrder";
+import { useOrderStore } from "../store/useOrderStore";
+import { Link } from "react-router-dom";
+
+
 
 function MeusPedidos() {
   const user = useUserStore((s: UserStore) => s.user);
-  const [, setPedidos] = useState<Order[]>([]);
-
-  const [modalOpen, setModalOpen] = useState(false);
-  const [pedidoSelecionado, setPedidoSelecionado] = useState<number | null>(
-    null
-  );
-  const [searchTerm, setSearchTerm] = useState<Order[]>([]);
-  const [dadosSearch, setDadosSearch] = useState("");
-  const [orders, setOrders] = useState<Order[]>([]);
-  const [statusFilter, setStatusFilter] = useState("");
+  const { orders: localOrders } = useOrderStore();
   const { pagarPedido } = useOrder();
 
-  const handlePedido = async () => {
-    const data = (await api.get(`/orders/`)).data;
+  const [ordersView, setOrdersView] = useState<OrderView[]>([]);
+  const [filteredOrders, setFilteredOrders] = useState<OrderView[]>([]);
 
-    const pedidosUser = data.filter((i: Order) => i.userId === user?.id);
-    setPedidos(pedidosUser);
-  };
-  const fetchOrders = async () => {
-    try {
-      const data = (await api.get(`/orders/`)).data;
+  const [modalOpen, setModalOpen] = useState(false);
+  const [pedidoSelecionado, setPedidoSelecionado] = useState<number | null>(null);
+  const [dadosSearch, setDadosSearch] = useState("");
+  const [statusFilter, setStatusFilter] = useState("");
 
-      setOrders(data);
-    } catch (err: unknown) {
-      console.error(err);
-    }
-  };
+  const mapApiOrder = (order: Order): OrderView => ({
+    id: order.id,
+    status: order.status,
+    items: order.items,
+    precoTotal: order.precoTotal,
+  });
+
+  const mapLocalOrder = (order: LocalOrder): OrderView => ({
+    id: order.id,
+    status: order.status,
+    items: order.items,
+    precoTotal: order.items.reduce(
+      (total, item) => total + item.precoTotal,
+      0
+    ),
+  });
 
   useEffect(() => {
-    fetchOrders();
-    handlePedido();
-  }, []);
+    const loadOrders = async () => {
+      try {
+        if (user?.role === "admin") {
+          const { data } = await api.get<Order[]>("/orders");
+          setOrdersView(data.map(mapApiOrder));
+        } else {
+          setOrdersView(localOrders.map(mapLocalOrder));
+        }
+      } catch (err) {
+        console.error(err);
+      }
+    };
 
+    loadOrders();
+  }, [user, localOrders]);
+
+  /* 🔹 FILTROS */
+  const normalizar = (txt: string) =>
+    txt
+      .toLowerCase()
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "");
+
+  useEffect(() => {
+    let filtrados = [...ordersView];
+
+    if (statusFilter) {
+      filtrados = filtrados.filter(
+        (p) => normalizar(p.status) === normalizar(statusFilter)
+      );
+    }
+
+    if (dadosSearch.trim()) {
+      const texto = normalizar(dadosSearch);
+      filtrados = filtrados.filter((p) =>
+        normalizar(p.items.map((i) => i.sabor).join(" ")).includes(texto)
+      );
+    }
+
+    setFilteredOrders(filtrados);
+  }, [ordersView, statusFilter, dadosSearch]);
+
+  /* 🔹 AÇÕES */
   const cancelarPedido = async (id: number) => {
     try {
       await api.put(`/orders/${id}`, { status: "CANCELADO" });
-      handlePedido();
-      toast.success("Pedido Cancelado Com Sucesso");
+      toast.success("Pedido cancelado com sucesso");
+
+      if (user?.role === "admin") {
+        const { data } = await api.get<Order[]>("/orders");
+        setOrdersView(data.map(mapApiOrder));
+      }
     } catch (err) {
       console.error(err);
     }
@@ -57,35 +104,6 @@ function MeusPedidos() {
     setPedidoSelecionado(id);
     setModalOpen(true);
   };
-  const normalizar = (txt: string) =>
-    txt
-      .toLowerCase()
-      .normalize("NFD")
-      .replace(/[\u0300-\u036f]/g, "");
-
-  const filtrar = () => {
-    const texto = normalizar(dadosSearch);
-
-    let filtrados = orders;
-
-    if (statusFilter) {
-      filtrados = filtrados.filter(
-        (i) => normalizar(i.status) === normalizar(statusFilter)
-      );
-    }
-
-    if (texto.trim()) {
-      filtrados = filtrados.filter((i) =>
-        normalizar(i.items.map((p) => p.sabor).join(" ")).includes(texto)
-      );
-    }
-
-    setSearchTerm(filtrados);
-  };
-
-  useEffect(() => {
-    filtrar();
-  }, [statusFilter, dadosSearch, orders]);
 
   return (
     <section className={styles.pedidosContainer}>
@@ -120,13 +138,14 @@ function MeusPedidos() {
           </div>
         </header>
 
-        {searchTerm.length === 0 ? (
+        {filteredOrders.length === 0 ? (
           <p className={styles.semPedidos}>Nenhum pedido encontrado.</p>
         ) : (
-          searchTerm.map((pedido) => (
+          filteredOrders.map((pedido) => (
             <div key={pedido.id} className={styles.cardPedido}>
               <header className={styles.pedidoHeader}>
                 <h2>Pedido #{pedido.id}</h2>
+                <div className={styles.infoPedido}>
                 <span
                   className={`${styles.status} ${getStatusClass(
                     pedido.status,
@@ -141,10 +160,12 @@ function MeusPedidos() {
                   ? "SAIU PARA ENTREGA"
                   : pedido.status}
                 </span>
+                <Link to={`/order-status/${pedido.id}`}>👁️Ver Status</Link>
+                </div>
               </header>
-
+  {pedido.items.map((item) => (
               <div className={styles.itensList}>
-                {pedido.items.map((item) => (
+              
                   <div key={item.id} className={styles.item}>
                     <img src={item.imagem!} alt={item.sabor} />
                     <div className={styles.itemInfo}>
@@ -155,19 +176,20 @@ function MeusPedidos() {
                         <strong>R$ {item.precoUnitario.toFixed(2)}</strong>
                       </p>
                     </div>
+                   
                   </div>
-                ))}
-              </div>
-
-              <footer className={styles.pedidoFooter}>
-                <h3>Total: R$ {pedido.precoTotal.toFixed(2)}</h3>
+                <footer className={styles.pedidoFooter}>
+                <h3>Total: R$ {item.precoTotal.toFixed(2)}</h3>
               </footer>
+              </div>
+  ))}
+             
 
               <div className={styles.btnOption}>
                 {pedido.status === "PENDENTE" && user?.role === 'admin' &&(
                   <button
                     className={styles.btnPagar}
-                    onClick={() => pagarPedido(pedido)}
+                    onClick={() => pagarPedido(pedido as Order)}
                   >
                     Pagar Agora
                   </button>

@@ -48,8 +48,9 @@ const router = createBrowserRouter([
         element: <Cardapio />,
       },
     {
-        path: "Orçamento/:sabor",
-        element: <OrderItem />,
+        path: "/orcamento/:id",
+element: <OrderItem />
+
       },
     
       {

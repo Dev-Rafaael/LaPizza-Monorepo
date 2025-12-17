@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import styles from "../styles/OrderStatus.module.css";
 import { api } from "@packages/api/api";
-
+import { useNavigate } from 'react-router-dom';
 
 type StatusType =
   | "pendente"
@@ -14,7 +14,7 @@ type StatusType =
 function OrderStatus() {
   const { orderId } = useParams();
   const [status, setStatus] = useState<StatusType>("pendente");
-
+  const navigate = useNavigate(); 
   const steps = [
     { id: "PAGO", label: "Pagamento aprovado" },
     { id: "EM_PREPARAÇÃO", label: "Em preparo" },
@@ -80,9 +80,9 @@ function OrderStatus() {
           >
             Atualizar agora
           </button>
-          <a href="/" className={styles.backBtn}>
-            Voltar ao início
-          </a>
+          <button onClick={() => navigate(-1)} className={styles.backBtn}>
+            Voltar 
+          </button>
         </div>
       </article>
     </section>

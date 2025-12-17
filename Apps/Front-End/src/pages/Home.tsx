@@ -15,6 +15,9 @@ import { FaPlay } from 'react-icons/fa'
 import { useEffect, useState } from 'react'
 import AOS from 'aos';
 import Modal from 'react-modal';
+import usePizza from '../hooks/usePizza'
+import useAvaliacao from '../hooks/useAvaliacao'
+import useDestaque from '../hooks/useDestaque'
 const CustomPrevArrow: React.FC<CustomArrowProps> =(props) => {
   const { className, style, onClick } = props;
   return (
@@ -38,8 +41,9 @@ const CustomNextArrow: React.FC<CustomArrowProps> =(props) => {
 };
 function Home() {
    const [modalIsOpen, setModalIsOpen] = useState(false);
-
-
+  const {pizzas} = usePizza()
+const { avaliacoes } = useAvaliacao();
+const { destaques } = useDestaque();
   const settings = {
     dots: false,
     infinite: true,
@@ -102,7 +106,7 @@ function Home() {
     <h3>As melhores pizzas da cidade 🍕</h3>
     <div className={styles.options}>
       <Link to="/Cardapio/">Ver Cardápio</Link>
-      <Link to="/Pedidos/">Faça Seu Pedido</Link>
+      <Link to="/Cardapio/">Faça Seu Pedido</Link>
     </div>
   </div>
 
@@ -164,8 +168,8 @@ function Home() {
 </section>
 
 {/* CARDÁPIO */}
-      {/* <section className={styles.cardapio}>
-        <h1 className={styles.titleCardapio}>CARDÁPIO</h1>
+      <section className={styles.cardapio}>
+        <h1 className={styles.titleCardapio}>🍕Cardápio</h1>
         <article className={styles.cardapioItens}>
           {pizzas.slice(0,3).map((pizza, index) => (
             <div key={index} className={styles.pizzaItem}>
@@ -180,21 +184,26 @@ function Home() {
           <article className={styles.cardapioOption}>
           <Link to={'/Cardapio'}>Ver Mais</Link>
         </article>
-      </section> */}
+      </section> 
       {/* SOBRE */}
       <section className={styles.sobreSection} >
         <div className={styles.sobre}>
        <div className={styles.sobreInfo}>
           <p className={styles.sobreNos}>Buscando Pizzas Saborosas?</p>
         <h3>MUITO PRAZER, SOMOS A <span>LA PIZZA</span></h3>
-            <h5>Fundada em 2003, a <span>vincci</span> tem como missão oferecer o melhor ambiente e 
-            estrutura para que você possa se divertir. Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo, molestias esse! Accusamus quibusdam quam suscipit reprehenderit consequuntur? Commodi id hic ipsam ducimus neque quasi</h5>
+            <h5>Bem-vindo à <strong>La Pizza</strong>, o lugar onde tradição, sabor e qualidade se encontram para
+        transformar cada pedaço em uma experiência inesquecível!</h5>
           <div className={styles.sobreBtn}>
             <Link to="/sobre/">SAIBA MAIS</Link>
           </div>
         </div>
         <div className={styles.sobrefotos}>
-              <img src={Pizza} alt="Pizza" />
+              <iframe
+            src="https://www.youtube.com/embed/T3AHBe0I0yc?autoplay=1"
+          title="La Pizza - Vídeo Promocional"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        ></iframe>
            
         </div>
      </div>
@@ -202,28 +211,27 @@ function Home() {
 
       
 
-      {/* BENEFICIOS E DIFERENCIAS  */}
-      {/* <section className={styles.beneficiosContent}>
+       <section className={styles.beneficiosContent}>
   <h2 className={styles.title}>
     ⭐ Nossos Diferenciais
   </h2>
 
   <ul className={styles.lista}>
-    {lista.map((beneficio, index) => (
+    {destaques.map((beneficio, index) => (
       <li key={index} className={styles.item}>
         <span className={styles.icone}>✅</span> 
-        {beneficio}
+        {beneficio.descricao}
       </li>
     ))}
   </ul>
-</section> */}
+</section> 
 
 
       {/* AVALIACOES  */}
  <section className={styles.avaliacoesContent}>
   <h2 className={styles.title}>⭐ Avaliações</h2>
 
-  {/* <div className={styles.grid}>
+   <div className={styles.grid}>
     {avaliacoes.map((avaliacao, index) => (
       <div key={index} className={styles.card}>
         <p className={styles.estrelas}>
@@ -236,7 +244,7 @@ function Home() {
         </p>
       </div>
     ))}
-  </div> */}
+  </div> 
 </section>
 
     </section>  

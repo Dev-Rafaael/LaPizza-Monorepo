@@ -1,40 +1,36 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
-import type { OrderItem } from "@packages/types/types";
+import type { LocalOrder, OrderItem } from "@packages/types/types";
 
 
 
-
-interface Order {
-  nome: string;
-  sobreNome: string;
-  cpf: string;
-  sexo: string;
-  nascimento: string;
-  email: string;
-  telefone: string;
-  cep: string;
-  estado: string;
-  cidade: string;
-  numero: string;
-  complemento: string;
-  items: OrderItem[], 
+interface OrderStore {
+  orders: LocalOrder[];
+  addOrder: (order: Omit<LocalOrder, "id" | "createdAt">) => void;
+  clearOrders: () => void;
 }
 
-interface UseOrderStore {
-  order: Order | null,
-  addOrder: (order:Order)=> void,
-}
+export const useOrderStore = create<OrderStore>()(
+  persist(
+    (set) => ({
+      orders: [],
 
+      addOrder: (order) =>
+        set((state) => ({
+          orders: [
+            ...state.orders,
+            {
+              ...order,
+              id: Date.now(),
+              createdAt: new Date().toISOString(),
+            },
+          ],
+        })),
 
-export const UseOrderStore = create<UseOrderStore >()(
-    persist(
-        (set)=>({
-        order:null,
-        addOrder: (order) => set({order})
-        }),{
-            name:'order-storage'
-        }
-        
-    )
-)
+      clearOrders: () => set({ orders: [] }),
+    }),
+    {
+      name: "order-storage",
+    }
+  )
+);

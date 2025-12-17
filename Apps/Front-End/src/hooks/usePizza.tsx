@@ -1,33 +1,30 @@
-import { useEffect, useState } from "react";
-import type {  Pizzas } from "@packages/types/types";
+import { useEffect } from "react";
+import type { Pizzas } from "@packages/types/types";
 import { api } from "@packages/api/api";
 import { usePizzaStore } from "@packages/store/usePizzaStore";
 import { useNavigate } from "react-router-dom";
 
 function usePizza() {
-      const [pizzas, setPizzas] = useState<Pizzas[]>([]);
-    
-      const pizzaSelecionada = usePizzaStore((s)=> s.setPizzaSelecionada)
-      const navigate = useNavigate()
-      useEffect(() => {
-        const handlePizzas = async () => {
-          try {
-            const responsePizza = await api.get("/pizzas/");
-            setPizzas(responsePizza.data);
-           
-          } catch (error) {
-            console.log(error);
-          }
-        };
-        handlePizzas();
-      }, [])
+  const pizzas = usePizzaStore((s) => s.pizzas);
+  const setPizzas = usePizzaStore((s) => s.setPizzas);
+  const navigate = useNavigate();
 
-      const selectedPizza = (pizzas:Pizzas)=>{
-        if(!pizzas) return
-        pizzaSelecionada(pizzas)
-        navigate(`/Orçamento/${pizzas.sabor}`)
-      }
-  return {pizzas,selectedPizza}as const
+  useEffect(() => {
+    if (pizzas.length) return;
+
+    api.get<Pizzas[]>("/pizzas")
+      .then((res) => setPizzas(res.data))
+      .catch((err) => console.error(err));
+  }, [pizzas.length, setPizzas]);
+
+  const selectedPizza = (pizza: Pizzas) => {
+    navigate(`/orcamento/${pizza.id}`);
+  };
+
+  return {
+    pizzas,
+    selectedPizza,
+  };
 }
 
-export default usePizza
+export default usePizza;

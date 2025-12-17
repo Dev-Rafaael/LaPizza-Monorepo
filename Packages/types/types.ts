@@ -132,3 +132,37 @@ export interface Address {
   complemento?: string;
   userId: number;
 }
+export interface Avaliacao {
+    id:number;
+  nome:string;
+  texto:string;
+  estrelas:number;
+  
+}
+export interface Destaque {
+  id: number;
+  descricao: string;
+}
+export interface LocalOrder {
+  id: number;
+  nome: string;
+  sobreNome: string;
+  cpf: string;
+  sexo: string;
+  nascimento: string;
+  email: string;
+  telefone: string;
+  cep: string;
+  estado: string;
+  cidade: string;
+  numero: string;
+  complemento?: string;
+  items: OrderItem[];
+    status: "PENDENTE" | "PAID" | "EM_PREPARACAO" | "CANCELADO"| "SAIU_PARA_ENTREGA" | "ENTREGUE";
+  createdAt: string;
+}export interface OrderView {
+  id: number;
+  status: string;
+  precoTotal: number;
+  items: OrderItem[];
+}

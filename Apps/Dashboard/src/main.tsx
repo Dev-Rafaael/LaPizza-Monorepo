@@ -1,6 +1,6 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, Navigate, RouterProvider } from "react-router-dom";
 import "./index.css";
 
 import App from "./App";
@@ -32,20 +32,25 @@ const router = createBrowserRouter([
       {
         element: <PrivateRoute />,
         children: [
-          { path: "/dashboard", element: <Metricas /> },
-          { path: "/Pedidos", element: <PedidosManage /> },
-          { path: "/produtos", element: <Produtos /> },
-          { path: "/Pizzas", element: <PizzasManage /> },
-          { path: "/Usuarios", element: <UserManage /> },
-          { path: "/Endereços", element: <AddressManage /> },
-          { path: "/Adicionais", element: <AdicionaisManage /> },
-          { path: "/OrdersItems", element: <OrderItemManage /> },
-          { path: "/perfil", element: <PerfilManage /> },
+          {
+            index: true,
+            element: <Navigate to="/Dashboard" replace />,
+          },
+          { path: "Dashboard", element: <Metricas /> },
+          { path: "Pedidos", element: <PedidosManage /> },
+          { path: "produtos", element: <Produtos /> },
+          { path: "Pizzas", element: <PizzasManage /> },
+          { path: "Usuarios", element: <UserManage /> },
+          { path: "Endereços", element: <AddressManage /> },
+          { path: "Adicionais", element: <AdicionaisManage /> },
+          { path: "OrdersItems", element: <OrderItemManage /> },
+          { path: "perfil", element: <PerfilManage /> },
         ],
       },
     ],
   },
 ]);
+
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>

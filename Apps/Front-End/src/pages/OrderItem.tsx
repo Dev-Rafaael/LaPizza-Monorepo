@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Modal from "../components/modais/Modal";
 import useOrderItem from "../hooks/useOrderItem";
 import { usePizzaStore } from "@packages/store/usePizzaStore";
@@ -9,7 +9,13 @@ import type { Adicional } from "@packages/types/types";
 
 function OrderItem() {
   const navigate = useNavigate();
+  const { id } = useParams();
+
   const addItem = useUserCart((s) => s.addItem);
+  const { pizzas } = usePizzaStore();
+  const pizzaSelecionada = pizzas.find(
+    (p) => p.id === Number(id)
+  );
   const {
     unidades,
     setUnidades,
@@ -19,12 +25,11 @@ function OrderItem() {
     toggleAdicional,
     modal,
     setModal,
-  } = useOrderItem();
-  const { pizzaSelecionada } = usePizzaStore();
-  if (!pizzaSelecionada) return <p className={styles.loadingOrcamento}>Carregando...</p>;
+  } = useOrderItem(pizzaSelecionada);
 
-
-
+  if (!pizzaSelecionada) {
+    return <p className={styles.loadingOrcamento}>Carregando...</p>;
+  }
 
   return (
     <main className={styles.orcamento}>
@@ -36,61 +41,66 @@ function OrderItem() {
         <article className={styles.productImage}>
           <img src={pizzaSelecionada.imagem} alt="Imagem Pizza" />
         </article>
+
         <article className={styles.orcamentoContent}>
           <h1>{pizzaSelecionada.sabor}</h1>
           <p>Pacote {pizzaSelecionada.descricao}</p>
           <h2>Preço: R${pizzaSelecionada.preco.toFixed(2)}</h2>
+
           <div className={styles.form}>
             <form onSubmit={handleSubmit}>
               <div className={styles.inputForm}>
-                <label htmlFor="Unidades">Unidades:</label>
+                <label>Unidades:</label>
                 <select
-                  name="Unidades"
                   value={unidades}
                   onChange={(e) => setUnidades(Number(e.target.value))}
                   required
                 >
-                  <option value="" defaultChecked>
-                    Selecione
-                  </option>
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                  <option value="5">5</option>
+                  <option value="">Selecione</option>
+                  <option value={1}>1</option>
+                  <option value={2}>2</option>
+                  <option value={3}>3</option>
+                  <option value={4}>4</option>
+                  <option value={5}>5</option>
                 </select>
               </div>
-              <div className={styles.inputForm}> <label htmlFor="Adicionais">Adicionais:</label>
-              {pizzaSelecionada &&
-                pizzaSelecionada.adicionais.map((pizza:Adicional) => (
-                  <label key={pizza.id} className={styles.checkboxContainer}>
+
+              <div className={styles.inputForm}>
+                <label>Adicionais:</label>
+
+                {pizzaSelecionada.adicionais.map((adicional: Adicional) => (
+                  <label key={adicional.id} className={styles.checkboxContainer}>
                     <input
                       type="checkbox"
                       checked={adicionaisSelecionados.some(
-                        (a) => a.id === pizza.id
+                        (a) => a.id === adicional.id
                       )}
-                      onChange={() => toggleAdicional(pizza)}
+                      onChange={() => toggleAdicional(adicional)}
                     />
-                    <span className={styles.customCheckbox}></span>
-                     {pizza.nome} <p>(+R${pizza.preco.toFixed(2)})</p>
+                    <span className={styles.customCheckbox} />
+                    {adicional.nome}
+                    <p>
+                      (+R$
+                      {typeof adicional.preco === "number"
+                        ? adicional.preco.toFixed(2)
+                        : "0.00"}
+                      )
+                    </p>
                   </label>
                 ))}
-          </div>
-              {
-                <h3 className={styles.valor}>
-                  {" "}
-                  Total a Pagar: R$
-                  {precoTotal
-                    ? precoTotal.toFixed(2)
-                    : pizzaSelecionada.preco.toFixed(2)}
-                </h3>
-              }
+              </div>
+
+              <h3 className={styles.valor}>
+                Total a Pagar: R$
+                {(precoTotal ?? pizzaSelecionada.preco).toFixed(2)}
+              </h3>
 
               <button type="submit">Prosseguir</button>
             </form>
           </div>
         </article>
       </section>
+
       {modal && (
         <Modal
           title="Tem certeza?"
@@ -99,10 +109,10 @@ function OrderItem() {
           precoTotal={precoTotal}
           onContinue={() => {
             addItem({
-               cartId: Date.now(),
+              cartId: Date.now(),
               ...pizzaSelecionada,
               unidades,
-              adicionais:adicionaisSelecionados,
+              adicionais: adicionaisSelecionados,
               precoTotal,
             });
             toast.success("Enviado ao Carrinho!");
@@ -111,10 +121,10 @@ function OrderItem() {
           }}
           onConfirm={() => {
             addItem({
-               cartId: Date.now(),
+              cartId: Date.now(),
               ...pizzaSelecionada,
               unidades,
-              adicionais:adicionaisSelecionados,
+              adicionais: adicionaisSelecionados,
               precoTotal,
             });
             toast.success("Enviado ao Carrinho!");

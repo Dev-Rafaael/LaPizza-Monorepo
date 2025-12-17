@@ -1,52 +1,31 @@
-import { useParams } from "react-router-dom";
-import { useEffect, useState, type FormEvent } from "react";
-import { api } from "@packages/api/api";
+import { useMemo, useState, type FormEvent } from "react";
 import type { Adicional, Pizzas } from "@packages/types/types";
 import { toast } from "react-toastify";
-import { usePizzaStore } from "@packages/store/usePizzaStore";
 import { cartSchema } from "@packages/schemas/cartSchema";
 
-function useOrderItem() {
-  const [precoTotal, setPrecoTotal] = useState<number>(0.0);
-  const [unidades, setUnidades] = useState<number>(1);
+function useOrderItem(pizzaSelecionada: Pizzas | undefined) {
+  const [unidades, setUnidades] = useState(1);
   const [adicionaisSelecionados, setAdicionaisSelecionados] = useState<Adicional[]>([]);
-  const [modal, setModal] = useState<boolean>(false);
-  const { sabor } = useParams();
-  const [pizzas, setPizzas] = useState<Pizzas[]>([]);
+  const [modal, setModal] = useState(false);
 
-  const [editId, setEditId] = useState<number | null>(null);
-  const { pizzaSelecionada } = usePizzaStore();
-
-  useEffect(() => {
-    (async () => {
-      try {
-        const response = await api.get("/pizzas/");
-        setPizzas(response.data);
-        
-      } catch (error) {
-        console.log(error);
-      }
-    })();
-  }, []);
-
-
-  useEffect(() => {
-    if (!pizzaSelecionada) return;
-    const adicionaisTotal = adicionaisSelecionados.reduce((acc, ad) => acc + ad.preco, 0);
-    const total = (pizzaSelecionada.preco + adicionaisTotal) * unidades;
-    setPrecoTotal(total);
-  }, [pizzaSelecionada, unidades,adicionaisSelecionados]);
-
-  const toggleAdicional = (adicionais: Adicional) => {
-    setAdicionaisSelecionados((prev) => {
-      const jaTem = prev.find((item) => item.id === adicionais.id);
-      if (jaTem) {
-        return prev.filter((item) => item.id !== adicionais.id);
-      } else {
-        return [...prev, adicionais];
-      }
-    });
+  const toggleAdicional = (adicional: Adicional) => {
+    setAdicionaisSelecionados((prev) =>
+      prev.some((a) => a.id === adicional.id)
+        ? prev.filter((a) => a.id !== adicional.id)
+        : [...prev, adicional]
+    );
   };
+
+  const precoTotal = useMemo(() => {
+    if (!pizzaSelecionada) return 0;
+
+    const adicionaisTotal = adicionaisSelecionados.reduce(
+      (acc, ad) => acc + (ad.preco ?? 0),
+      0
+    );
+
+    return (pizzaSelecionada.preco + adicionaisTotal) * unidades;
+  }, [pizzaSelecionada, adicionaisSelecionados, unidades]);
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
@@ -55,13 +34,13 @@ function useOrderItem() {
     const newOrcamento = {
       ...pizzaSelecionada,
       unidades,
+      adicionais: adicionaisSelecionados,
       precoTotal,
     };
 
     const parseResult = cartSchema.safeParse(newOrcamento);
 
     if (!parseResult.success) {
-      
       parseResult.error.issues.forEach((err) => toast.error(err.message));
       return;
     }
@@ -70,17 +49,11 @@ function useOrderItem() {
   };
 
   return {
-    precoTotal,
-    setPrecoTotal,
     unidades,
     setUnidades,
     adicionaisSelecionados,
     toggleAdicional,
-    sabor,
-    pizzas,
-    setEditId,
-    editId,
-    pizzaSelecionada,
+    precoTotal,
     handleSubmit,
     modal,
     setModal,
@@ -88,3 +61,4 @@ function useOrderItem() {
 }
 
 export default useOrderItem;
+

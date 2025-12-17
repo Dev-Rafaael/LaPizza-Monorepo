@@ -14,6 +14,7 @@ import { ToastNotification } from "./ToastNotification";
 import useNavbar from "../hooks/useNavbar";
 import { useState, useEffect, useRef } from "react";
 import {useUserStore, type UserStore} from "@packages/store/useUserStore";
+import usePizza from "../hooks/usePizza";
 function Navbar() {
   const {
     open,
@@ -30,29 +31,15 @@ function Navbar() {
     closeModal,
     handleSearchChange,
     clearSearch,
+    hamburgerButtonRef,
+    menuRef,
+    closeMenu
   } = useNavbar();
+    const {selectedPizza} = usePizza()
   const logout = useUserStore((s:UserStore) => s.logout);
   const [userOpen, setUserOpen] = useState(false);
-  const menuRef = useRef<HTMLLIElement>(null);
   const notificationRef = useRef<HTMLLIElement | null>(null);
-useEffect(() => {
-  function handleOutsideClick(e: MouseEvent | TouchEvent) {
-    if (
-      notificationRef.current &&
-      !notificationRef.current.contains(e.target as Node)
-    ) {
-      setOpen(false);
-    }
-  }
 
-  document.addEventListener("mousedown", handleOutsideClick);
-  document.addEventListener("touchstart", handleOutsideClick);
-
-  return () => {
-    document.removeEventListener("mousedown", handleOutsideClick);
-    document.removeEventListener("touchstart", handleOutsideClick);
-  };
-}, []);
 
   useEffect(() => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -77,9 +64,16 @@ useEffect(() => {
       )}
 
       <div className={styles.content}>
-        <div className={styles.hamburgerMenu} onClick={toggleMenu}>
-          <FontAwesomeIcon icon={isMenuOpen ? faXmark : faBars} />
-        </div>
+        <div
+  ref={menuRef}
+  className={styles.hamburgerMenu}
+  onClick={(e) => {
+    e.stopPropagation();
+    toggleMenu();
+  }}
+>
+  <FontAwesomeIcon icon={isMenuOpen ? faXmark : faBars} />
+</div>
 
         <a href="/" className={styles.title}>
           <img src={PizzaIcon} alt="Ícone de pizza" />
@@ -87,52 +81,53 @@ useEffect(() => {
         </a>
         <nav className={styles.navbarContent}>
           <div
+           ref={menuRef}
             className={`${styles.navItens} ${isMenuOpen ? styles.open : ""}`}
           >
             <ul>
               <li>
-                <button onClick={toggleModal}>
+                <button onClick={toggleModal} >
                   <FontAwesomeIcon icon={faMagnifyingGlass} />
                 </button>
               </li>
               <li>
-                <Link to="/">HOME</Link>
+                <Link to="/"  onClick={closeMenu}>HOME</Link>
               </li>
               <li>
-                <Link to="/Sobre">Sobre nós</Link>
+                <Link to="/Sobre"  onClick={closeMenu}>Sobre nós</Link>
               </li>
               <li>
-                <Link to="/Cardapio">Cardápio</Link>
+                <Link to="/Cardapio"  onClick={closeMenu}>Cardápio</Link>
               </li>
               <li>
-                <Link to="/fale-conosco/">Contato</Link>
+                <Link to="/fale-conosco/" onClick={closeMenu} >Contato</Link>
               </li>
               <li>
-                <Link to="/Politica-Privacidade">Politica</Link>
+                <Link to="/Politica-Privacidade" onClick={closeMenu}>Politica</Link>
               </li>
 
               <li>
-                <Link to="/Carrinho">
+                <Link to="/Carrinho"  onClick={closeMenu}>
                   <FontAwesomeIcon icon={faCartShopping} />
                 </Link>
               </li>
-              <li className={styles.userMenu} ref={menuRef}>
+              <li className={styles.userMenu}>
                 <button
                   className={styles.userButton}
                   onClick={() => setUserOpen((prev) => !prev)}
                 >
-                  <FontAwesomeIcon icon={faUser} />
+                  <FontAwesomeIcon icon={faUser}  />
                 </button>
 
                 {userOpen && (
                   <div className={styles.userDropdown}>
-                    <Link to="/Perfil">Minha Conta</Link>
-                    <Link to="/Meus-Pedidos">Meus Pedidos</Link>
+                    <Link to="/Perfil"  onClick={closeMenu}>Minha Conta</Link>
+                    <Link to="/Meus-Pedidos"  onClick={closeMenu}>Meus Pedidos</Link>
                     <button onClick={logout}>Logout</button>
                   </div>
                 )}
               </li>
-                  <li
+                  {/* <li
             className={styles.notificationWrapper}
             ref={notificationRef}
             onClick={() => setOpen(prev => !prev)}
@@ -144,7 +139,7 @@ useEffect(() => {
             )}
 
             {open && <NotificationDropdown />}
-          </li>
+          </li> */}
 
             </ul>
           </div>
@@ -185,7 +180,7 @@ useEffect(() => {
                         </div>
                         <div className={styles.actionPay}>
                           <Link
-                            to={`/Orçamento/${item.sabor}`}
+                              to={`/orcamento/${item.id}`}
                             onClick={closeModal}
                           >
                             Selecionar

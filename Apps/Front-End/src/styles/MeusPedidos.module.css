@@ -144,9 +144,20 @@ height: 80vh;
   font-weight: 600;
   color: white;
 }
-
+.infoPedido{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+.infoPedido a {
+padding: 0.4rem 0.8rem;;
+  background-color: aliceblue;
+  border-radius: 0.6rem;
+  text-align: center;
+  margin: auto 0;
+}
 .status {
-margin-top: 0.5rem;
 padding: 0.4rem 0.8rem;
 border-radius: 0.5rem;
 font-weight: bold;
@@ -263,6 +274,9 @@ grid-template-columns: 1fr;
 .cardPedido {
 flex-direction: column;
 text-align: center;
+  width: 97%;
+  margin: 0.5rem auto;
+
 }
 .pedidoImage img {
 height: 220px;
@@ -275,8 +289,18 @@ height: 220px;
 
 
 @media (max-width: 480px) {
+  .filterGroup{
+    flex-direction: column;
+  }
 .navPedidos h1 {
 font-size: 1.9rem;
+}
+.cardPedido{
+  width: 97%;
+  margin: 0.5rem auto;
+}
+.infoPedido{
+  flex-direction: column;
 }
 .pedidoInfo h2 {
 font-size: 1rem;

@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
+
 import type { Cart } from "@packages/types/types";
 import { api } from "@packages/api/api";
 import { useLocation } from "react-router-dom";
@@ -19,6 +20,28 @@ function useNavbar() {
   const notifications = useUserNotification((s) => s.notifications);
   const unreadCount = notifications.filter((n) => !n.lida).length;
   const user = useUserStore((s:UserStore) => s.user);
+  const menuRef = useRef<HTMLDivElement | null>(null);
+  const hamburgerButtonRef = useRef<HTMLDivElement | null>(null);
+useEffect(() => {
+  function handleClickOutside(e: MouseEvent | TouchEvent) {
+    if (
+      isMenuOpen &&
+      menuRef.current &&
+      !menuRef.current.contains(e.target as Node)
+    ) {
+      setIsMenuOpen(false);
+    }
+  }
+
+  document.addEventListener("mousedown", handleClickOutside);
+  document.addEventListener("touchstart", handleClickOutside);
+
+  return () => {
+    document.removeEventListener("mousedown", handleClickOutside);
+    document.removeEventListener("touchstart", handleClickOutside);
+  };
+}, [isMenuOpen]);
+
   useEffect(() => {
     socket.on("orderStatusUpdated", (data) => {
       addNotification({
@@ -51,7 +74,9 @@ function useNavbar() {
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
-
+const closeMenu = () => {
+  setIsMenuOpen(false);
+};
   const closeModal = () => {
     setIsModalOpen(false);
   };
@@ -93,29 +118,32 @@ function useNavbar() {
   }, [location.pathname]);
 
   return {
-    open,
-    setOpen,
-    toast,
-    setToast,
-    isModalOpen,
-    setIsModalOpen,
-    isMenuOpen,
-    setIsMenuOpen,
-    searchTerm,
-    setSearchTerm,
-    searchResults,
-    setSearchResults,
-    location,
-    addNotification,
-    notifications,
-    unreadCount,
-    user,
-    toggleModal,
-    toggleMenu,
-    closeModal,
-    handleSearchChange,
-    clearSearch,
-  };
+  open,
+  setOpen,
+  toast,
+  setToast,
+  isModalOpen,
+  setIsModalOpen,
+  isMenuOpen,
+  setIsMenuOpen,
+  menuRef,
+  searchTerm,
+  setSearchTerm,
+  searchResults,
+  setSearchResults,
+  location,
+  addNotification,
+  notifications,
+  unreadCount,
+  user,
+  toggleModal,
+  toggleMenu,
+  closeModal,
+  handleSearchChange,
+  clearSearch,
+  hamburgerButtonRef,
+  closeMenu
+};
 }
 
 export default useNavbar;

@@ -21,7 +21,7 @@ interface UserCart {
 updateItem: (cartId: number, newData: Partial<Cart>) => void;
   deleteItem: (id: number) => void;
   clearCart: () => void;
-  getTotal: () => number; // 👈 adicionamos aqui
+  getTotal: () => number; 
 }
 
 export const useUserCart = create<UserCart>()(

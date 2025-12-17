@@ -342,7 +342,6 @@ height:100%;
 .cardapio{
   width: 100%;
   padding: 2.0rem 0;
-  background-color: black;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -359,14 +358,15 @@ height:100%;
 
 }
 .pizzaItem{
-  background-color: #d7d5d5;
+  background-color: #f0ecec;
   border-radius: 1rem;
   padding-bottom: 0.5rem;
 }
 .titleCardapio{
-  font-size: 36px;
-  color: orange;
- padding-bottom: 4.0rem;
+   font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 2.4rem;
+  color: #d7d5d5;
 }
 
 
@@ -391,7 +391,7 @@ height:100%;
   width: 90%;
 margin: 0 auto;
 text-align: center;
- color: #5d5b59;
+ color: #302f2e;
  
 }
  .pizzaItem h4 {
@@ -406,6 +406,7 @@ text-align: center;
   justify-content: center;
 }
 .cardapioOption a{
+  width: 20%;
   font-size: 1rem;
   font-weight: bold;
   padding: 1rem;
@@ -417,6 +418,7 @@ text-align: center;
   cursor: pointer;
   transition: 1.5s;
   margin-top: 1rem;
+  text-align: center;
 }
 .cardapioItens a:hover{
   background-color: transparent;
@@ -444,7 +446,7 @@ text-align: center;
   display: flex;
 }
 .sobreInfo{
-  width: 50%;
+  width: 40%;
 }
 .sobreNos{
   color: rgb(146, 117, 60);
@@ -466,14 +468,12 @@ text-align: center;
 }
 
  .sobre h5{
-  width: 33rem;
+  width: 90%;
   line-height: 1.8rem;
- 
   margin: 1.5rem 0;
   margin-top:0.2rem ;
   color: rgb(225, 219, 219);
   font-size: 1.2rem;
-  font-weight: 800;
 }
 .sobre h5  span{
   color:rgb(146, 117, 60);
@@ -504,16 +504,21 @@ opacity: 1;
 }
 
 .sobrefotos{
-  width: 50%;
+  width: 40%;
   height: 90%;
   margin: 2rem 3rem;
   border-radius: 1rem;
 }
-.sobrefotos img{
-  height: 70%;
-  width: 80%;
-  margin: 0;
-  border-radius: 1rem;
+.sobrefotos{
+  height: 40vh;
+  width: 40%;
+  margin: 6rem 2rem;
+
+}
+.sobrefotos iframe{
+border-radius: 1rem;
+width:100%;
+height:100%;
 }
 
 
@@ -572,7 +577,7 @@ opacity: 1;
     /* AVALIACOES  */
     .avaliacoesContent {
   padding: 3rem 1.3rem;
- /* background-color: #2e2d2d;  */
+
   text-align: center;
   border-radius: 0.9rem;
   max-width: 1000px;
@@ -743,304 +748,371 @@ opacity: 1;
 }
 
 /* RESPONSIVIDADE */
+@media (max-width: 1400px) {
 
-@media(max-width:1100px){
-  .content {
-    display: flex;
-   justify-content: space-around;
-    align-items: center;
-     height: 100%;
-     margin: 0 70px;
-}
-  .cardapio-itens{
-    display: grid;
-    grid-template-columns:repeat(2,1fr ) ; 
-    gap: 50px;
-    justify-content: center;
-    align-items: center;
-    width:100vh;
+  .contentHome {
+    width: 65%;
   }
-}
-@media(max-width:768px){
-  .nav-itens{
-    display: flex;
-    gap: 17px;
-    text-transform: uppercase;
-    list-style-type: none;
-    font-size: 14px;
-  }
-  .content {
-    display: flex;
-   justify-content: space-around;
-    align-items: center;
-     height: 100%;
-     margin: 0 20px;
-}
-  .cardapio-itens{
-    display: grid;
-    grid-template-columns:repeat(2,1fr ) ; 
-    gap: 50px;
-    justify-content: center;
-    align-items: center;
-    width:100vh;
-  }
-  .prime-text{
-    color: orange;
-    font-family: cursive;
-    font-size: 40px;
-    padding: 0.7rem;
-    font-weight:300;
-  }
-  .segund-text{
-    font-weight: 100;
-    font-family: cursive;
-    font-size: 24px;
-    color: rgb(255, 255, 255);
-    padding-bottom: 5rem;
-  }
-   .btns {
-    justify-content: center;
-    display: flex;
-     gap: 20px;
-  } 
-  .btns button{
-    padding: 10px 1;
-    text-transform: uppercase;
-    text-align: center;
-    width:220px ;
-    height: 60px;
-    background-color: orange;
-    border-radius: 19px;
-    color: rgb(0, 0, 0);
-    border: 1px solid rgb(0, 0, 0);
-    font-size: 15px;
-    letter-spacing: 1px;
-    font-weight: bold;
-    transition: 1.5s;
-     
-  }
-  /* SOBRE */
-  .title-sobre{
-    text-align: center;
-    padding-bottom: 1.9rem;
-    color: orange;
-    font-weight: bold;
-    font-size: 2.1rem;
-    text-shadow: 21px black;
-  }
-  .sobre-info{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 26px;
-  }
-  .sobre-info p{
-  width: 290px;
-   font-size: 19px;
-   color: wheat;
-   font-weight: bold;
-   letter-spacing: 1px;
-  }
-  /* CARDAPIO */
 
+  .pizzaContainer {
+    width: 85%;
+  }
 
+  .cardapioItens {
+    width: 80%;
+  }
 
-  
-  .cardapio-itens{
-    display: grid;
-    grid-template-columns:repeat(auto-fit, minmax(250px,550px)) ; 
-    width:100vh;
+  .sobre {
+    margin-left: 5rem;
   }
-  .cardapio-itens div{
-    width: 76%;
-    height: auto;
-    padding-top: 20px;
-    background-color: gray;
-    border-radius: 7px;
-   margin-left: 80px;
-   
-  }
-   .cardapio-itens .info-itens{
-    background-color: white;
-    color: orange;
-    width: 100%;
-    height: 140px;
-    padding-top: 10px;
-     padding-bottom: 19px;
-     margin-left: 0px;
-   }
 }
-@media(max-width:425px){
-  .title  {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    gap: 1px;
-    color: white;
-    font-family:cursive ;
-    font-size: 12px;
-    padding-right: 39px;
+
+@media (max-width: 1024px) {
+
+  .contentHome {
+    width: 70%;
   }
-  .title img {
-   width: 21px;
-   height: 16px;
-  }
- 
-  .nav-itens{
-    display: flex;
-    gap: 12px;
-    text-transform: uppercase;
-    list-style-type: none;
-    font-size: 9px;
-  }
-  /* MAIN */
-  .content {
-    display: flex;
-   justify-content: space-around;
-    align-items: center;
-     height: 100%;
-     margin: 0 20px;
-}
-  .cardapio-itens{
-    display: grid;
-    grid-template-columns:repeat(2,1fr ) ; 
-    gap: 50px;
-    justify-content: center;
-    align-items: center;
-    width:100vh;
-  }
-  .prime-text{
-    color: orange;
-    font-family: cursive;
-    font-size: 37px;
-    padding: 0.4rem;
-    width: 300px;
-    font-weight:300;
-  }
-  .segund-text{
-    font-weight: 100;
-    font-family: cursive;
-    font-size: 17px;
-    color: rgb(255, 255, 255);
-    padding-bottom: 4.6rem;
-  }
-   .btns {
-    justify-content: center;
-    display: flex;
-     gap: 20px;
-  } 
-  .btns button{
-    padding: 6px 1;
-    text-transform: uppercase;
-    text-align: center;
-    width:150px ;
-    height: 50px;
-    background-color: orange;
-    border-radius: 19px;
-    color: rgb(0, 0, 0);
-    border: 1px solid rgb(0, 0, 0);
-    font-size: 13px;
-    letter-spacing: 1px;
-    font-weight: bold;
-    transition: 1.5s;
-     
-  }
-  /* SOBRE */
-  .title-sobre{
-    text-align: center;
-    padding-bottom: 1.9rem;
-    color: orange;
-    font-weight: bold;
+  .contentHome h3{
     font-size: 1.5rem;
-    text-shadow: 21px black;
   }
-  .sobre-info{
-      flex-direction: column;
+  .options a {
+    width: 40%;
+  }
+
+  .pizzaContainer {
+    width: 90%;
+  } .content {
+    width: 100%;
+    align-items: center;
+    text-align: center;
+    padding: 4rem 0;
+  }
+
+  .content p {
+    width: 80%;
+    margin:  1rem auto;
+  }
+  .contentBtn {
+    width: 100%;
     justify-content: center;
     align-items: center;
-    gap: 26px;
   }
-  .sobre-info p{
-  width: 260px;
-   font-size: 17px;
-
-   color: wheat;
-   font-weight: bold;
-   letter-spacing: 1px;
+  .contentVideo{
+    display: none;
   }
-    .sobre-info img{
-  display: none;
+  .cardapioItens {
+    grid-template-columns: repeat(2, 1fr);
   }
-  /* CARDAPIO */
-  
-  
-  .cardapio-itens{
-    display: grid;
-    grid-template-columns:repeat(auto-fit, minmax(250px,550px)) ; 
-    width: 60vh;
-  }
-  .cardapio-itens img{
-    width: 40vh;
-  } 
-  .cardapio-itens div{
-    width: 76%;
-    height: auto;
-    padding-top: 20px;
-    background-color: gray;
-    border-radius: 7px;
-   margin-left: 50px;
-   
-  }
-   .cardapio-itens .info-itens{
-    background-color: white;
-    color: orange;
+ .cardapio img {
     width: 100%;
-    height: 140px;
-    padding-top: 10px;
-     padding-bottom: 19px;
-   
-   }
-   /* CONTATO */
+    height: 10rem;
+  }
+  .cardapioOption a{
+    width: 40%;
+    text-align: center;
+  }
+  .sobre {
+    flex-direction: column;
+    width: 90%;
+    margin: 3rem auto;
+    height: auto;
+  }
+    .sobreInfo {
+    width: 100%;
+    text-align: center;
+  }
+ .sobrefotos {
+    display: none;
+  }
+  .sobre h3 {
+    width: 100%;
+    font-size: 1.3rem;
+  }
+  .sobre span{
+    font-size: 1.4rem;
+  }
+ .sobre h5 {
+  width: 80%;
+  margin: 1rem auto;
+  font-size: 1rem;
+ }
+  .sobreBtn {
+    width: 100%;
+    justify-content: center;
+  }
+}
 
-.contato{
+@media (max-width: 768px) {
+.img {
+    height: 30rem;
+  }
+
+  .contentHome {
+    width: 100%;
+    height: 100%;
+    margin:  0 auto;
+  }
+
+  .contentHome h1 {
+    font-size: 1.6rem;
+  }
+
+  .contentHome h3 {
+    font-size: 1.2rem;
+  }
+
+  .options {
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .options a {
+    width: 50%;
+    text-align: center;
+  }
+
+  .video {
+    width: 100%;
+    align-items: center;
+    justify-content: end;
+    padding-bottom:  2rem;
+  }
+
+  .bola {
+    width: 70px;
+    height: 70px;
+  }
+  .iconContainer{
+    font-size: 1.8rem;
+  }
+  /* Pizza section */
+  .pizzaContainer {
+    flex-direction: column;
+    width: 90%;
+  }
+
+  .content,
+  .contentVideo {
+    width: 100%;
+  }
+
+  .content p {
+    width: 100%;
+  }
+
+  .contentBtn {
+    justify-content: center;
+  }
+
+  /* Pizza section */
+  .pizzaContainer {
+    flex-direction: column;
+    width: 90%;
+  }
+
+  .content,
+  .contentVideo {
+    width: 100%;
+    align-items: center;
+    text-align: center;
+    padding: 1rem 0;
+  }
+
+  .content p {
+    width: 100%;
+  }
+
+  .contentBtn {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+  .contentVideo{
+    display: none;
+  }
+
+  /* Cardápio */
+  .pizzaItem{
+    width: 90%;
+    margin: 0 auto;
+  }
+  .cardapioItens {
+    grid-template-columns: 1fr;
+    width: 80%;
+  }
+
+  .cardapio img {
+    width: 100%;
+    height: 14rem;
+  }
+
+  /* Sobre */
+  .sobre {
+    flex-direction: column;
+    width: 90%;
+    margin: 3rem auto;
+    height: auto;
+  }
+
+  .sobreInfo {
+    width: 100%;
+    text-align: center;
+  }
+  .sobrefotos {
+    display: none;
+  }
+  .sobre h3 {
+    width: 100%;
+    font-size: 1.3rem;
+  }
+  .sobre span{
+    font-size: 1.4rem;
+  }
+ .sobre h5 {
   width: 100%;
-  height: 250px;
-  display: flex;
-  background-color: gray;
-  flex-direction: column;
+  font-size: 1rem;
+ }
+  .sobreBtn {
+    width: 100%;
+    justify-content: center;
+  }
 }
-.contato h1{
-   text-align: center;
-   letter-spacing: 2px;
-}
-.info-contato ul {
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 1.0rem;
-  padding-top: 2.0rem;
-  list-style: none;
-  
-}
-.info-contato  i {
-  margin-right: 5px;
-  border: none; 
- font-size: 12px;
-  color: rebeccapurple;
-}
+@media (max-width: 480px) {
+  .slick-arrow {
+    display: none;
+  }
+  .img {
+    height: 30rem;
+  }
 
-.info-contato a {
-  text-decoration: none;
-  color: white;
-  text-transform: uppercase;
-  color: rgb(251, 63, 0);
-  font-weight: bold;
-  border: none;
-  font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  font-size: 20px;
-  transition: 1.6s;
+  .contentHome {
+    width: 100%;
+    height: 100%;
+    margin:  0 auto;
+  }
+
+  .contentHome h1 {
+    font-size: 1.6rem;
+  }
+
+  .contentHome h3 {
+    font-size: 1.2rem;
+  }
+
+  .options {
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .options a {
+    width: 70%;
+    text-align: center;
+  }
+
+  .video {
+    width: 100%;
+    align-items: center;
+    justify-content: end;
+    padding-bottom:  2rem;
+  }
+
+  .bola {
+    width: 70px;
+    height: 70px;
+  }
+  .iconContainer{
+    font-size: 1.8rem;
+  }
+  /* Pizza section */
+  .pizzaContainer {
+    flex-direction: column;
+    width: 90%;
+  }
+
+  .content,
+  .contentVideo {
+    width: 100%;
+  }
+
+  .content p {
+    width: 100%;
+  }
+
+  .contentBtn {
+    justify-content: center;
+  }
+
+  /* Pizza section */
+  .pizzaContainer {
+    flex-direction: column;
+    width: 90%;
+  }
+
+  .content{
+    width: 100%;
+    align-items: center;
+    text-align: center;
+    padding: 1rem 0;
+  }
+
+  .content p {
+    width: 100%;
+  }
+
+  .contentBtn {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+  .contentVideo{
+    display: none;
+  }
+
+  /* Cardápio */
+  .pizzaItem{
+    width: 90%;
+    margin: 0 auto;
+  }
+  .cardapioItens {
+    grid-template-columns: 1fr;
+    width: 90%;
+  }
+
+  .cardapio img {
+    width: 100%;
+    height: 10rem;
+  }
+  .cardapioOption a{
+    width: 80%;
+  }
+  /* Sobre */
+  .sobre {
+    flex-direction: column;
+    width: 90%;
+    margin: 3rem auto;
+    height: auto;
+  }
+
+  .sobreInfo {
+    width: 100%;
+    text-align: center;
+  }
+  .sobrefotos {
+    display: none;
+  }
+  .sobre h3 {
+    width: 100%;
+    font-size: 1.3rem;
+  }
+  .sobre span{
+    font-size: 1.4rem;
+  }
+ .sobre h5 {
+  width: 100%;
+  font-size: 1rem;
+ }
+  .sobreBtn {
+    width: 100%;
+    justify-content: center;
+  }
 }
-
-}
-
-

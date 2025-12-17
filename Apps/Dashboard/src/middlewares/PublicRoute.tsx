@@ -5,7 +5,7 @@ export default function PublicRoute() {
   const token = useUserStore((state) => state.token);
 
   if (token) {
-    return <Navigate to="/dashboard" replace />;
+    return <Navigate to="/Dashboard" replace />;
   }
 
   return <Outlet />;

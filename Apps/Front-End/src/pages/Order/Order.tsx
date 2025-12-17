@@ -23,7 +23,8 @@ export default function Order() {
     }
     
     
-await handleSubmitOrder(Number(user.id), addressId);
+        await handleSubmitOrder(user, addressId);
+
   };
 
   useEffect(() => {
