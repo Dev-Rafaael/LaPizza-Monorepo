@@ -1,9 +1,15 @@
 import { fireEvent, render, screen } from "@testing-library/react";
-import useOrcamento from "../hooks/useOrderItem";
+
 import { api } from "@packages/api/api";
 import { toast } from "react-toastify";
 import { describe, expect, test, vi, type Mock } from "vitest";
-
+import useOrderItem from "../hooks/useOrderItem";
+import { usePizzaStore } from "@packages/store/usePizzaStore";
+const id = 1
+const { pizzas } = usePizzaStore();
+  const pizzaSelecionada = pizzas.find(
+    (p) => p.id === Number(id)
+  );
 
 vi.mock('@packages/api/api',()=>({
     api:{
@@ -26,7 +32,7 @@ const MockUseOrcamento = ()=>{
     setUnidades,
       handleSubmit,
     precoTotal,
-  } = useOrcamento();
+  } = useOrderItem(pizzaSelecionada);
     return(
         <form onSubmit={handleSubmit}>
               <div >

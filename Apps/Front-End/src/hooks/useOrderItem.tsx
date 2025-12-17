@@ -3,7 +3,7 @@ import type { Adicional, Pizzas } from "@packages/types/types";
 import { toast } from "react-toastify";
 import { cartSchema } from "@packages/schemas/cartSchema";
 
-function useOrderItem(pizzaSelecionada: Pizzas | undefined) {
+function useOrderItem(pizzaSelecionada?: Pizzas) {
   const [unidades, setUnidades] = useState(1);
   const [adicionaisSelecionados, setAdicionaisSelecionados] = useState<Adicional[]>([]);
   const [modal, setModal] = useState(false);
