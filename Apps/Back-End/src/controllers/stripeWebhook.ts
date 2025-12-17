@@ -12,7 +12,7 @@ export const stripeWebhook = async (req: Request, res: Response) => {
 
   try {
     event = stripe.webhooks.constructEvent(
-      req.body, // no Railway pode ser req.rawBody dependendo do parser
+      req.body, 
       signature,
       process.env.STRIPE_WEBHOOK_SECRET!
     );
