@@ -1,119 +1,155 @@
-🍕 LaPizza Monorepo
+🍕 LaPizza
 
-Sistema completo de pizzaria desenvolvido utilizando arquitetura monorepo, contendo aplicação do cliente, painel administrativo e API backend.
+LaPizza é uma aplicação full stack de pedidos online para pizzaria, desenvolvida para demonstrar boas práticas de desenvolvimento frontend, backend, arquitetura monorepo, autenticação, pagamentos e comunicação em tempo real.
 
-O objetivo do projeto é demonstrar boas práticas de desenvolvimento full stack, organização de aplicações escaláveis e integração entre diferentes serviços.
+O sistema permite que usuários naveguem pelo catálogo de pizzas, façam pedidos online, realizem pagamentos e acompanhem o status do pedido em tempo real, enquanto administradores gerenciam produtos e pedidos através de um painel administrativo.
 
-🏗 Arquitetura do Projeto
-LaPizza-Monorepo
-│
-├── Apps
-│   ├── Back-End      # API da aplicação
-│   ├── Front-End     # Aplicação do cliente
-│   └── Dashboard     # Painel administrativo
-│
-├── Packages          # Código compartilhado entre aplicações
-│
-├── package.json
-└── tsconfig.json
-🚀 Tecnologias Utilizadas
-Frontend
+🧠 Visão Geral
 
-React
+Autenticação segura com JWT
 
-Vite
+Pagamentos integrados com Stripe
 
-Tailwind CSS
+Comunicação em tempo real com Socket.IO
 
-React Router
+Estado global no frontend com Zustand
 
-Axios
+Validação de dados com Zod
 
-Zustand
+ORM moderno com Prisma
 
-Zod
+Testes automatizados com Jest
 
-Socket.IO
+Arquitetura monorepo
 
-Bibliotecas adicionais:
+Dashboard administrativo
 
-React Toastify (notificações)
-
-React Slick (carousel)
-
-React Modal
-
-AOS (animações)
-
-FontAwesome / React Icons
-
+🛠️ Stack Tecnológica
 Backend
 
 Node.js
 
 Express.js
 
-Prisma
+TypeScript
 
-Socket.IO
+Prisma
 
 JSON Web Token
 
 bcrypt
 
+Socket.IO
+
 Stripe
 
-Testes
+Testes:
 
 Jest
 
 Supertest
 
-Linguagem
+Frontend
+
+React
+
+Vite
 
 TypeScript
 
-💳 Integração de Pagamento
+Zustand
 
-O sistema possui integração com Stripe para processamento de pagamentos online.
+Axios
+
+Zod
+
+Socket.IO
+
+Tailwind CSS
+
+Bibliotecas adicionais:
+
+React Toastify
+
+React Slick
+
+React Modal
+
+AOS
+
+FontAwesome / React Icons
+
+🧱 Arquitetura
+
+O projeto utiliza arquitetura monorepo, permitindo compartilhar código entre aplicações e manter uma organização escalável.
+
+LaPizza-Monorepo
+│
+├── Apps
+│   ├── Back-End
+│   ├── Front-End
+│   └── Dashboard
+│
+├── Packages
+│   ├── hooks
+│   ├── services
+│   └── shared utils
+Backend
+
+O backend é organizado por módulos de domínio:
+
+auth → autenticação de usuários
+products → gerenciamento de produtos
+orders → criação e gerenciamento de pedidos
+payments → integração com Stripe
+
+Cada módulo possui:
+
+controllers
+
+services
+
+rotas
+
+validações
+
+Frontend
+
+O frontend segue uma separação baseada em:
+
+páginas
+
+componentes reutilizáveis
+
+stores globais
+
+serviços de API
+
+💳 Fluxo de Pagamento
+
+O sistema utiliza Stripe para processar pagamentos.
 
 Fluxo implementado:
 
-criação do pedido
+usuário cria um pedido
 
-geração da sessão de pagamento
+backend gera sessão de pagamento
 
-redirecionamento para checkout do Stripe
+usuário é redirecionado para checkout Stripe
 
-confirmação do pagamento
+pagamento é confirmado
 
-atualização do pedido no sistema
+pedido é atualizado no sistema
 
-🔐 Autenticação
+📡 Comunicação em Tempo Real
 
-A autenticação é baseada em JSON Web Token.
+A atualização de pedidos utiliza Socket.IO.
 
-Funcionalidades:
+Isso permite:
 
-registro de usuários
+atualização automática do status do pedido
 
-login com token
-
-rotas protegidas
-
-criptografia de senha com bcrypt
-
-📊 Dashboard Administrativo
-
-O painel administrativo permite:
-
-gerenciamento de produtos
-
-acompanhamento de pedidos
-
-visualização de pagamentos
-
-gráficos e análises utilizando Chart.js
+comunicação instantânea entre backend e dashboard
 
 ⚡ Funcionalidades
 
@@ -123,20 +159,23 @@ catálogo de pizzas
 
 carrinho de compras
 
-criação de pedidos
+pedidos online
 
-pagamento online com Stripe
+pagamentos com Stripe
 
-painel administrativo
+dashboard administrativo
 
-atualização de pedidos em tempo real com Socket.IO
+atualização de pedidos em tempo real
 
-🧪 Executando o Projeto
-Clonar o repositório
+🧪 Testes
+
+O projeto possui testes automatizados utilizando Jest e Supertest.
+
+npm run test
+🚀 Como rodar o projeto
+1️⃣ Clonar o repositório
 git clone https://github.com/Dev-Rafaael/LaPizza-Monorepo.git
-Entrar na pasta do projeto
-cd LaPizza-Monorepo
-Instalar dependências
+2️⃣ Instalar dependências
 npm install
 Rodar Backend
 cd Apps/Back-End
@@ -144,18 +183,13 @@ npm run start:dev
 Rodar Frontend
 cd Apps/Front-End
 npm run dev
-🧪 Executar Testes
-
-Backend:
-
-npm run test
 🎯 Objetivo do Projeto
 
-Este projeto foi desenvolvido para praticar:
-
-arquitetura monorepo
+O LaPizza foi desenvolvido para demonstrar:
 
 desenvolvimento full stack
+
+organização de projetos monorepo
 
 autenticação segura
 
@@ -163,11 +197,11 @@ integração com pagamentos
 
 comunicação em tempo real
 
-organização de código escalável
+boas práticas de arquitetura
 
 👨‍💻 Autor
 
-Dev Rafael
+Desenvolvido por Dev Rafael
 
 GitHub
 https://github.com/Dev-Rafaael
